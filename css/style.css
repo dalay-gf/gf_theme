@@ -66,7 +66,7 @@ h5{
   font-family:'Montserrat', sans-serif;
   font-weight:500;
   color:#7f8283;
-  margin:5px 0 20px;
+  margin:5px 0 19px;
   text-transform:uppercase;
 }
 
@@ -337,10 +337,9 @@ button:focus {outline:0;}
 .prefooter{
   background:#333;
   color:#fff;
-  font-family:'Montserrat', sans-serif;
   font-size:16px;
   line-height:36px;
-  padding:25px 0;
+  padding:20px 0;
 }
 .prefooter h5{
   color:#fff;
@@ -354,8 +353,29 @@ button:focus {outline:0;}
 .prefooter img{
   display:none;
 }
+.prefooter .flex{
+  display:flex;
+  flex-direction:column;
+}
+.prefooter .flex .col{
+  margin:0 0 27px;
+}
+.prefooter .flex .col [data-icon]::before{
+  margin:0 5px 0 0;
+}
+
 #footer{
   background:#000;
+  padding:8px 0;
+  font-size:12px;
+}
+#footer .flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+}
+#footer img{
+  width:70%;
 }
 
 @media (min-width: 1000px) {
