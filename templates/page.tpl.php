@@ -82,7 +82,7 @@
   
   <nav class="logo-navigation">
     <div class="container flex">
-      <button class="mobile-menu open">            
+      <button class="mobile-menu">            
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -93,11 +93,15 @@
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
+      <div class="mobile-language">
+        <div class="icon_globe-2 change-language"></div>
+        <?php $block = module_invoke('locale', 'block_view', 'language'); print render($block['content']); ?>
+      </div>
     </div>
     <div class="container">
       <?php if ($main_menu): ?>
         <div id="navigation">
-          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline')))); ?>
+          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
         </div> <!-- /#navigation -->
       <?php endif; ?>
       
@@ -115,7 +119,7 @@
     </div>
   </section>
   
-  <article class="about-company content">
+  <article class="about-company content container">
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
@@ -134,7 +138,9 @@
   </section>
   
   <section class="assortment">
-    <?php if ($page['assortment']): ?><?php print render($page['assortment']); ?><?php endif; ?>
+    <div class="container">
+      <?php if ($page['assortment']): ?><?php print render($page['assortment']); ?><?php endif; ?>
+    </div>
   </section> 
   
   <section class="lookbook">

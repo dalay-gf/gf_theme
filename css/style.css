@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=cyrillic');
 
 body{
@@ -11,19 +11,83 @@ a{
   text-decoration:none;
 }
 a:hover{
-  text-decoration:underline;
+  /*text-decoration:underline;*/
 }
 img{
   display:block;
   max-width:100%;
 }
+h1{
+  font-family:'Montserrat', sans-serif;
+  font-size:27px;
+  line-height:36px;
+  color:#3c3950;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin:26px 0;
+}
+h1.promo-h1{
+  margin:0 0 15px;
+}
+h2{
+  font-family:'Montserrat', sans-serif;
+  font-size:32px;
+  line-height:43px;
+  color:#3c3950;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin:26px 0;
+}
+h3{
+  font-family:'Montserrat', sans-serif;
+  font-size:18px;
+  line-height:36px;
+  color:#3c3950;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin:15px 0;
+}
+h3.promo-h3{
+  margin:0 0 -3px;
+  font-weight:600;
+}
+h4{
+  font-size:17px;
+  line-height:34px;
+  font-family:'Montserrat', sans-serif;
+  font-weight:600;
+  color:#7f8283;
+  margin:5px 0 20px;
+  text-transform:uppercase;
+}
+h5{
+  font-size:17px;
+  line-height:29px;
+  font-family:'Montserrat', sans-serif;
+  font-weight:500;
+  color:#7f8283;
+  margin:5px 0 20px;
+  text-transform:uppercase;
+}
+
+p{
+  margin: 0 0 15px;  
+}
+
 .container{
   max-width:1200px;
   margin:0 auto;
   padding:0 15px;
   box-sizing: border-box;
 }
+.container-fluid{
+  margin:0 auto;
+  padding:0 15px;
+  box-sizing: border-box;
+}
+
 header.header{
+  font-family:'Montserrat', sans-serif;
   background:#000;
   color:#fff;
   padding:15px 0;
@@ -37,13 +101,13 @@ header.header{
 header.header a{
   color:#fff;
 }
-
+#main-menu,
 ul.language-switcher-locale-url{
   margin:0;
   padding:0;
   list-style-type: none;
 }
-ul.language-switcher-locale-url li{
+header.header ul.language-switcher-locale-url li{
   display:inline;
 }
 .header-user-area div,
@@ -72,12 +136,38 @@ ul.language-switcher-locale-url li{
 nav.logo-navigation{
   border-bottom:solid 1px #d3d4d5;
   position:relative;
+  font-family:'Montserrat', sans-serif;
 }
 nav.logo-navigation .flex{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
 }
+.mobile-language{
+  position:relative;
+  margin: 12px 0 0;
+  cursor:pointer;
+}
+.mobile-language .language-switcher-locale-url{
+  display:none;
+  position:absolute;
+  background:#fff;
+  border:solid 1px #eee;
+  padding: 5px;  
+}
+.mobile-language .language-switcher-locale-url.open{
+  display:block;
+  right: 0;
+  top: 26px;
+}
+.mobile-language .language-switcher-locale-url li{
+  padding:5px 0;
+}
+.mobile-language .language-switcher-locale-url li a{
+  color:#333;
+  font-weight:500;
+}
+
 .mobile-menu {
   width: 29px;
   height: 33px;
@@ -88,6 +178,8 @@ nav.logo-navigation .flex{
   display: block;
   cursor:pointer;
 }
+button:focus {outline:0;}
+
 .icon-bar {
   display: block;
   height: 3px;
@@ -95,11 +187,18 @@ nav.logo-navigation .flex{
   background: #000;
   margin: 0 auto 2px;
 }
+.mobile-menu.open .icon-bar {
+    display: none;
+}
+
 .mobile-menu .close-btn {
   display: none;
-  width: 47px;
-  height: 42px;
-  background: #902324 url(../images/closebtn.png) no-repeat center center;
+  width: 29px;
+  height: 26px;
+  background: #fff url(../images/closebtn.png) no-repeat center center;
+}
+.mobile-menu.open .close-btn {
+  display: block;
 }
 #logo{
   width:55%;
@@ -116,14 +215,17 @@ nav.logo-navigation .flex{
   min-width:175px;
 }
 #main-menu{
-  display:flex;
+  display:none;
   flex-direction: column; 
   margin:0;
+}
+#main-menu.open{
+  display:flex;
 }
 #main-menu li{
   font-size:15px;
   line-height:48px;
-  font-weight:bold;  
+  font-weight:500;  
   text-transform:uppercase;
   letter-spacing:0.07px;
   padding:0;
@@ -136,21 +238,135 @@ nav.logo-navigation .flex{
 #main-menu li a{
   color:#333;
 }
+#main-menu li a:hover{
+  color:#a1a5a9;
+}
 
+/* directions */
+.directions{
+  text-align:center;
+  margin:27px 0 0;
+}
+.directions .direction{
+  margin: 0 0 22px;
+}
+.directions img{
+  display:inline-block;
+}
+.directions h4{
+  margin:5px 0 0;
+}
+.directions h4::after{
+  content:'';
+  width:52px;
+  height:1px;
+  background:#000;
+  border-top:solid 1px #ccc;
+  border-bottom:solid 1px #444;
+  display:block;
+  margin:-2px auto 0;
+}
+.directions a{
+  font-family:'Montserrat', sans-serif;
+  font-size:15px;
+  line-height:29px;
+  font-weight:600;
+  text-transform:uppercase;
+  color:#000;
+}
+.directions a:hover{
+  color:#a1a5a9;
+}
+
+/* about company */
+.promo-img{
+  margin:0 0 8px;
+}
+.promo-text{
+  border:solid 1px #c9d2d9;
+  padding:5px;
+}
+.promo-border{
+  border:solid 1px #ebeef1;
+  padding:12px;
+}
+
+/* brands */
+.brands{
+  padding:0 0 1px;
+}
+.brand{
+  border:solid 1px #e7e4e4;
+  padding:19px 12px;
+  margin:0 0 14px;
+  text-align:center;
+  color:#000;
+}
+.brand img{
+  margin:0 auto;
+}
+.brand .promo-gf{
+  margin:8px 0 20px;
+  font-size:18px;
+}
+.brand.linger img{
+  margin:40px auto 52px;
+}
+.brand.giaguaro img{
+  margin:14px auto -9px;
+}
+.brand.barkli{
+  margin:0 0 4px;
+}
+.brand.barkli img{
+  margin:40px auto 27px;
+}
+.brand.barkli p{
+  margin:0 0 102px;
+}
+
+/* lookbook */
+.lookbook{
+  margin:0 0 40px;
+}
+.lookbook h2{
+  margin:26px 0 20px;
+}
+
+/* footer */
+.prefooter{
+  background:#333;
+  color:#fff;
+  font-family:'Montserrat', sans-serif;
+  font-size:16px;
+  line-height:36px;
+}
+.prefooter h5{
+  color:#fff;
+}
+.prefooter a{
+  color:#fff;
+}
+.prefooter a:hover{
+  color:#a1a5a9;
+}
+.prefooter img{
+  display:none;
+}
+#footer{
+  background:#000;
+}
 
 @media (min-width: 1000px) {
   body{
-    font-family: 'PT Sans', sans-serif;
     font-size:18px;
     line-height:1.18;
-    color:#7e7f80;
   }
 
   /* header */
   header.header{
     font-size:15px;
     line-height:27px;
-    font-weight:bold;
     display:block;
   }
   .region-header{
@@ -168,21 +384,38 @@ nav.logo-navigation .flex{
     text-align:center;
     padding: 9px 0 10px;
   }
+  nav.logo-navigation .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   nav.logo-navigation img{
     display:inline-block;
   }
+  #logo{
+    width:auto;
+  }
   #navigation{
     padding:9px 0 0;
+    position:static;
+    display:block;
   }
   #navigation #main-menu{
     margin:0;
     padding:0;
     list-style-type: none;
+    display:block;
   }
   #navigation #main-menu li{
-    font-size:17px;
-    line-height:30px;
+    font-size:15px;
+    line-height:28px;
+    font-weight:500;
     border:0;
+    display:inline-block;
+  }
+  .mobile-language,
+  .mobile-menu{
+    display:none;
   }
 
 }
