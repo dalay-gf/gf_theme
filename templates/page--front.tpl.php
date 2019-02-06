@@ -109,15 +109,21 @@
     </div>  
   </nav>
   
-  <section class="highlighted slider">
-    <?php if ($page['highlighted']): ?><?php print render($page['highlighted']); ?><?php endif; ?>
-  </section>
   
-  <section class="directions">
-    <div class="container">
-      <?php if ($page['directions']): ?><?php print render($page['directions']); ?><?php endif; ?>
-    </div>
-  </section>
+  <?php if ($page['highlighted']): ?>
+    <section class="highlighted slider">
+      <?php print render($page['highlighted']); ?>
+    </section>
+  <?php endif; ?>
+  
+  <?php if ($page['directions']): ?>
+    <section class="directions">
+      <div class="container">
+        <?php print render($page['directions']); ?>
+      </div>
+    </section>        
+  <?php endif; ?>
+
   
   <article class="about-company content container">
     <?php print $messages; ?> 
@@ -131,31 +137,46 @@
     <?php print render($page['content']); ?>  
   </article>
   
-  <section class="brands">
-    <div class="container">
-      <?php if ($page['brands']): ?><?php print render($page['brands']); ?><?php endif; ?>
-    </div>
-  </section>
+  <?php if ($page['brands']): ?>
+    <section class="brands">
+      <div class="container">  
+        <?php print render($page['brands']); ?>
+      </div>
+    </section>
+  <?php endif; ?>
   
-  <section class="assortment">
-    <div class="container">
-      <?php if ($page['assortment']): ?><?php print render($page['assortment']); ?><?php endif; ?>
-    </div>
-  </section> 
+
+  <?php if ($page['assortment']): ?>
+    <section class="assortment">
+      <div class="container">  
+        <?php print render($page['assortment']); ?>
+      </div>
+    </section>       
+  <?php endif; ?>
   
-  <section class="lookbook">
-    <div class="container"> 
-      <h2>LookBook</h2>
-      <?php if ($page['lookbook']): ?><?php print render($page['lookbook']); ?><?php endif; ?>
-    </div>
-  </section> 
+  <?php if ($page['lookbook']): ?>
+    <section class="lookbook">
+      <div class="container"> 
+        <h2>LookBook</h2>  
+        <?php print render($page['lookbook']); ?>
+      </div>
+    </section>    
+  <?php endif; ?>
+ 
+  <?php if ($page['prefooter']): ?>
+    <section class="prefooter">
+      <div class="container">
+        <?php print render($page['prefooter']); ?>
+      </div>
+    </section> <!-- /#footer -->
+  <?php endif; ?> 
   
-  <section class="prefooter">
-    <div class="container"><?php print render($page['prefooter']); ?></div>
-  </section> <!-- /#footer -->
-    
-  <footer id="footer">
-    <div class="container"><?php print render($page['footer']); ?></div>
-  </footer> <!-- /#footer -->
-    
+  <?php if ($page['footer']): ?>
+    <footer id="footer">
+      <div class="container">
+        <?php print render($page['footer']); ?>
+      </div>
+    </footer> <!-- /#footer -->
+  <?php endif; ?>
+  
 </div> <!-- /#page -->
