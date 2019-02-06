@@ -81,22 +81,28 @@
   </header> <!-- /.header -->
   
   <nav class="logo-navigation">
-    <div class="container">
+    <div class="container flex">
+      <button class="mobile-menu">            
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="close-btn"></span>
+      </button>
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
-    
+    </div>
+    <div class="container">
       <?php if ($main_menu): ?>
         <div id="navigation">
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline')))); ?>
         </div> <!-- /#navigation -->
       <?php endif; ?>
       
-      <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?>
-      
-    </div>
+      <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
+    </div>  
   </nav>
   
   <section class="highlighted slider">

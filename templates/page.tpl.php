@@ -81,25 +81,28 @@
   </header> <!-- /.header -->
   
   <nav class="logo-navigation">
-    <div class="container">
+    <div class="container flex">
+      <button class="mobile-menu open">            
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="close-btn"></span>
+      </button>
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
-    
+    </div>
+    <div class="container">
       <?php if ($main_menu): ?>
         <div id="navigation">
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline')))); ?>
-          <?php //$main_menu = i18n_menu_translated_tree("main-menu", TRUE);
-                //if ($main_menu): print render($main_menu); endif;
-          ?>
         </div> <!-- /#navigation -->
       <?php endif; ?>
       
-      <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?>
-      
-    </div>
+      <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
+    </div>  
   </nav>
   
   <section class="highlighted slider">
@@ -113,16 +116,12 @@
   </section>
   
   <article class="about-company content">
-    <?php if ($breadcrumb): ?>
-    <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; ?>
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
     <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
     <a id="main-content"></a>
     <?php print render($title_prefix); ?>
-    <?php if ($title && !drupal_is_front_page()): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
     <?php print render($title_suffix); ?>
    
     <?php print render($page['content']); ?>  

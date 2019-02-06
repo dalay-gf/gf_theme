@@ -23,7 +23,10 @@ regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
 
 stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
+
+scripts[] = js/main.js
 
 ; Information added by Drupal.org packaging script on 2019-01-16
 version = "7.63"
