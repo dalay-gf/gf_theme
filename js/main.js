@@ -9,6 +9,11 @@ jQuery(document).ready(function($) {
     $('.mobile-language .language-switcher-locale-url').toggleClass('open');
   }); 
   
+  $('.language-trio, .language-languages .language-switcher-locale-url li.active').on('click', function(e){
+    e.preventDefault();
+    $('.language-languages').toggleClass('open');
+  });
+  
   /* dropdown
   $('#main-menu ul li a span.arrow-down').on('click', function(e){
     e.preventDefault();
