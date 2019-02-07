@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     //mobile menu
   $('.mobile-menu').on('click', function(){
-    $('#main-menu').toggleClass('open');
+    $('#navigation').toggleClass('open');
     $('.mobile-menu').toggleClass('open');
   });
   

@@ -105,6 +105,7 @@ header.header a{
   color:#fff;
 }
 #main-menu,
+#sub-main-menu,
 ul.language-switcher-locale-url{
   margin:0;
   padding:0;
@@ -143,11 +144,13 @@ nav.logo-navigation .flex{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items:center;
 }
 .mobile-language{
   position:relative;
-  margin: 12px 0 0;
+  margin: 0;
   cursor:pointer;
+  color:#353436;
 }
 .mobile-language .language-switcher-locale-url{
   display:none;
@@ -160,6 +163,7 @@ nav.logo-navigation .flex{
   display:block;
   right: 0;
   top: 26px;
+  text-align:center;
 }
 .mobile-language .language-switcher-locale-url li{
   padding:5px 0;
@@ -171,22 +175,24 @@ nav.logo-navigation .flex{
 
 .mobile-menu {
   width: 29px;
-  height: 33px;
   background-color: transparent;
   background-image: none;
   border: 0;
-  padding: 7px 0 0;
+  padding: 0;
   display: block;
   cursor:pointer;
 }
 button:focus {outline:0;}
 
-.icon-bar {
+.mobile-menu .icon-bar {
   display: block;
   height: 3px;
   width: 29px;
   background: #000;
-  margin: 0 auto 2px;
+  margin: 0 auto 3px;
+}
+.mobile-menu .icon-bar.last{
+  margin: 0 auto;
 }
 .mobile-menu.open .icon-bar {
     display: none;
@@ -206,23 +212,31 @@ button:focus {outline:0;}
   display:block;
   padding:10px 0 12px;
 }
+#logo img{
+  margin:0 auto;
+  max-width:178px;
+}
 #navigation{
-  display:block;
+  display:none;
   position:absolute;
   left:0;
-  top:36px;
+  top:39px;
   background:#fff;
-  padding:0 0 0 15px;
-  min-width:175px;
+  padding:0 15px 0 15px;
+  border:solid 1px #d3d4d5;
+  border-left:0;
+  width:80%;
 }
+#navigation.open{
+  display:block;
+}
+#sub-main-menu,
 #main-menu{
-  display:none;
+  display:flex;
   flex-direction: column; 
   margin:0;
 }
-#main-menu.open{
-  display:flex;
-}
+#sub-main-menu li,
 #main-menu li{
   font-size:15px;
   line-height:48px;
@@ -233,12 +247,15 @@ button:focus {outline:0;}
   margin:0;
   border-bottom:solid 1px #e7e8e8;
 }
+#sub-main-menu li:last-child,
 #main-menu li.last{
   border:0;
 }
+#sub-main-menu li a,
 #main-menu li a{
   color:#333;
 }
+#sub-main-menu li a:hover,
 #main-menu li a:hover{
   color:#a1a5a9;
 }
@@ -360,6 +377,7 @@ button:focus {outline:0;}
 .prefooter .flex .col{
   margin:0 0 27px;
 }
+.prefooter .icon_hourglass::before,
 .prefooter .flex .col [data-icon]::before{
   margin:0 5px 0 0;
 }
@@ -402,6 +420,12 @@ button:focus {outline:0;}
 }
 
 @media (min-width: 600px) {
+  .mobile-language .change-language{
+    font-size:20px;
+  }
+  .mobile-language .language-switcher-locale-url.open{
+    top:29px;
+  }
   .directions .flex{
     display:flex;
     flex-wrap: wrap;
@@ -441,7 +465,13 @@ button:focus {outline:0;}
   .prefooter .flex .col{
     flex: 1 50%;
     box-sizing:border-box;
-  }  
+  }
+  #footer .customer-service {
+    font-size:14px;
+  }
+  #footer .socialki a {
+    font-size: 18px;
+  }
 }
 
 
@@ -514,7 +544,10 @@ button:focus {outline:0;}
   .header-user-area .log-out a:last-child{
     margin:0 50px 0 0;
   }
-
+  #logo img{
+    max-width:100%;
+  }
+  
   /*navigation & logo */
   nav.logo-navigation{
     text-align:center;
@@ -535,6 +568,8 @@ button:focus {outline:0;}
     padding:9px 0 0;
     position:static;
     display:block;
+    width:100%;
+    border:0;
   }
   #navigation #main-menu{
     margin:0;
@@ -549,6 +584,7 @@ button:focus {outline:0;}
     border:0;
     display:inline-block;
   }
+  #sub-main-menu,
   .mobile-language,
   .mobile-menu{
     display:none;
@@ -568,32 +604,6 @@ button:focus {outline:0;}
   .promo-img {
     width:auto;
   }
-  /*
-  .about-company .flex{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .about-company .flex .promo-text{
-    width:56.41%;
-  }
-  .about-company .flex .headera-outer{
-    width:100%;
-  }  
-  .about-company .flex .img{
-    width:41.45%;
-    margin:0 20px 0 0;
-    position:relative;
-  }
-  .about-company .flex img.promo-img{
-    position:absolute;
-    height:100%;
-    width:auto;
-    max-width:unset;
-    top:0;
-    right:0;
-  }
-  */
   .about-company .flex{
     display: flex;
     width: 100%;
@@ -660,12 +670,46 @@ button:focus {outline:0;}
     flex: 1 auto;
     padding:0 15px;
   }
+  .prefooter img {
+    display: block;
+    margin:20px auto 33px;
+  }  
   .prefooter .flex .col h5{
     margin: 5px 0 35px;
   }
   .prefooter .flex .col div{
     margin:0 0 16px;
     line-height:20px;
+  }
+  #footer{
+    padding:16px 0;
+  }
+  #footer .copyright img{
+    max-width:165px;
+    margin:0 10px 0 7px;
+  }
+  #footer .copyright img,
+  #footer .copyright span{
+    display:inline-block;
+    vertical-align:middle;
+  } 
+  #footer .copyright span.last{
+    border-left:solid 1px #8a8a89;
+    padding:0 0 0 10px;
+    line-height:16px;
+  } 
+  #footer .customer-service {
+      font-size: 15px;
+  }  
+  #footer .socialki {
+    margin: 0 0 0 16px;
+    padding:0 0 0 24px;
+    line-height: 26px;
+    border-left: solid 2px #fff;
+  }
+  #footer .socialki a {
+    font-size: 20px;
+    margin: 0 0 0 7px;
   }
 
 }

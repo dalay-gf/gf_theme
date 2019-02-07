@@ -85,7 +85,7 @@
       <button class="mobile-menu">            
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar last"></span>
         <span class="close-btn"></span>
       </button>
       <?php if ($logo): ?>
@@ -102,6 +102,20 @@
       <?php if ($main_menu): ?>
         <div id="navigation">
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
+          <?php
+            global $user;
+            global $variables;
+            (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
+          ?>
+          <ul id="sub-main-menu">
+            <?php if ($logged_in):?>
+              <li><a href="/ru/user"><?php print t('Settings');?></a></li>
+              <li><a href="/ru/user/logout"><?php print t('Log out');?></a></li>
+              <?php else :?>      
+                 <li><a href="/ru/user"><?php print t('Log In');?></a></li>
+                 <li><a href="/ru/user/register"><?php print t('Register');?></a></li>
+            <?php endif;?>
+          </ul>
         </div> <!-- /#navigation -->
       <?php endif; ?>
       
