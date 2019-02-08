@@ -759,5 +759,130 @@ button:focus {outline:0;}
   .about-company .flex .promo-border{
     height:434px;
   }
+  .brands .flex{
+    display:block; 
+    height:429px;
+  }
+  .brands .brand{
+    width: 436px;
+    height: 429px;
+    filter: drop-shadow(0 0 1px #000); 
+    display:inline-block;
+    margin:0 -196px 0 0;
+    padding:0;
+    flex:unset;
+    position:relative;
+    vertical-align:top;
+    text-align:center;
+    font-size:14px;
+    line-height: 1.18;
+    border:0;
+  }
+  .brands .brand:hover{
+    filter: drop-shadow(0 0 6px #000); 
+  }
+  .brands .brand img{
+    position:absolute;
+    top:50px;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;  
+  }
+  .brands .brand p{
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;     
+  } 
+  .brands .brand.odd{
+    background: linear-gradient(to right bottom, transparent 50%, #ffffff 50%) left / 50% 100% no-repeat, linear-gradient(to left bottom, transparent 50%, #ffffff 50%) right / 50% 100% no-repeat;
+  }
+  .brands .brand.even{
+    background: linear-gradient(to right top, transparent 50%, #ffffff 50%) left / 50% 100% no-repeat, linear-gradient(to left top, transparent 50%, #ffffff 50%) right / 50% 100% no-repeat;
+  }
+  .brands .brand img{
+    display:none;
+    margin:0;
+    max-width:auto;
+  }
+  .brands .brand.gf:before{
+    background:url(../images/gf-trio.png) no-repeat 0 0;
+    width:161px;
+    height:164px;
+    position:absolute;
+    top:77px;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;  
+    content: "";  
+  }
+  .brands .brand.gf .promo-gf{
+    position:absolute;
+    font-size:18px;
+    top:245px;
+    left:0;
+    right:0;
+    margin:0 auto;  
+    width:125px;
+  }
+  .brands .brand.gf p{
+    width:272px;
+    display:block;
+    top:286px;
+    margin:0 auto;
+  }
+  .brands .brand.linger img{
+    display:block;
+    width:151px;
+    position:absolute;
+    top:20px;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;     
+  }
+  .brands .brand.linger p{
+    width:255px;
+    top:103px;
+  }
+  .brands .brand.linger p span{
+    line-height:20px;
+  }
+  .brands .brand.giaguaro:before{
+    background:url(../images/giaguaro.png) no-repeat 0 0;
+    width:173px;
+    height:14px;
+    position:absolute;
+    top:197px;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;  
+    content: "";     
+  }
+  .brands .brand.giaguaro p{
+    width:255px;
+    top:236px;
+  }
+  .brands .brand.barkli img{
+    display:block;
+    width:252px;
+    position:absolute;
+    top:8px;
+    left:0;
+    right:0;
+    margin-left: auto; 
+    margin-right: auto;     
+  }
+  .brands .brand.barkli p{
+    width:255px;
+    top:114px;
+  }
+  .brands .brand.barkli p span{
+    display:block;
+  }  
 
 }
