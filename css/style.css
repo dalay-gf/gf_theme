@@ -259,6 +259,22 @@ button:focus {outline:0;}
 #main-menu li a:hover{
   color:#a1a5a9;
 }
+.trio-bg{
+  padding:0 0 14px;
+  margin:0 -50%;  
+}
+.trio-bg svg{
+  width:100%;
+}
+svg g.rotate {
+  transition: transform .3s;
+  transform-origin: 53.43% center;
+  transform: rotateY(0deg);
+}
+svg g.rotate:hover{
+  transform: rotateY(180deg);
+  transition-delay: .2s
+}
 
 /* directions */
 .directions{
@@ -426,6 +442,9 @@ button:focus {outline:0;}
   .mobile-language .language-switcher-locale-url.open{
     top:29px;
   }
+  .trio-bg{
+    margin:0 -30%;  
+  }  
   .directions .flex{
     display:flex;
     flex-wrap: wrap;
@@ -551,7 +570,7 @@ button:focus {outline:0;}
   /*navigation & logo */
   nav.logo-navigation{
     text-align:center;
-    padding: 9px 0 10px;
+    padding: 9px 0 14px;
   }
   nav.logo-navigation .flex {
     display: flex;
@@ -589,6 +608,9 @@ button:focus {outline:0;}
   .mobile-menu{
     display:none;
   }
+  .trio-bg{
+    margin:0 auto;  
+  }  
   .directions {
     text-align: center;
     margin: 27px 0 54px;
