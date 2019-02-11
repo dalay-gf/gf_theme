@@ -103,22 +103,22 @@
       <div id="navigation">
         <ul id="main-menu" class="links">
           <?php if($language->language == 'ru'): ?>        
-            <li class="menu first"><a href="#about-company" title="">О КОМПАНИИ</a></li>
-            <li class="menu"><a href="#brands" title="">БРЕНДЫ</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.it/ru/shop">ОПТОВАЯ ТОРГОВЛЯ</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.it/ru/franchising" title="">ФРАНЧАЙЗИНГ</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">РОЗНИЧНЫЕ МАГАЗИНЫ</a></li>
-            <li class="menu"><a href="#footer" title="">КОНТАКТЫ</a></li>
-            <li class="menu last"><a href="https://giorgio-ferretti.ru" title="">ИНТЕРНЕТ-МАГАЗИН</a></li>
+            <li class="menu-front first"><a href="#about-company" title="">О КОМПАНИИ</a></li>
+            <li class="menu-front"><a href="#brands" title="">БРЕНДЫ</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/shop">ОПТОВАЯ ТОРГОВЛЯ</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/franchising" title="">ФРАНЧАЙЗИНГ</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">РОЗНИЧНЫЕ МАГАЗИНЫ</a></li>
+            <li class="menu-front"><a href="#footer" title="">КОНТАКТЫ</a></li>
+            <li class="menu-front last"><a href="https://giorgio-ferretti.ru" title="">ИНТЕРНЕТ-МАГАЗИН</a></li>
           <?php endif; ?>
           <?php if($language->language == 'en'): ?>        
-            <li class="menu first"><a href="#about-company" title="">About Company</a></li>
-            <li class="menu"><a href="#brands" title="">Brands</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.it/ru/shop">WHOLESALE</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.it/ru/franchising" title="">FRANCHISING</a></li>
-            <li class="menu"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">RETAIL STORES></li>
-            <li class="menu"><a href="#footer" title="">Contacts</a></li>
-            <li class="menu last"><a href="https://giorgio-ferretti.ru" title="">ONLINE SHOP</a></li>
+            <li class="menu-front first"><a href="#about-company" title="">About Company</a></li>
+            <li class="menu-front"><a href="#brands" title="">Brands</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/shop">WHOLESALE</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/franchising" title="">FRANCHISING</a></li>
+            <li class="menu-front"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">RETAIL STORES></li>
+            <li class="menu-front"><a href="#footer" title="">Contacts</a></li>
+            <li class="menu-front last"><a href="https://giorgio-ferretti.ru" title="">ONLINE SHOP</a></li>
           <?php endif; ?>          
           </ul>
 

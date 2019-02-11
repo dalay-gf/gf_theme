@@ -22,7 +22,10 @@ regions[prefooter]      = 'Prefooter'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
 
-stylesheets[all][] = css/normalize.css
+;stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/spectre.min.css
+stylesheets[all][] = css/spectre-exp.min.css
+stylesheets[all][] = css/spectre-icons.min.css
 stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 

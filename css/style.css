@@ -140,6 +140,10 @@ nav.logo-navigation{
   border-bottom:solid 1px #d3d4d5;
   position:relative;
   font-family:'Montserrat', sans-serif;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 20;
 }
 nav.logo-navigation .flex{
   display:flex;
@@ -261,7 +265,6 @@ button:focus {outline:0;}
   color:#a1a5a9;
 }
 .trio-bg{
-  padding:0 0 14px;
   overflow:hidden;
   width:100%;
 }
@@ -282,6 +285,7 @@ svg g.rotate:hover .st1{
 }
 /* directions */
 .directions{
+  padding:14px 0 0;  
   text-align:center;
   margin:27px 0 0;
 }
@@ -370,11 +374,15 @@ svg g.rotate:hover .st1{
   margin:26px 0 20px;
 }
 .lookbook .md-objects .md-object a{
-  background:#a1a5a9!important;
-  color:#fff;
+  background:#fff!important;
+  color:#333;
   border:solid 1px #333333;
   border-radius:0;
   padding:5px 0;
+}
+.lookbook .md-objects .md-object a:hover{
+  background:#a1a5a9!important;
+  color:#fff;
 }
 .lookbook .md-arrow-left, .lookbook .md-arrow-right {
   background:#000 url(../images/arrow-left.png) no-repeat center center;
@@ -568,10 +576,21 @@ svg g.rotate:hover .st1{
     padding:0 7px 7px;
     display:flex;
     flex-direction:column;
+    z-index:199;
+  }
+  .header .language-switcher-locale-url li{
+    margin:0;
   }
   .header .language-switcher-locale-url li.active{
     order:-1; 
-  }  
+  } 
+  .header .language-switcher-locale-url a.active, 
+  .header .language-switcher-locale-url a:active, 
+  .header .language-switcher-locale-url a:focus, 
+  .header .language-switcher-locale-url a:hover {
+    text-decoration:none;
+    box-shadow: none;
+  }
   .language-title{
     text-transform:uppercase;
     display:inline-block;
@@ -638,7 +657,8 @@ svg g.rotate:hover .st1{
     display:none;
   }
   .trio-bg svg{
-    margin:0 auto;  
+    margin:0 auto;
+    background:#fff;
   }  
   .directions {
     text-align: center;
@@ -766,6 +786,12 @@ svg g.rotate:hover .st1{
 }
 
 @media (min-width: 1200px) {
+  html{
+    background:#fff url(../images/bg-left-trio.png) no-repeat -130px 1250px;
+  }
+  body{
+    background:url(../images/bg-right-trio.png) no-repeat right 844px;  
+  }  
   h1,h2{
     font-size:36px;
     line-height:48px;
@@ -798,6 +824,7 @@ svg g.rotate:hover .st1{
   .about-company .flex .promo-text{
     order:1;
     width:658px;
+    background:#fff;
   }
   .about-company .flex img.promo-img{
     position:absolute;
