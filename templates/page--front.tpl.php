@@ -99,9 +99,29 @@
       </div>
     </div>
     <div class="container">
-      <?php if ($main_menu): ?>
-        <div id="navigation">
-          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
+      <?php global $language; ?>
+      <div id="navigation">
+        <ul id="main-menu" class="links">
+          <?php if($language->language == 'ru'): ?>        
+            <li class="menu first"><a href="#about-company" title="">О КОМПАНИИ</a></li>
+            <li class="menu"><a href="#brands" title="">БРЕНДЫ</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.it/ru/shop">ОПТОВАЯ ТОРГОВЛЯ</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.it/ru/franchising" title="">ФРАНЧАЙЗИНГ</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">РОЗНИЧНЫЕ МАГАЗИНЫ</a></li>
+            <li class="menu"><a href="#footer" title="">КОНТАКТЫ</a></li>
+            <li class="menu last"><a href="https://giorgio-ferretti.ru" title="">ИНТЕРНЕТ-МАГАЗИН</a></li>
+          <?php endif; ?>
+          <?php if($language->language == 'en'): ?>        
+            <li class="menu first"><a href="#about-company" title="">About Company</a></li>
+            <li class="menu"><a href="#brands" title="">Brands</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.it/ru/shop">WHOLESALE</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.it/ru/franchising" title="">FRANCHISING</a></li>
+            <li class="menu"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">RETAIL STORES></li>
+            <li class="menu"><a href="#footer" title="">Contacts</a></li>
+            <li class="menu last"><a href="https://giorgio-ferretti.ru" title="">ONLINE SHOP</a></li>
+          <?php endif; ?>          
+          </ul>
+
           <?php
             global $user;
             global $variables;
@@ -109,15 +129,14 @@
           ?>
           <ul id="sub-main-menu">
             <?php if ($logged_in):?>
-              <li><a href="/ru/user"><?php print t('Settings');?></a></li>
-              <li><a href="/ru/user/logout"><?php print t('Log out');?></a></li>
+              <li><a rel="nofollow" href="/ru/user"><?php print t('Settings');?></a></li>
+              <li><a rel="nofollow" href="/ru/user/logout"><?php print t('Log out');?></a></li>
               <?php else :?>      
                  <li><a href="/ru/user"><?php print t('Log In');?></a></li>
                  <li><a href="/ru/user/register"><?php print t('Register');?></a></li>
             <?php endif;?>
           </ul>
         </div> <!-- /#navigation -->
-      <?php endif; ?>
       
       <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
     </div>  
@@ -125,7 +144,6 @@
   
   <div class="trio-bg">
 
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 4665.7 2000" style="enable-background:new 0 0 4665.7 2000;" xml:space="preserve">
 <style type="text/css">
@@ -1134,7 +1152,7 @@
   <?php endif; ?>
 
   
-  <article class="about-company content container">
+  <article id="about-company" class="about-company content container">
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
@@ -1147,7 +1165,7 @@
   </article>
   
   <?php if ($page['brands']): ?>
-    <section class="brands">
+    <section id="brands" class="brands">
       <div class="container">  
         <?php print render($page['brands']); ?>
       </div>
@@ -1156,7 +1174,7 @@
   
 
   <?php if ($page['assortment']): ?>
-    <section class="assortment">
+    <section id="assortment" class="assortment">
       <div class="container">  
         <?php print render($page['assortment']); ?>
       </div>
@@ -1164,7 +1182,7 @@
   <?php endif; ?>
   
   <?php if ($page['lookbook']): ?>
-    <section class="lookbook">
+    <section id="lookbook" class="lookbook">
       <div class="container"> 
         <h2>LookBook</h2>  
         <?php print render($page['lookbook']); ?>
@@ -1173,7 +1191,7 @@
   <?php endif; ?>
  
   <?php if ($page['prefooter']): ?>
-    <section class="prefooter">
+    <section id="prefooter" class="prefooter">
       <div class="container">
         <?php print render($page['prefooter']); ?>
       </div>

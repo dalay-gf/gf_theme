@@ -369,6 +369,29 @@ svg g.rotate:hover .st1{
 .lookbook h2{
   margin:26px 0 20px;
 }
+.lookbook .md-objects .md-object a{
+  background:#a1a5a9!important;
+  color:#fff;
+  border:solid 1px #333333;
+  border-radius:0;
+  padding:5px 0;
+}
+.lookbook .md-arrow-left, .lookbook .md-arrow-right {
+  background:#000 url(../images/arrow-left.png) no-repeat center center;
+  filter:invert(100%);
+  height:39px;
+  width:52px;
+}
+.lookbook .md-arrow-right {
+  transform:rotate(180deg);
+}
+.lookbook .md-arrow-left:hover, .lookbook .md-arrow-right:hover {
+  background:#a1a5a9 url(../images/arrow-left.png) no-repeat center center;
+  filter:invert(0%);  
+}
+.lookbook .md-bullets{
+  display:none;
+}
 
 /* footer */
 .prefooter{
@@ -562,6 +585,7 @@ svg g.rotate:hover .st1{
     vertical-align:middle;
     cursor:pointer;
     background:url(../images/trio-down.png) no-repeat center center;
+    margin: 0 0 0 -9px;
   }
   .header-user-area .logged-in a:last-child,
   .header-user-area .log-out a:last-child{
@@ -606,6 +630,7 @@ svg g.rotate:hover .st1{
     font-weight:500;
     border:0;
     display:inline-block;
+    margin:0 6px;
   }
   #sub-main-menu,
   .mobile-language,
