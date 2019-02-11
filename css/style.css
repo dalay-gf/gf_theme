@@ -6,6 +6,7 @@ body{
   font-size:14px;
   line-height:1.21;
   color:#7e7f80;
+  overflow-x:hidden; 
 }
 *{
   box-sizing:border-box;
@@ -93,7 +94,7 @@ header.header{
   font-family:'Montserrat', sans-serif;
   background:#000;
   color:#fff;
-  padding:15px 0;
+  padding:5px 0;
   display:none;
 }
 .region-header{
@@ -261,21 +262,24 @@ button:focus {outline:0;}
 }
 .trio-bg{
   padding:0 0 14px;
-  margin:0 -50%;  
+  overflow:hidden;
+  width:100%;
 }
 .trio-bg svg{
-  width:100%;
+  margin:0 -50%; 
 }
 svg g.rotate {
   transition: transform .3s;
-  transform-origin: 53.43% center;
+  transform-origin: 50.1% center;
   transform: rotateY(0deg);
 }
 svg g.rotate:hover{
   transform: rotateY(180deg);
   transition-delay: .2s
 }
-
+svg g.rotate:hover .st1{
+  /*display:none;*/
+}
 /* directions */
 .directions{
   text-align:center;
@@ -442,7 +446,7 @@ svg g.rotate:hover{
   .mobile-language .language-switcher-locale-url.open{
     top:29px;
   }
-  .trio-bg{
+  .trio-bg svg{
     margin:0 -30%;  
   }  
   .directions .flex{
@@ -513,7 +517,7 @@ svg g.rotate:hover{
   }
   /* header */
   header.header{
-    font-size:15px;
+    font-size:12px;
     line-height:27px;
     display:block;
   }
@@ -608,7 +612,7 @@ svg g.rotate:hover{
   .mobile-menu{
     display:none;
   }
-  .trio-bg{
+  .trio-bg svg{
     margin:0 auto;  
   }  
   .directions {
