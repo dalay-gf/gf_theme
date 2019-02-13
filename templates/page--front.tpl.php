@@ -105,8 +105,8 @@
           <?php if($language->language == 'ru'): ?>        
             <li class="menu-front first"><a href="#about-company" title="">О КОМПАНИИ</a></li>
             <li class="menu-front"><a href="#brands" title="">БРЕНДЫ</a></li>
-            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/shop">ОПТОВАЯ ТОРГОВЛЯ</a></li>
-            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/franchising" title="">ФРАНЧАЙЗИНГ</a></li>
+            <li class="menu-front"><a href="/ru/shop">ОПТОВАЯ ТОРГОВЛЯ</a></li>
+            <li class="menu-front"><a href="/ru/franchising" title="">ФРАНЧАЙЗИНГ</a></li>
             <li class="menu-front"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">РОЗНИЧНЫЕ МАГАЗИНЫ</a></li>
             <li class="menu-front"><a href="#footer" title="">КОНТАКТЫ</a></li>
             <li class="menu-front last"><a href="https://giorgio-ferretti.ru" title="">ИНТЕРНЕТ-МАГАЗИН</a></li>
@@ -114,13 +114,13 @@
           <?php if($language->language == 'en'): ?>        
             <li class="menu-front first"><a href="#about-company" title="">About Company</a></li>
             <li class="menu-front"><a href="#brands" title="">Brands</a></li>
-            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/shop">WHOLESALE</a></li>
-            <li class="menu-front"><a href="https://giorgio-ferretti.it/ru/franchising" title="">FRANCHISING</a></li>
+            <li class="menu-front"><a href="/en/shop">WHOLESALE</a></li>
+            <li class="menu-front"><a href="/ru/franchising" title="">FRANCHISING</a></li>
             <li class="menu-front"><a href="https://giorgio-ferretti.ru/page/nashi-magaziny" title="">RETAIL STORES></li>
             <li class="menu-front"><a href="#footer" title="">Contacts</a></li>
             <li class="menu-front last"><a href="https://giorgio-ferretti.ru" title="">ONLINE SHOP</a></li>
           <?php endif; ?>          
-          </ul>
+        </ul>
 
           <?php
             global $user;
@@ -1138,7 +1138,7 @@
   </div>
   
   <?php if ($page['highlighted']): ?>
-    <section class="highlighted slider">
+    <section class="highlighted">
       <?php print render($page['highlighted']); ?>
     </section>
   <?php endif; ?>
@@ -1183,8 +1183,8 @@
   
   <?php if ($page['lookbook']): ?>
     <section id="lookbook" class="lookbook">
-      <div class="container"> 
-        <h2>LookBook</h2>  
+      <div class="container"><h2>LookBook</h2></div>
+      <div class="container-fluid"> 
         <?php print render($page['lookbook']); ?>
       </div>
     </section>    

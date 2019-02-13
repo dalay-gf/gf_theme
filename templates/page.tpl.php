@@ -123,11 +123,12 @@
     </div>  
   </nav>
   
-  
-  <?php if ($page['highlighted']): ?>
-    <section class="highlighted slider">
-      <?php print render($page['highlighted']); ?>
-    </section>
+  <?php if ($page['lookbook']): ?>
+    <section id="lookbook" class="lookbook">
+      <div class="container-fluid"> 
+        <?php print render($page['lookbook']); ?>
+      </div>
+    </section>    
   <?php endif; ?>
   
   <?php if ($page['directions']): ?>
@@ -139,7 +140,7 @@
   <?php endif; ?>
 
   
-  <article class="about-company content container">
+  <article id="about-company" class="about-company content container">
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
@@ -152,33 +153,29 @@
   </article>
   
   <?php if ($page['brands']): ?>
-    <section class="brands">
+    <section id="brands" class="brands">
       <div class="container">  
         <?php print render($page['brands']); ?>
       </div>
     </section>
   <?php endif; ?>
-  
 
   <?php if ($page['assortment']): ?>
-    <section class="assortment">
+    <section id="assortment" class="assortment">
       <div class="container">  
         <?php print render($page['assortment']); ?>
       </div>
     </section>       
   <?php endif; ?>
   
-  <?php if ($page['lookbook']): ?>
-    <section class="lookbook">
-      <div class="container"> 
-        <h2>LookBook</h2>  
-        <?php print render($page['lookbook']); ?>
-      </div>
-    </section>    
+  <?php if ($page['highlighted']): ?>
+    <section class="highlighted container-fluid">
+      <?php print render($page['highlighted']); ?>
+    </section>
   <?php endif; ?>
  
   <?php if ($page['prefooter']): ?>
-    <section class="prefooter">
+    <section id="prefooter" class="prefooter">
       <div class="container">
         <?php print render($page['prefooter']); ?>
       </div>

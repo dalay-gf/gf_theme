@@ -88,6 +88,7 @@ p{
   margin:0 auto;
   padding:0 15px;
   box-sizing: border-box;
+  width:100%;
 }
 
 header.header{
@@ -734,6 +735,12 @@ svg g.rotate:hover .st1{
     width:auto;
     max-width:unset;
   }
+  .lookbook {
+    margin: 26px 0 0;
+  }
+  .lookbook .container-fluid{
+    padding:0;
+  }  
   .prefooter .flex{
     margin:0 -15px;
   }
