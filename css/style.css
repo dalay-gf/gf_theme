@@ -90,13 +90,19 @@ p{
   box-sizing: border-box;
   width:100%;
 }
-
+#page{
+  display:flex;
+  flex-direction:column;
+}
 header.header{
   font-family:'Montserrat', sans-serif;
   background:#000;
   color:#fff;
   padding:5px 0;
   display:none;
+}
+.not-front header.header{
+  order:1;
 }
 .region-header{
   display:flex;
@@ -145,6 +151,9 @@ nav.logo-navigation{
   top: 0;
   background: #fff;
   z-index: 20;
+}
+.not-front nav.logo-navigation{
+  order:2;
 }
 nav.logo-navigation .flex{
   display:flex;
@@ -265,6 +274,11 @@ button:focus {outline:0;}
 #main-menu li a:hover{
   color:#a1a5a9;
 }
+
+/* search */
+
+
+
 .trio-bg{
   overflow:hidden;
   width:100%;
@@ -290,24 +304,52 @@ svg g.rotate:hover .st1{
   text-align:center;
   margin:27px 0 0;
 }
+.not-front .directions{
+  order:6;
+}
+.not-front .directions .block:first-child{
+  margin:27px 0 76px;
+}
 .directions .direction{
   margin: 0 0 22px;
+}
+.directions h2{
+  margin:25px 0 68px;
+  text-align:left;
+  font-size:27px;
+  line-height:1.2;
+}
+.directions h3.promo-h3{
+  text-align:left;
+  margin:0 0 62px;
+  color:#7f8283;
+}
+.directions h2.promo-h2{
+  margin:25px 0 -10px;
 }
 .directions img{
   display:inline-block;
 }
 .directions h4{
-  margin:5px 0 0;
+  margin:10px 0 0;
+  line-height: 1.2;
 }
 .directions h4::after{
   content:'';
   width:52px;
-  height:1px;
+  height:3px;
   background:#000;
-  border-top:solid 1px #ccc;
-  border-bottom:solid 1px #444;
+  border-top:solid 1px #444;
+  border-bottom:solid 1px #ccc;
   display:block;
-  margin:-2px auto 0;
+  margin:2px auto 0;
+}
+.directions p{
+  font-family:'Montserrat', sans-serif;
+  font-size:15px;
+  font-weight:600;
+  color:#000;
+  margin:14px 0 0;
 }
 .directions a{
   font-family:'Montserrat', sans-serif;
@@ -322,6 +364,9 @@ svg g.rotate:hover .st1{
 }
 
 /* about company */
+.not-front .about-company{
+  order:4;
+}
 .promo-img{
   margin:0 0 8px;
 }
@@ -338,6 +383,9 @@ svg g.rotate:hover .st1{
 .brands{
   padding:0 0 1px;
   margin:0 0 -10px;
+}
+.not-front .brands{
+  order:5;
 }
 .brand{
   border:solid 1px #e7e4e4;
@@ -367,9 +415,21 @@ svg g.rotate:hover .st1{
   margin:0 0 102px;
 }
 
+/* assortment */
+.not-front .assortment{
+  order:7;
+}
+
+.not-front .highlighted{
+  order:8;
+}
+
 /* lookbook */
 .lookbook{
   margin:0 0 40px;
+}
+.not-front .lookbook{
+  order:3;
 }
 .lookbook h2{
   margin:26px 0 20px;
@@ -402,6 +462,39 @@ svg g.rotate:hover .st1{
   display:none;
 }
 
+/* bg-price */
+.bg-price{
+  height:372px;
+  background:#7f8283 url(../images/bg-price.png) no-repeat center center;
+  margin:30px -15px 0;
+  color:#fff;
+  text-align:center;
+}
+.register-to-get-price-list{
+  font-family:'Montserrat', sans-serif;
+  font-size:18px;
+  font-weight:bold;
+  text-transform:uppercase;
+  padding:45px 15px 70px; 
+}
+.get-price-list-link a{
+  background:#f7f7f7;
+  display:inline-block;
+  color:#333333;
+  text-decoration:none;
+  border:solid 1px #333333;
+  font-size:15px;
+  line-height:47px;
+  padding:0 20px;
+}
+.get-price-list-link a span {
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    vertical-align: top;
+    color:#000;
+}
+
+
 /* footer */
 .prefooter{
   background:#333;
@@ -409,6 +502,9 @@ svg g.rotate:hover .st1{
   font-size:16px;
   line-height:36px;
   padding:20px 0;
+}
+.not-front .prefooter{
+  order:9;
 }
 .prefooter h5{
   color:#fff;
@@ -440,6 +536,9 @@ svg g.rotate:hover .st1{
   font-size:11px;
   color#fff;
 }
+.not-front #footer{
+  order:10;
+}
 #footer a{
   color:#fff;
   vertical-align:middle;
@@ -459,6 +558,9 @@ svg g.rotate:hover .st1{
 #footer img{
   width:70%;
   margin:2px 0;
+}
+#footer .flex-col{
+  white-space:nowrap;
 }
 #footer .socialki{
   display:inline-block;
@@ -487,9 +589,22 @@ svg g.rotate:hover .st1{
     width:80%;
     margin:0 auto;
   }
+  .not-front .directions .flex{
+    width:100%;
+  }  
   .directions .direction{
     flex: 1 50%;
   }
+  .not-front .directions .direction{
+    padding:0 15px;
+  }
+  .directions h2{
+    font-size: 32px;
+    line-height: 43px;    
+  }
+  .directions h2.promo-h2{
+    margin:25px 0 -12px;
+  }  
   .promo-img {
     width:100%;
   }
@@ -511,6 +626,13 @@ svg g.rotate:hover .st1{
   .brand.linger img {
     margin: 20px auto 52px;
     max-width:258px;
+  }
+  .bg-price{
+    margin:80px -15px 0;
+  }
+  .register-to-get-price-list{
+    font-size:20px;
+    padding:96px 15px 70px;
   }
   .prefooter .flex{
     display:flex;
@@ -611,6 +733,15 @@ svg g.rotate:hover .st1{
   .header-user-area .log-out a:last-child{
     margin:0 50px 0 0;
   }
+  .header .cart{
+    font-size:22px;
+    line-height:27px;
+    display:inline-block;
+    margin:0 0 0 20px;
+  }
+  .header .cart span{
+    vertical-align: top;
+  }
   #logo img{
     max-width:100%;
   }
@@ -638,6 +769,10 @@ svg g.rotate:hover .st1{
     width:100%;
     border:0;
   }
+  .not-front #navigation{
+    display:flex;
+    justify-content: space-between;
+  }
   #navigation #main-menu{
     margin:0;
     padding:0;
@@ -657,6 +792,16 @@ svg g.rotate:hover .st1{
   .mobile-menu{
     display:none;
   }
+  
+  .not-front #navigation .search-outer .form-text{
+    border:0;
+    border-bottom:solid 1px #000;
+    font-size:11px;
+    line-height:20px;
+    color:#7b7a7a;
+    background:url(../images/search.png) no-repeat right 0; 
+  }
+  
   .trio-bg svg{
     margin:0 auto;
     background:#fff;
@@ -673,6 +818,12 @@ svg g.rotate:hover .st1{
   .directions .direction{
     flex: 0 auto;
   }
+  .not-front .directions .direction{
+    padding:0;
+  }
+  .directions h2.promo-h2{
+    margin:25px 0 -16px;
+  }   
   .promo-img {
     width:auto;
   }
@@ -690,6 +841,10 @@ svg g.rotate:hover .st1{
     margin:0 2.0% 0 0;
     position:relative;
   }
+  .not-front .about-company .flex .img{
+    order:3;
+    margin:0 0 0 2.0%;
+  }
   .about-company .flex .headera-outer{
     order:1;
     width:57.5257%;
@@ -706,6 +861,10 @@ svg g.rotate:hover .st1{
     top:0;
     right:0;
   } 
+  .not-front .about-company .flex img.promo-img{
+    right:auto;
+    left:0;
+  }
   .about-company .flex .promo-border{
     height:474px;
   }
@@ -722,6 +881,10 @@ svg g.rotate:hover .st1{
     margin:0 20px 0 0;
     width:658px;
   }
+  .not-front .assortment .flex .promo-text{
+    order:2;
+    margin:0 0 0 20px;
+  }
   .assortment .flex .promo-border{
     min-height:454px;
   }
@@ -735,9 +898,15 @@ svg g.rotate:hover .st1{
     width:auto;
     max-width:unset;
   }
+  .not-front .assortment .flex img.promo-img{
+    right:0;
+  }
   .lookbook {
     margin: 26px 0 0;
   }
+  .not-front .lookbook {
+    margin: 0 0 45px;
+  }  
   .lookbook .container-fluid{
     padding:0;
   }  
@@ -799,7 +968,7 @@ svg g.rotate:hover .st1{
   body{
     background:url(../images/bg-right-trio.png) no-repeat right 844px;  
   }  
-  h1,h2{
+  h1,h2, .directions h2 {
     font-size:36px;
     line-height:48px;
   }
@@ -818,7 +987,6 @@ svg g.rotate:hover .st1{
     flex-direction: column;
   }
   .about-company .flex .img{
-    order:-1;
     width:490px;
     height:574px;
     margin:0 20px 0 0;

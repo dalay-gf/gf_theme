@@ -116,6 +116,7 @@
                  <li><a href="/ru/user/register"><?php print t('Register');?></a></li>
             <?php endif;?>
           </ul>
+          <div class="search-outer"><?php print $search; ?></div>
         </div> <!-- /#navigation -->
       <?php endif; ?>
       
@@ -123,12 +124,10 @@
     </div>  
   </nav>
   
-  <?php if ($page['lookbook']): ?>
-    <section id="lookbook" class="lookbook">
-      <div class="container-fluid"> 
-        <?php print render($page['lookbook']); ?>
-      </div>
-    </section>    
+  <?php if ($page['highlighted']): ?>
+    <section class="highlighted container-fluid">
+      <?php print render($page['highlighted']); ?>
+    </section>
   <?php endif; ?>
   
   <?php if ($page['directions']): ?>
@@ -140,7 +139,7 @@
   <?php endif; ?>
 
   
-  <article id="about-company" class="about-company content container">
+  <section id="about-company" class="about-company content container">
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
@@ -150,7 +149,7 @@
     <?php print render($title_suffix); ?>
    
     <?php print render($page['content']); ?>  
-  </article>
+  </section>
   
   <?php if ($page['brands']): ?>
     <section id="brands" class="brands">
@@ -168,12 +167,14 @@
     </section>       
   <?php endif; ?>
   
-  <?php if ($page['highlighted']): ?>
-    <section class="highlighted container-fluid">
-      <?php print render($page['highlighted']); ?>
-    </section>
+  <?php if ($page['lookbook']): ?>
+    <section id="lookbook" class="lookbook">
+      <div class="container-fluid"> 
+        <?php print render($page['lookbook']); ?>
+      </div>
+    </section>    
   <?php endif; ?>
- 
+  
   <?php if ($page['prefooter']): ?>
     <section id="prefooter" class="prefooter">
       <div class="container">
