@@ -88,17 +88,22 @@
         <span class="icon-bar last"></span>
         <span class="close-btn"></span>
       </button>
+      <div class="mobile-cart">
+        <div data-icon="&#xe015;"></div>
+      </div>      
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
+      
       <div class="mobile-language">
         <div class="icon_globe-2 change-language"></div>
         <?php $block = module_invoke('locale', 'block_view', 'language'); print render($block['content']); ?>
       </div>
-    </div>
-    <div class="container">
+      
+      <div class="mobile-search-icon"><div data-icon="&#x55;"></div></div>
+      
       <?php if ($main_menu): ?>
         <div id="navigation">
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
@@ -109,17 +114,18 @@
           ?>
           <ul id="sub-main-menu">
             <?php if ($logged_in):?>
-              <li><a href="/ru/user"><?php print t('Settings');?></a></li>
-              <li><a href="/ru/user/logout"><?php print t('Log out');?></a></li>
+              <li><?php print l(t('Settings'),'user');?></li>
+              <li><?php print l(t('Log out'),'logout');?></li>
               <?php else :?>      
-                 <li><a href="/ru/user"><?php print t('Log In');?></a></li>
-                 <li><a href="/ru/user/register"><?php print t('Register');?></a></li>
+                 <li><?php print l(t('Log In'),'user');?></li>
+                 <li><?php print l(t('Register'),'user/register');?></li>
             <?php endif;?>
           </ul>
-          <div class="search-outer"><?php print $search; ?></div>
         </div> <!-- /#navigation -->
-      <?php endif; ?>
+      <?php endif; ?>  
       
+    </div>
+    <div class="container">
       <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
     </div>  
   </nav>

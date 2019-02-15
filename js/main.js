@@ -14,6 +14,23 @@ jQuery(document).ready(function($) {
     $('.language-languages').toggleClass('open');
   });
   
+  $('.mobile-search-icon').on('click', function(){
+    $('#block-views-exp-search-results-page').toggleClass('open');
+  });   
+  
+  $(window).scroll(function() {
+      if ($(this).scrollTop()>120 && $( window ).width() > 999)
+       {
+          $('#logo').hide();
+          $('.mobile-cart').show();
+       }
+      else
+       {
+        $('#logo').show();
+        $('.mobile-cart').hide();
+       }
+   });
+ 
   /* dropdown
   $('#main-menu ul li a span.arrow-down').on('click', function(e){
     e.preventDefault();
