@@ -19,16 +19,19 @@ jQuery(document).ready(function($) {
   });   
   
   $(window).scroll(function() {
-      if ($(this).scrollTop()>120 && $( window ).width() > 999)
-       {
+      if ($( window ).width() > 999){
+        if ($(this).scrollTop()>120){
           $('#logo').hide();
           $('.mobile-cart').show();
-       }
-      else
-       {
-        $('#logo').show();
-        $('.mobile-cart').hide();
-       }
+        }
+        else{
+          $('#logo').show();
+          $('.mobile-cart').hide();
+        }          
+      }
+
+
+       
    });
  
   /* dropdown
@@ -38,6 +41,11 @@ jQuery(document).ready(function($) {
   });
   */
   function fit() {
+    if($( window ).width() < 1000){
+      var height = $( window ).height() - $('nav.logo-navigation').height();
+      $('#navigation').height(height);      
+    } else $('#navigation').height('auto');
+
     if ($( window ).width() > 999){ //part for big tablets
       $( '#main-menu' ).removeClass('open');
       $( '#main-menu li' ).removeClass('open');

@@ -89,11 +89,12 @@
         <span class="close-btn"></span>
       </button>
       <div class="mobile-cart">
-        <div data-icon="&#xe015;"></div>
+        <?php print $cart_items_count; ?>
       </div>      
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php if(drupal_get_path_alias() == 'shop'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />   <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php endif; ?>
         </a>
       <?php endif; ?>
       
