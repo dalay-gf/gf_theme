@@ -100,7 +100,7 @@
       
       <div class="mobile-language">
         <div class="icon_globe-2 change-language"></div>
-        <?php $block = module_invoke('locale', 'block_view', 'language'); print render($block['content']); ?>
+          <?php print $language_dropdown_block;  ?>
       </div>
       
       <div class="mobile-search-icon"><div data-icon="&#x55;"></div></div>
@@ -109,8 +109,6 @@
         <div id="navigation">
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
           <?php
-            global $user;
-            global $variables;
             (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
           ?>
           <ul id="sub-main-menu">

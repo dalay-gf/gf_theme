@@ -43,7 +43,7 @@
  * @ingroup themeable
  */
 ?><!DOCTYPE html>
-<html<?php print $html_attributes;?><?php print $rdf_namespaces;?>>
+<html <?php print $rdf_namespaces;?>>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

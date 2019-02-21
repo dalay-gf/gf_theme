@@ -24,6 +24,9 @@ img{
   display:block;
   max-width:100%;
 }
+figure{
+  margin:0;
+}
 h1{
   font-family:'Montserrat', sans-serif;
   font-size:27px;
@@ -548,6 +551,82 @@ svg g.rotate:hover .st1{
     vertical-align: top;
     color:#000;
 }
+
+/* products */
+.view-products .view-content{
+  margin:50px -15px 150px;
+}
+.view-products .row{
+  margin:0 0 120px;
+  padding:0 15px;
+  font-family:'Montserrat';  
+}
+.view-products .project-desc,
+.view-products .show-on-hover{
+  position:relative;
+}
+.view-products img{
+  height:auto;
+}
+.view-products .ru-in-stock,
+.view-products .cn-in-stock,
+.view-products .add-to-cart-link a{
+  position:absolute;
+  background:#8b8a8a;
+  color:#fff;
+  border:0;
+  text-align:center;
+  font-size:18px;
+  padding:7px 7px;
+}
+.view-products .ru-in-stock{
+  left:0;
+  top:0;
+  min-height:57px;
+}
+.view-products .cn-in-stock{
+  right:0;
+  top:0;
+  min-height:57px;
+}
+.view-products .add-to-cart-link a{
+  display:none;
+  left:0;
+  top:-48px;
+  height:41px;
+  line-height:40px;
+  width:100%;
+  padding:0;
+  font-size:12px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.view-products .add-to-cart-link a:hover{
+  background:#333;
+}
+.view-products .project-item-inner:hover .ru-in-stock,
+.view-products .project-item-inner:hover .cn-in-stock,
+.view-products .project-item-inner:hover .add-to-cart-link a{
+  display:block;
+}
+
+.view-products .title{
+  font-size:17px;
+  font-weight:bold;
+  text-transform:uppercase;
+  text-align:center;  
+}
+.view-products .title a{
+  color:#000;
+}
+.view-products .amount{
+  font-weight:600;
+  font-size:12px;
+  line-height:25px;
+  color:#000;  
+  text-align:center;
+}
+
 
 
 /* footer */

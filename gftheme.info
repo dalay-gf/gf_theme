@@ -26,6 +26,7 @@ regions[page_bottom]    = 'Page bottom'
 stylesheets[all][] = css/spectre.min.css
 stylesheets[all][] = css/spectre-exp.min.css
 stylesheets[all][] = css/spectre-icons.min.css
+stylesheets[all][] = css/font-awesome.css
 stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 

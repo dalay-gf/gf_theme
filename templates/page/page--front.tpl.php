@@ -95,22 +95,20 @@
       <?php endif; ?>
       <div class="mobile-language">
         <div class="icon_globe-2 change-language"></div>
-        <?php $block = module_invoke('locale', 'block_view', 'language'); print render($block['content']); ?>
+          <?php print $language_dropdown_block;  ?>
       </div>
       <div id="navigation">
         <ul id="main-menu" class="links">
-          <li class="menu-front first"><?php print l(t('About Company'),'#about-company'); ?></li>
-          <li class="menu-front"><?php print l(t('Brands'),'#brands'); ?></li>
-          <li class="menu-front"><?php print l(t('WHOLESALE'),'shop'); ?></li>
+          <li class="menu-front first"><?php print l(t('About Company'),'', array('fragment' => 'about-company')); ?></li>
+          <li class="menu-front"><?php print l(t('Brands'), '', array('fragment' => 'brands')); ?></li>
+          <li class="menu-front"><?php print l(t('WHOLESALE'),'opt'); ?></li>
           <li class="menu-front"><?php print l(t('FRANCHISING'),'franchising'); ?></li>
           <li class="menu-front"><?php print l(t('RETAIL STORES'),'https://giorgio-ferretti.ru/page/nashi-magaziny'); ?></li>
-          <li class="menu-front"><?php print l(t('Contacts'),'#footer'); ?></li>
+          <li class="menu-front"><?php print l(t('Contacts'), '', array('fragment' =>'footer')); ?></li>
           <li class="menu-front last"><?php print l(t('ONLINE SHOP'),'https://giorgio-ferretti.ru') ?></li>
         </ul>
 
         <?php
-            global $user;
-            global $variables;
             (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
         ?>
         <ul id="sub-main-menu">
