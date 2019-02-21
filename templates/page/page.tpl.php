@@ -93,7 +93,7 @@
       </div>      
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-          <?php if(drupal_get_path_alias() == 'shop'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />   <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php if(drupal_get_path_alias() == 'opt'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />   <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
           <?php endif; ?>
         </a>
       <?php endif; ?>
@@ -142,15 +142,16 @@
       </div>
     </section>        
   <?php endif; ?>
-
   
   <section id="about-company" class="about-company content container">
+  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
     <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
     <a id="main-content"></a>
     <?php print render($title_prefix); ?>
+    <?php if ($title): ?><h1><?php print $title; ?></h1><?php endif; ?>
     <?php print render($title_suffix); ?>
    
     <?php print render($page['content']); ?>  

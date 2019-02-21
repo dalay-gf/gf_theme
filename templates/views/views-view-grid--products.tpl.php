@@ -17,7 +17,7 @@
   <div class = "columns products row">
     <?php foreach ($columns as $column_number => $item): ?>
       <div class = "column col-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 product project-item"> 
-        <?php print $item; ?>
+        <div class="outer"><?php print $item; ?></div>
       </div>
     <?php endforeach; ?>
   </div>
