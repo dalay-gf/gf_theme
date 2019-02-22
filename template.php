@@ -39,6 +39,10 @@ function gftheme_preprocess_page(&$vars) {
   }
   $block = module_invoke('locale', 'block_view', 'language');
   $vars['language_dropdown_block'] =  render($block['content']);
+
+  if(module_exists('tb_megamenu')) {
+    $vars['catalog_menu'] = theme('tb_megamenu', array('menu_name' => 'menu-catalog-menu'));
+  } 
 }
 
 /*
@@ -46,6 +50,33 @@ function gftheme_menu_tree__menu_catalog_menu(&$vars) {
   return '<ul>' . $variables['tree'] . '</ul>';
 }
 */
+
+function gftheme_preprocess_tb_megamenu_nav(&$vars) {
+  $items = $vars['items'];
+  $level = $vars['level'];
+  $lis = array();
+  foreach ($items as $item) {
+    if (!$item['link']['hidden']) {
+      $lis[] = theme('tb_megamenu_item', array(
+        'menu_name' => $vars['menu_name'],
+        'level' => $level + 1,
+        'item' => $item,
+        'menu_config' => $vars['menu_config'],
+        'block_config' => $vars['block_config'],
+        'trail' => $vars['trail'],
+        'section' => $vars['section'],
+      ));
+    }
+  }
+  $vars['lis'] = implode("\n", $lis);
+  $vars['classes_array'][] = "level-" . $level;
+  $vars['classes_array'][] = "items-" . count($items);
+  foreach($vars['classes_array'] as $key => $value) {
+    if ($value == 'nav') {
+      unset($vars['classes_array'][$key]);
+    }
+  }
+}
 
 function gftheme_form_alter(&$form, &$form_state, $form_id) {
 

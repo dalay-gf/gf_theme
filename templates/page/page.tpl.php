@@ -105,8 +105,10 @@
       
       <div class="mobile-search-icon"><div data-icon="&#x55;"></div></div>
       
-      <?php if ($main_menu): ?>
-        <div id="navigation">
+      
+      <div id="navigation">
+      <?php //if(drupal_match_path('',)): ?>
+        <?php if ($main_menu): ?>
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
           <?php
             (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
@@ -120,8 +122,11 @@
                  <li><?php print l(t('Register'),'user/register');?></li>
             <?php endif;?>
           </ul>
-        </div> <!-- /#navigation -->
-      <?php endif; ?>  
+          <?php endif; ?>
+        <?php// endif; ?>
+          <?php //print $catalog_menu; ?>
+      </div> <!-- /#navigation -->
+        
       
     </div>
     <div class="container">

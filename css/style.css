@@ -335,6 +335,45 @@ button:focus {outline:0;}
   color:#a1a5a9;
 }
 
+/* bt-mega-menu catalog */
+.tb-megamenu {
+  background-color: #fff;
+}
+.tb-megamenu .tb-megamenu-nav {
+  margin: 0;
+  list-style: none;
+}
+.tb-megamenu .tb-megamenu-nav > li {
+  float: left;
+  margin-left: 0;
+}
+.tb-megamenu .tb-megamenu-nav > li > a {
+  font-size:14px;
+  font-weight:500;
+  color:#000;
+  margin:0 5px 0 0;
+  padding:0 10px 0 0;
+  text-transform:uppercase;
+}
+.tb-megamenu .tb-megamenu-nav > li > a:focus,
+.tb-megamenu .tb-megamenu-nav > li > a:hover,
+.tb-megamenu .dropdown-menu li > a:hover, 
+.tb-megamenu .dropdown-menu li > a:focus, 
+.tb-megamenu .dropdown-submenu:hover > a {
+  color:#a1a5a9;
+}
+.tb-megamenu .tb-megamenu-nav > .active > a,
+.tb-megamenu .tb-megamenu-nav > .active > a:hover,
+.tb-megamenu .tb-megamenu-nav > .active > a:focus {
+  color:#a1a5a9;
+}
+.tb-megamenu .mega > .mega-dropdown-menu {
+    min-width: 290px;
+    font-size:15px;
+    border-top:solid 2px #000;
+    border-bottom: 1px solid #ccc;
+}
+
 /* search */
 
 /* breadcrumb */
