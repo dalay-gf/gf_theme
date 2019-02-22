@@ -41,6 +41,11 @@ function gftheme_preprocess_page(&$vars) {
   $vars['language_dropdown_block'] =  render($block['content']);
 }
 
+/*
+function gftheme_menu_tree__menu_catalog_menu(&$vars) {
+  return '<ul>' . $variables['tree'] . '</ul>';
+}
+*/
 
 function gftheme_form_alter(&$form, &$form_state, $form_id) {
 
