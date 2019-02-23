@@ -98,7 +98,7 @@
           <?php print $language_dropdown_block;  ?>
       </div>
       <div id="navigation">
-        <ul id="main-menu" class="links">
+        <ul id="main-menu" class="nav-menu">
           <li class="menu-front first"><?php print l(t('About Company'),'', array('fragment' => 'about-company')); ?></li>
           <li class="menu-front"><?php print l(t('Brands'), '', array('fragment' => 'brands')); ?></li>
           <li class="menu-front"><?php print l(t('WHOLESALE'),'opt'); ?></li>
@@ -108,11 +108,8 @@
           <li class="menu-front last"><?php print l(t('ONLINE SHOP'),'https://giorgio-ferretti.ru') ?></li>
         </ul>
 
-        <?php
-            (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
-        ?>
-        <ul id="sub-main-menu">
-          <?php if ($logged_in):?>
+        <ul id="sub-main-menu" class="nav-menu">
+          <?php if (user_is_logged_in()):?>
             <li><?php print l(t('Settings'),'user');?></li>
             <li><?php print l(t('Log out'),'logout');?></li>
             <?php else :?>      

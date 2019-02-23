@@ -5,6 +5,11 @@ jQuery(document).ready(function($) {
     $('.mobile-menu').toggleClass('open');
   });
   
+  $('ul.nav-menu li a span.arrow-down').on('click', function(e){
+    e.preventDefault();
+    $(this).parent().parent().toggleClass('open');
+  });
+  
   $('.change-language').on('click', function(){
     $('.mobile-language .language-switcher-locale-url').toggleClass('open');
   }); 

@@ -93,39 +93,30 @@
       </div>      
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-          <?php if(drupal_get_path_alias() == 'opt'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />   <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php if(drupal_get_path_alias() == 'opt'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />      <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
           <?php endif; ?>
         </a>
       <?php endif; ?>
       
       <div class="mobile-language">
         <div class="icon_globe-2 change-language"></div>
-          <?php print $language_dropdown_block;  ?>
+        <?php print $language_dropdown_block;  ?>
       </div>
       
       <div class="mobile-search-icon"><div data-icon="&#x55;"></div></div>
-      
-      
+           
       <div id="navigation">
-      <?php $current_path = drupal_get_path_alias();
-      if(drupal_match_path($current_path,'shop') || drupal_match_path($current_path,'shop/*') || drupal_match_path($current_path,'model/*')): ?>
-        <?php if ($main_menu): ?>
-          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
-          <?php
-            (user_is_anonymous()) ? $logged_in = FALSE : $logged_in = TRUE;
-          ?>
-          <ul id="sub-main-menu">
-            <?php if ($logged_in):?>
-              <li><?php print l(t('Settings'),'user');?></li>
-              <li><?php print l(t('Log out'),'logout');?></li>
-              <?php else :?>      
-                 <li><?php print l(t('Log In'),'user');?></li>
-                 <li><?php print l(t('Register'),'user/register');?></li>
-            <?php endif;?>
-          </ul>
-          <?php endif; ?>
-        <?php endif; ?>
-          <?php //print $catalog_menu; ?>
+        <?php print $main_menu_nav; ?>
+        <ul id="sub-main-menu" class="nav-menu">
+          <?php if (user_is_logged_in()):?>
+            <li><?php print l(t('Settings'),'user');?></li>
+            <li><?php print l(t('Log out'),'logout');?></li>
+            <?php else :?>      
+               <li><?php print l(t('Log In'),'user');?></li>
+               <li><?php print l(t('Register'),'user/register');?></li>
+          <?php endif;?>
+        </ul>
+         
       </div> <!-- /#navigation -->
         
       

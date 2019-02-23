@@ -21,6 +21,36 @@ function gftheme_breadcrumb($vars) {
   }
 }
 
+function gftheme_menu_tree__menu_catalog_menu(&$vars) {
+  return '<ul id="catalog-menu" class="nav-menu">' . $vars['tree'] . '</ul>';
+}
+
+function gftheme_menu_tree__main_menu(&$vars) {
+  return '<ul id="main-menu" class="nav-menu">' . $vars['tree'] . '</ul>';
+}
+
+function gftheme_menu_link(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    unset($element['#below']['#theme_wrappers']);
+    $sub_menu = '<ul>' . drupal_render($element['#below']) . '</ul>';
+  }
+  
+  if($element['#original_link']['expanded']==1){
+    $element['#localized_options']['html'] = TRUE;
+    $output = l($element['#title'].' <span class="arrow-down"></span>', $element['#href'], $element['#localized_options']);
+  } 
+  else 
+    $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  
+  if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
+    $element['#attributes']['class'][] = 'active';
+  }
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
 function gftheme_process_page(&$vars) {
   //прячем заголовок если стоит галочка в ноде
   if(isset($vars['node']) && isset($vars['node']->field_hide_title['und'][0]['value'])){
@@ -37,50 +67,28 @@ function gftheme_preprocess_page(&$vars) {
     //$item_count = l('<span class="icon_cart_alt"></span><span class="item-count">'.$item_count.'</span>', 'cart', array('html' => TRUE));   
     $vars['cart_items_count'] = $item_count;
   }
+  
+  //language dropdown
   $block = module_invoke('locale', 'block_view', 'language');
   $vars['language_dropdown_block'] =  render($block['content']);
-
-  if(module_exists('tb_megamenu')) {
-    $vars['catalog_menu'] = theme('tb_megamenu', array('menu_name' => 'menu-catalog-menu'));
-  } 
-}
-
-/*
-function gftheme_menu_tree__menu_catalog_menu(&$vars) {
-  return '<ul>' . $variables['tree'] . '</ul>';
-}
-*/
-
-function gftheme_preprocess_tb_megamenu_nav(&$vars) {
-  $items = $vars['items'];
-  $level = $vars['level'];
-  $lis = array();
-  foreach ($items as $item) {
-    if (!$item['link']['hidden']) {
-      $lis[] = theme('tb_megamenu_item', array(
-        'menu_name' => $vars['menu_name'],
-        'level' => $level + 1,
-        'item' => $item,
-        'menu_config' => $vars['menu_config'],
-        'block_config' => $vars['block_config'],
-        'trail' => $vars['trail'],
-        'section' => $vars['section'],
-      ));
-    }
-  }
-  $vars['lis'] = implode("\n", $lis);
-  $vars['classes_array'][] = "level-" . $level;
-  $vars['classes_array'][] = "items-" . count($items);
-  foreach($vars['classes_array'] as $key => $value) {
-    if ($value == 'nav') {
-      unset($vars['classes_array'][$key]);
-    }
-  }
+  
+  //catalog menu tree
+  $menu_catalog_menu = module_exists('i18n_menu') ? i18n_menu_translated_tree('menu-catalog-menu') : menu_tree('menu-catalog-menu');
+  
+  //main menu tree
+  $main_menu_tree = module_exists('i18n_menu') ? i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu')) : menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+  
+  // show menu based on current path
+  $current_path = drupal_get_path_alias();
+  if(drupal_match_path($current_path,'shop') || drupal_match_path($current_path,'shop/*') || drupal_match_path($current_path,'model/*')) $vars['main_menu_nav'] = drupal_render($menu_catalog_menu);
+    else $vars['main_menu_nav'] = drupal_render($main_menu_tree);
+  
 }
 
 function gftheme_form_alter(&$form, &$form_state, $form_id) {
 
 }
 
+// другие препроцесс функции
 include 'node-preprocess.inc';
 include 'preprocess_views_view_fields.inc';
