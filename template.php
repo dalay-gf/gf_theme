@@ -37,8 +37,8 @@ function gftheme_menu_link(array $variables) {
     unset($element['#below']['#theme_wrappers']);
     $sub_menu = '<ul>' . drupal_render($element['#below']) . '</ul>';
   }
-  
-  if($element['#original_link']['expanded']==1){
+ // dpm($element['#original_link']);
+  if($element['#original_link']['expanded']==1 && $element['#original_link']['has_children']==1){
     $element['#localized_options']['html'] = TRUE;
     $output = l($element['#title'].' <span class="arrow-down"></span>', $element['#href'], $element['#localized_options']);
   } 

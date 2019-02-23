@@ -307,13 +307,16 @@ ul.nav-menu li{
   margin:0;
   border-bottom:solid 1px #e7e8e8;
   list-style-image: none;
-  list-style-type: none;  
+  list-style-type: none; 
+    
 }
 ul.nav-menu li:last-child,
 #main-menu li.last{
   border:0;
 }
 ul.nav-menu li a{
+  position:relative;
+  display: block;
   color:#333;
 }
 ul.nav-menu li a:hover{
@@ -322,6 +325,10 @@ ul.nav-menu li a:hover{
 ul.nav-menu ul{
   margin:0 -15px;
   background:#fafafa;
+  display:none;
+}
+ul.nav-menu li.open ul{
+  display:block;
 }
 ul.nav-menu li ul li{
   font-size:13px;
@@ -329,6 +336,18 @@ ul.nav-menu li ul li{
 }
 ul.nav-menu li ul li a{
   color:#111;
+}
+ul.nav-menu li.open > a .arrow-down {
+  transform: rotate(180deg);
+}
+ul.nav-menu li a .arrow-down {
+  display: block;
+  width: 47px;
+  height: 42px;
+  background: url(../images/arrow-down.png) no-repeat center center;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /* search */
@@ -638,11 +657,11 @@ svg g.rotate:hover .st1{
   margin:0 auto;
 }
 .view-products img:hover{
-    -webkit-transform: scale(1.09) translateZ(0);
-    -moz-transform: scale(1.09) translateZ(0);
-    -o-transform: scale(1.09) translateZ(0);
-    -ms-transform: scale(1.09) translateZ(0);
-    transform: scale(1.09) translateZ(0);
+  -webkit-transform: scale(1.09) translateZ(0);
+  -moz-transform: scale(1.09) translateZ(0);
+  -o-transform: scale(1.09) translateZ(0);
+  -ms-transform: scale(1.09) translateZ(0);
+  transform: scale(1.09) translateZ(0);
 }
 .view-products .ru-in-stock,
 .view-products .cn-in-stock,
@@ -750,7 +769,7 @@ svg g.rotate:hover .st1{
 }
 .item-list .pager li{
   display:inline-block;
-  margin:0 10px 0 0;
+  margin:0 10px 10px 0;
   background:#8b8a8a;
   color:#fff;
 }
@@ -1063,6 +1082,7 @@ svg g.rotate:hover .st1{
     order:2;
     width:100%;
     text-align:center;
+    overflow:visible;
   }
   .not-front #navigation{
     flex-grow:2;
@@ -1073,7 +1093,7 @@ svg g.rotate:hover .st1{
     text-align:left;
   }
   #navigation .nav-menu{
-    margin:0;
+    margin:0 0 -14px;
     padding:0;
     list-style-type: none;
     display:block;
@@ -1085,19 +1105,56 @@ svg g.rotate:hover .st1{
     border:0;
     display:inline-block;
     margin:0 6px;
+    position:relative;
+  }
+  #navigation .nav-menu > li{
+    padding:0 0 14px;
   }
   #navigation .nav-menu > li:first-child{
     margin:0 6px 0 0;
   }
   #navigation .nav-menu li ul{
     display:none;
+    position:absolute;
+    top:42px;
+    left:0;
+    margin:0;
+    padding:15px 0;
+    border:solid 1px #ececec;
+    border-top:solid 2px #000;
+    background:#fff;
   }
+  #navigation .nav-menu li:hover ul{
+    display:block;
+  }
+   #navigation .nav-menu li ul li{
+    text-transform: none;
+    display:block;
+    white-space:nowrap;
+    margin:0;
+  }  
   #sub-main-menu.nav-menu,
   .mobile-language,
   .mobile-menu{
     display:none;
   }
-  
+  ul.nav-menu li > a{
+    padding:0 12px 0 0;
+  }
+  ul.nav-menu li > a .arrow-down{
+    width: 10px;
+    height: 10px;
+    top:10px;
+    background: url(../images/trio-black-down.png) no-repeat center center;
+  }
+  ul.nav-menu li:hover > a .arrow-down{
+    transform: rotate(180deg);
+    top: unset;
+    bottom: -16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
   .not-front #navigation .search-outer .form-text{
     border:0;
     border-bottom:solid 1px #000;
