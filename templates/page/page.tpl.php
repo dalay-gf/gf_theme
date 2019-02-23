@@ -107,7 +107,8 @@
       
       
       <div id="navigation">
-      <?php //if(drupal_match_path('',)): ?>
+      <?php $current_path = drupal_get_path_alias();
+      if(drupal_match_path($current_path,'shop') || drupal_match_path($current_path,'shop/*') || drupal_match_path($current_path,'model/*')): ?>
         <?php if ($main_menu): ?>
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links')))); ?>
           <?php
@@ -123,7 +124,7 @@
             <?php endif;?>
           </ul>
           <?php endif; ?>
-        <?php// endif; ?>
+        <?php endif; ?>
           <?php //print $catalog_menu; ?>
       </div> <!-- /#navigation -->
         
