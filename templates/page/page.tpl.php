@@ -76,6 +76,25 @@
 <div id="page">
   <header class="header">
     <div class="container">
+      <div class="flex">
+        <div class="language-top">
+          <div class="language-title"><?php print t('language').':'; ?></div>
+          <div class="language-languages"><?php print $language_dropdown_block;  ?></div>
+          <div class="language-trio"></div>
+        </div>
+        <div class="header-user-area">
+          <?php if (user_is_logged_in()):?>
+            <div class="logged-in">
+              <span data-icon="&#xe037;"></span><?php print l(t('Settings'),'user');?><span  data-icon="&#xe000;"></span><?php print l(t('Log out'),'user/logout');?>
+            </div>
+            <?php else :?>      
+              <div class="log-out">
+                <span data-icon="&#x7e;"></span><?php print l(t('Log In'),'user');?><span data-icon="&#x6c;"></span><?php print l(t('Register'),'user/register');?>
+              </div>
+          <?php endif;?>
+             <div class="socialki"><a class="fb" href="#" data-icon="&#xe0aa;"></a><a class="inst" href="#" data-icon="&#xe0b1;"></a><a class="youtube" href="#" data-icon="&#xe0ba;"></a><div class="cart-top"><?php print l('<span class="icon_cart_alt"></span><span class="item-count gf-cart-items-count">'.$uc_cart_items_counter.'</span>', 'cart', array('html' => TRUE)); ?></div></div>
+        </div>
+      </div>
       <?php print render($page['header']); ?>
     </div>
   </header> <!-- /.header -->
@@ -89,7 +108,7 @@
         <span class="close-btn"></span>
       </button>
       <div class="mobile-cart">
-        <?php print $cart_items_count; ?>
+        <?php print l('<span class="icon_cart_alt"></span><span class="item-count gf-cart-items-count">'.$uc_cart_items_counter.'</span>', 'cart', array('html' => TRUE)); ?>
       </div>      
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">

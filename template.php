@@ -2,8 +2,8 @@
 
 // Коэффициент для расчета цен, рекомендуемых для розницы.
 define('GF_RETAIL_PRICE_COEFFICIENT', 2.5);
-
 function gftheme_preprocess_html(&$vars) {
+
   $path = drupal_get_path_alias();
   $aliases = explode('/', $path);
 
@@ -56,6 +56,7 @@ function gftheme_process_page(&$vars) {
 }
 
 function gftheme_preprocess_page(&$vars) {
+  /*
   if(module_exists('uc_cart')) { 
     $item_count = count(uc_cart_get_contents());
     if( $item_count > 0 ) $item_count = l('<span class="icon_cart_alt"></span><span class="item-count">'.$item_count.'</span>', 'cart', array('html' => TRUE));
@@ -64,6 +65,7 @@ function gftheme_preprocess_page(&$vars) {
     //$item_count = l('<span class="icon_cart_alt"></span><span class="item-count">'.$item_count.'</span>', 'cart', array('html' => TRUE));   
     $vars['cart_items_count'] = $item_count;
   }
+  */
   
   //language dropdown
   $block = module_invoke('locale', 'block_view', 'language');
