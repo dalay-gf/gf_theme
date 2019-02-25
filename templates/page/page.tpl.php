@@ -110,7 +110,7 @@
         <ul id="sub-main-menu" class="nav-menu">
           <?php if (user_is_logged_in()):?>
             <li><?php print l(t('Settings'),'user');?></li>
-            <li><?php print l(t('Log out'),'logout');?></li>
+            <li><?php print l(t('Log out'),'user/logout');?></li>
             <?php else :?>      
                <li><?php print l(t('Log In'),'user');?></li>
                <li><?php print l(t('Register'),'user/register');?></li>

@@ -75,7 +75,6 @@
  */
 ?>
 
-<?php drupal_add_js(drupal_get_path('theme', 'stability_sub') . '/js/jquery.equalheights.min.js'); ?>
 
 <?php if(isset($content['field_hide_title'][0]['#markup']) && $content['field_hide_title'][0]['#markup'] != 'Hide'): ?>
   <div class="title-accent">

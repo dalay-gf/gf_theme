@@ -358,12 +358,20 @@ ul.nav-menu li a .arrow-down {
   background:#fff;
   border:solid 1px #ddd;
   margin:0 15px 0 0;
+  padding:0 15px;
+  text-align:left;
 }
 #block-views-exp-search-results-page.open{
   display:block;
 }
 #block-views-exp-search-results-page input.form-text{
   border:solid 1px #eee;
+}
+#block-views-exp-search-results-page .views-exposed-form label{
+  margin:0 0 5px;
+}
+#block-views-exp-search-results-page .views-exposed-form .views-exposed-widget .form-submit{
+  margin:20px 0 0;
 }
 
 /* breadcrumb */
@@ -627,7 +635,7 @@ svg g.rotate:hover .st1{
   margin:50px -15px 50px;
 }
 .view-products .row{
-  margin:0 -15px 105px;
+  margin:0 0 105px;
   padding:0 15px;
   font-family:'Montserrat';  
 }
@@ -760,6 +768,26 @@ svg g.rotate:hover .st1{
 .view-products .views-exposed-form .bef-select-as-links a{
   color:rgb(126, 127, 128);
 }
+.view-products .view-footer .btn,
+.view-products .view-footer .btn.btn-primary{
+  background:#8b8a8a;
+  border-color:#8b8a8a;
+  padding: 0.5em;
+  margin:0 10px 10px 0;
+  border-radius:0;
+  color:#fff;
+  height:auto;
+}
+.view-products .view-footer hr{
+  color:#000;
+  border: solid 1px #000;
+  margin:0 0 12px;
+}
+#block-block-43 .btn.btn-primary {
+  background:#8b8a8a;
+  border-color:#8b8a8a;
+  border-radius:0;
+}
 
 /* pager */
 .item-list .pager{
@@ -776,6 +804,37 @@ svg g.rotate:hover .st1{
 .item-list .pager li a{
   color:#fff;
 }
+
+/* node product */
+.node img{
+  height:auto;
+}
+/*
+.owl-carousel {
+	width: calc(100% - 170px);
+}
+.owl-carousel div {
+	width: 100%;
+}
+.owl-carousel .owl-controls .owl-dot {
+	background-size: cover;
+	margin-top: 10px;
+}
+.owl-carousel .owl-dots {
+	position: absolute;
+	top: 0;
+	right: -170px;
+	width: 150px;
+	height: 100%;
+}
+.owl-carousel .owl-dot {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  width:135px;
+  height:112px;    
+}
+*/
 
 
 /* footer */
@@ -1163,7 +1222,15 @@ svg g.rotate:hover .st1{
     color:#7b7a7a;
     background:url(../images/search.png) no-repeat right 0; 
   }
-  
+  #block-views-exp-search-results-page{
+    top:122px;
+  }
+  #block-views-exp-search-results-page .views-exposed-form .views-exposed-widget .form-submit {
+    margin: 25px 0 0;
+  }
+  .view-products .row{
+    margin:0 -15px 105px;
+  }
   .trio-bg svg{
     margin:0 auto;
     background:#fff;

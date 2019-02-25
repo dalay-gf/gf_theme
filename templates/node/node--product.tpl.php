@@ -50,23 +50,32 @@ if ($discount_percent) {
 <?php hide($content['field_antiprice']);?>
 
 <div id="node-<?php print $node->nid; ?>" class="row <?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="col-md-6 <?php if(!$adaptive_enabled){print ' col-xs-6';}; ?>">
-    <!-- Project Slider -->
-    <?php if ((isset($content["field_discount"][0]) and $content["field_discount"][0]["#markup"] != "0%") or $extra_10) : ?>
-      <span class="onsale"><?php print '-' . $discount_percent . '%';?></span>
-    <?php endif;?>
-    <div class="owl-carousel owl-theme owl-slider thumbnail">
-      <?php foreach(element_children($content['uc_product_image']) as $key): ?>
-        <div class="item">
-          <?php print render($content['uc_product_image'][$key]); ?>
-        </div>
-      <?php endforeach; ?>
+  <div class="columns">
+    <div class="column col-6 col-xs-12">
+      <!-- Project Slider -->
+      <?php if ((isset($content["field_discount"][0]) and $content["field_discount"][0]["#markup"] != "0%") or $extra_10) : ?>
+        <span class="onsale"><?php print '-' . $discount_percent . '%';?></span>
+      <?php endif;?>
+      <div class="owl-carousel owl-theme owl-slider thumbnail">
+        <?php foreach(element_children($content['uc_product_image']) as $key): ?>
+          <div class="item" data-thumb='<?php print render($content['uc_product_image'][$key]); ?>'>
+            <?php print render($content['uc_product_image'][$key]); ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
+      <!-- Project Slider / End -->
+    <?php print render($content['field_main_description']); ?>
+    
     </div>
-    <!-- Project Slider / End -->
-    <div class="spacer lg"></div>
+    <div class="column col-6 col-xs-12">
+    
+    </div>
   </div>
-  <div class="col-md-6 <?php if(!$adaptive_enabled){print ' col-xs-6';}; ?>">
-
+  
+  
+  
+  
+  <div>
     <?php if (!$is_gross) :?>
       <div class="tabs">
         <ul class="nav nav-tabs">
@@ -196,7 +205,7 @@ if ($discount_percent) {
                 </div>
               </div>
             </div>
-            <?php print render($content['field_main_description']); ?>
+            
             <div class="row">
               <div class="col-sm-12">
                 <hr>
