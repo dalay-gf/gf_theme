@@ -27,6 +27,13 @@ function gftheme_preprocess_node(&$variables) {
     $variables['is_publicator'] = user_has_role(13);
     $variables['is_manager'] = user_has_role(5);
     $variables['is_creator'] = user_has_role(8);
+    
+    $is_admin = user_has_role(3);
+    $is_publicator = user_has_role(13);
+    $is_manager = user_has_role(5);
+    $is_creator = user_has_role(8);
+    $seller_limited_access = user_has_role(10);
+    
     $variables['is_man_sadovod'] = $is_man_sadovod;
     $variables['is_opt_sadovod'] = $is_opt_sadovod;
     $variables['current_region'] = $current_region;
@@ -83,23 +90,23 @@ function gftheme_preprocess_node(&$variables) {
     }
     else $ru_stock = '';    
     
-    // show cart form for node if stock > 0 and node have add_to_cart form
-    //dpm($current_region);
-    // dpm($node->gf_region_stock[$current_region]);
+    // show cart form for node if stock > 0 and node have add_to_cart form for allowed roles
 
-    
-    if (isset($variables['content']['add_to_cart']) && 
-        isset($node->gf_region_stock[$current_region]) && 
-        $node->gf_region_stock[$current_region] > 0 &&
-        $node->gf_region_stock[$current_region] != NULL &&
-        $order_price){
-      unset($variables['content']['add_to_cart']['#form']['qty']['#title']);
-      $variables['content']['add_to_cart']['#form']['qty']['#attributes']['class'] = array('qty', 'text', 'input-text');
-      $variables['content']['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="-" class="minus small-input-button">';
-      $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="+" class="plus small-input-button"></div>';
-      $add_to_cart_by_region = render($variables['content']['add_to_cart']);
+    if (user_is_logged_in() && !$seller_limited_access){
+      if (isset($variables['content']['add_to_cart']) && 
+          isset($node->gf_region_stock[$current_region]) && 
+          $node->gf_region_stock[$current_region] > 0 &&
+          $node->gf_region_stock[$current_region] != NULL &&
+          $order_price){
+        unset($variables['content']['add_to_cart']['#form']['qty']['#title']);
+        $variables['content']['add_to_cart']['#form']['qty']['#attributes']['class'] = array('qty', 'text', 'input-text');
+        $variables['content']['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="-" class="minus small-input-button">';
+        $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="+" class="plus small-input-button"></div>';
+        $add_to_cart_by_region = render($variables['content']['add_to_cart']);
+      }
+      else $add_to_cart_by_region = '';
     }
-    else $add_to_cart_by_region = '';
+    else $add_to_cart_by_region = l(t('Show price'), 'user/register', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('from' => 'show-price')));
     
     $variables['cn_stock'] = $cn_stock;
     $variables['ru_stock'] = $ru_stock;

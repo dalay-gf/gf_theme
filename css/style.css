@@ -8,6 +8,11 @@ body{
   color:#7e7f80;
   overflow-x:hidden; 
 }
+body.model{
+  margin:0;
+  font-weight:normal;
+  display:block;
+}
 *{
   box-sizing:border-box;
 }

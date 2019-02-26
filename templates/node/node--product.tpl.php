@@ -60,8 +60,8 @@ if ($discount_percent) {
     </div>
     <div class="column col-6 col-sm-12">
       <div class="select-warehouse">
-        <div class="ru-stock"></div>
-        <div class="cn-stock"></div>
+        <div class="ru-stock"><?php print t('Warehouse').' '.t('Russia').':'; ?><br/><?php print $ru_stock; ?></div>
+        <div class="cn-stock"><?php print t('Warehouse').' '.t('China').':'; ?><br/><?php print $cn_stock; ?></div>
       </div>
       <div class="sku"><?php print t('SKU:').' '.$node->model; //????????????????????????????????????????????????? or  $content['field_main_sku']['#items'][0]['value'] ?></div> 
       
