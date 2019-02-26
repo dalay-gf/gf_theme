@@ -69,28 +69,49 @@ function gftheme_preprocess_node(&$variables) {
       $other_retail_price = $retail_price_cn;
     }
 
-    // вывод остатков на складах по ролям
-    if (isset($node->gf_region_stock[GF_STOCK_REGION_CN])){
-      $cn_stock = $node->gf_region_stock[GF_STOCK_REGION_CN];
+    /***********************************************************************************************/
+    
+    // показываем остатки и цены залогиненым юзерам и изерам не имеющим ограниченную роль
+    if (user_is_logged_in() && !$seller_limited_access){
+
+      if (isset($node->gf_region_stock[GF_STOCK_REGION_CN])){
+        $cn_stock_value = $node->gf_region_stock[GF_STOCK_REGION_CN];
+        
+        if($cn_stock_value === 0 || $cn_stock_value == NULL) $cn_stock = '&#10007;';
+        else{
+          $cn_stock = $price_cn.$variables['currency_symbol'][GF_STOCK_REGION_CN].' / '.$cn_stock_value;
+          if(!$is_creator && !$is_manager && !$is_publicator && !$is_admin && $cn_stock_value >= 10) 
+             $cn_stock = $price_cn.$variables['currency_symbol'][GF_STOCK_REGION_CN].' / '.'&gt;10';
+        }
+      }
+      else $cn_stock = '&#10007;'; 
       
-      if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
-        if($cn_stock >= 10) $cn_stock = '&gt;10';
-        if($cn_stock === 0 || $cn_stock == NULL) $cn_stock = '&#10007;';           
+      if (isset($node->gf_region_stock[GF_STOCK_REGION_RU])){
+        $ru_stock_value = $node->gf_region_stock[GF_STOCK_REGION_RU];
+        
+        if($ru_stock_value === 0 || $ru_stock_value == NULL) $ru_stock = '&#10007;';
+        else{
+          $ru_stock = $price_ru.$variables['currency_symbol'][GF_STOCK_REGION_RU].' / '.$ru_stock_value;
+          if(!$is_creator && !$is_manager && !$is_publicator && !$is_admin && $ru_stock_value >= 10) 
+             $ru_stock = $price_ru.$variables['currency_symbol'][GF_STOCK_REGION_RU].' / '.'&gt;10';
+        }
+      }
+      else $ru_stock = '&#10007;'; 
+      
+      // формируем переменные для вывода цены в шаблон на основе региона
+      if($current_region == GF_STOCK_REGION_CN && $price_cn > 0){
+        $reg_price = $price_cn.$variables['currency_symbol'][GF_STOCK_REGION_CN];
+        $rrt_retail_price = round($retail_price_cn).$variables['currency_symbol'][GF_STOCK_REGION_CN];
+      }
+      if($current_region == GF_STOCK_REGION_RU && $price_ru > 0){
+        $reg_price = $price_ru.$variables['currency_symbol'][GF_STOCK_REGION_RU];
+        $rrt_retail_price = ($price_ru) ? ($price_ru * GF_RETAIL_PRICE_COEFFICIENT) : 0;
+        $rrt_retail_price = $rrt_retail_price.$variables['currency_symbol'][GF_STOCK_REGION_RU];        
       }
     }
-    else $cn_stock = '';
-
-    if (isset($node->gf_region_stock[GF_STOCK_REGION_RU])){
-      $ru_stock = $node->gf_region_stock[GF_STOCK_REGION_RU];
-      
-      if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
-        if($ru_stock >= 10) $ru_stock = '&gt;10';
-        if($ru_stock === 0 || $ru_stock == NULL) $ru_stock = '&#10007;';      
-      }    
-    }
-    else $ru_stock = '';    
     
-    // show cart form for node if stock > 0 and node have add_to_cart form for allowed roles
+    
+    // выводим корзину только если остатки для склада больше 0 и юзер залогинен и не имеет ограниченную роль
 
     if (user_is_logged_in() && !$seller_limited_access){
       if (isset($variables['content']['add_to_cart']) && 
@@ -108,10 +129,17 @@ function gftheme_preprocess_node(&$variables) {
     }
     else $add_to_cart_by_region = l(t('Show price'), 'user/register', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('from' => 'show-price')));
     
-    $variables['cn_stock'] = $cn_stock;
-    $variables['ru_stock'] = $ru_stock;
     
-    $variables['add_to_cart_by_region'] = $add_to_cart_by_region;    
+    if(isset($cn_stock)) $variables['cn_stock'] = $cn_stock;
+    if(isset($ru_stock)) $variables['ru_stock'] = $ru_stock;
+    
+    if(isset($add_to_cart_by_region)) $variables['add_to_cart_by_region'] = $add_to_cart_by_region;
+    
+    if(isset($reg_price)) $variables['reg_price'] = $reg_price;
+    if(isset($rrt_retail_price)) $variables['rrt_retail_price'] = $rrt_retail_price;    
+
+    
+    /****************************************************************************************************/
     
     $variables['other_region'] = $other_region; 
 

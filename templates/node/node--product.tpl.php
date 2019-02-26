@@ -35,6 +35,7 @@ if ($discount_percent) {
   $discount_coefficient = 1;
 }
 
+
 ?>
 
 
@@ -42,7 +43,7 @@ if ($discount_percent) {
 
 <div id="node-<?php print $node->nid; ?>" class="row <?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="columns">
-    <div class="column col-6 col-sm-12">
+    <div class="column col-6 col-md-12">
       <!-- Project Slider -->
       <?php if ((isset($content["field_discount"][0]) and $content["field_discount"][0]["#markup"] != "0%") or $extra_10) : ?>
         <span class="onsale"><?php print '-' . $discount_percent . '%';?></span>
@@ -58,31 +59,66 @@ if ($discount_percent) {
     <?php print render($content['field_main_description']); ?>
     
     </div>
-    <div class="column col-6 col-sm-12">
+    <div class="column col-6 col-md-12 col-padding-left-60"> 
       <div class="select-warehouse">
-        <div class="ru-stock"><?php print t('Warehouse').' '.t('Russia').':'; ?><br/><?php print $ru_stock; ?></div>
-        <div class="cn-stock"><?php print t('Warehouse').' '.t('China').':'; ?><br/><?php print $cn_stock; ?></div>
+        <div class="stock ru-stock <?php print ($current_region == 'Russia')? 'active':''; ?>">
+          <?php print l( t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>',
+                        'gf_stock/region_switch/Russia', 
+                        array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); 
+          ?>
+        </div>
+        <div class="stock cn-stock <?php print ($current_region == 'China')? 'active':''; ?>">
+          <?php print l( t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>',
+                        'gf_stock/region_switch/China', 
+                        array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); ?>
+        </div>
       </div>
-      <div class="sku"><?php print t('SKU:').' '.$node->model; //????????????????????????????????????????????????? or  $content['field_main_sku']['#items'][0]['value'] ?></div> 
+      <div class="sku"><?php print t('SKU:').' '.$node->model; ?></div> 
       
       <div class="available-colors">
         <div class="sub-title"><?php print t('Color').': '; ?></div>
         <?php print views_embed_view('groupped_catalog', 'page', $content['field_main_sku']['#items'][0]['value']); ?>
       </div>
       
-      <div class="ru-warehouse-product-values">
-        <?php print $add_to_cart_by_region; ?>
+      <div class="warehouse-product-prices columns">
+        <?php if(isset($reg_price)): ?>
+          <div class="prices col-5 col-lg-6 col-sm-12">
+            <div class="reg-price price-text"><?php print t('Wholesale price ').':'; ?></div>
+            <div class="reg-price price-value"><?php print $reg_price; ?></div>
+          <?php endif; ?>
+          <?php if(isset($rrt_retail_price)): ?>
+            <div class="retail-price price-text"><?php print t('Retail price ').':'; ?></div>
+            <div class="retail-price price-value"><?php print $rrt_retail_price; ?></div>
+          </div>
+        <?php endif; ?>
+        <div class="col-5 col-lg-6 col-sm-12"><?php print $add_to_cart_by_region; ?></div>
       </div>
       
-      <div class="cn-warehouse-product-values">
-                <div class="region-selector"> <?php
-                  $region_selector_block = block_load('gf_stock', 'gf_stock_region_switch');
-                  $renderable_region_selector_block = _block_get_renderable_array(_block_render_blocks(array($region_selector_block)));
-                  $rs_output = drupal_render($renderable_region_selector_block);
-                  print $rs_output;
-                  ?>
-                </div>
-      </div>   
+      <?php if ($is_publicator or $is_admin):?>
+        <div class="request-price-change">
+        <?php
+         $anchor_content = t('Request price change');
+         $anchor_path = 'node/89336';
+         print l($anchor_content, $anchor_path, ['attributes' => ['class' => 'colorbox-node', 'data-inner-height' => '50%', 'data-inner-width' => '50%'], 'query' => [drupal_get_destination(), 'nid' => $nid, 'region'=>$current_region, 'price'=>$order_price, 'model'=>$model], 'html' => TRUE]);
+        ?>
+       </div>
+     <?php endif; ?>
+      
+     <?php if ($is_manager && $is_creator) : ?>
+        <div class="request-price-change">
+          <a class="tab" id="ofp-tab-header" data-toggle="tab" href="#tab-order">
+            <?php
+              $totalSum =  views_embed_view('orders_for_production', 'block', $content['field_main_sku']['#items'][0]['value']);
+              print t('Order for Production');
+              print '<br><span class="tab-price">';
+              if ($order_price) {print $order_price;}
+              if ($order_price && ($totalSum > 0)) {print '</span>';}
+              if ($totalSum > 0) {print $totalSum;}
+              ?>
+          </a>
+       </div>
+     <?php endif; ?>
+          
       
       <div class="tabs product-description">
         <ul class="tabs__caption">
