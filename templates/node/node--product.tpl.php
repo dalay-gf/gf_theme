@@ -1,14 +1,5 @@
 <?php
 
-unset($content['add_to_cart']['#form']['qty']['#title']);
-$content['add_to_cart']['#form']['qty']['#attributes']['class'] = array('qty', 'text', 'input-text');
-$content['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="-" class="minus small-input-button">';
-$content['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="+" class="plus small-input-button"></div>';
-/* $content['add_to_cart']['#form']['actions']['submit']['#value'] = '&#xf218;';*/
-
-?>
-<?php
-
 /*
 Автодобавление в корзину при переходе по ссылке из мобильного приложения-сканера
 */
@@ -80,11 +71,17 @@ if ($discount_percent) {
       </div>
       
       <div class="ru-warehouse-product-values">
-        
+        <?php print $add_to_cart_by_region; ?>
       </div>
       
       <div class="cn-warehouse-product-values">
-
+                <div class="region-selector"> <?php
+                  $region_selector_block = block_load('gf_stock', 'gf_stock_region_switch');
+                  $renderable_region_selector_block = _block_get_renderable_array(_block_render_blocks(array($region_selector_block)));
+                  $rs_output = drupal_render($renderable_region_selector_block);
+                  print $rs_output;
+                  ?>
+                </div>
       </div>   
       
       <div class="tabs product-description">

@@ -62,6 +62,50 @@ function gftheme_preprocess_node(&$variables) {
       $other_retail_price = $retail_price_cn;
     }
 
+    // вывод остатков на складах по ролям
+    if (isset($node->gf_region_stock[GF_STOCK_REGION_CN])){
+      $cn_stock = $node->gf_region_stock[GF_STOCK_REGION_CN];
+      
+      if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
+        if($cn_stock >= 10) $cn_stock = '&gt;10';
+        if($cn_stock === 0 || $cn_stock == NULL) $cn_stock = '&#10007;';           
+      }
+    }
+    else $cn_stock = '';
+
+    if (isset($node->gf_region_stock[GF_STOCK_REGION_RU])){
+      $ru_stock = $node->gf_region_stock[GF_STOCK_REGION_RU];
+      
+      if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
+        if($ru_stock >= 10) $ru_stock = '&gt;10';
+        if($ru_stock === 0 || $ru_stock == NULL) $ru_stock = '&#10007;';      
+      }    
+    }
+    else $ru_stock = '';    
+    
+    // show cart form for node if stock > 0 and node have add_to_cart form
+    //dpm($current_region);
+    // dpm($node->gf_region_stock[$current_region]);
+
+    
+    if (isset($variables['content']['add_to_cart']) && 
+        isset($node->gf_region_stock[$current_region]) && 
+        $node->gf_region_stock[$current_region] > 0 &&
+        $node->gf_region_stock[$current_region] != NULL &&
+        $order_price){
+      unset($variables['content']['add_to_cart']['#form']['qty']['#title']);
+      $variables['content']['add_to_cart']['#form']['qty']['#attributes']['class'] = array('qty', 'text', 'input-text');
+      $variables['content']['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="-" class="minus small-input-button">';
+      $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="+" class="plus small-input-button"></div>';
+      $add_to_cart_by_region = render($variables['content']['add_to_cart']);
+    }
+    else $add_to_cart_by_region = '';
+    
+    $variables['cn_stock'] = $cn_stock;
+    $variables['ru_stock'] = $ru_stock;
+    
+    $variables['add_to_cart_by_region'] = $add_to_cart_by_region;    
+    
     $variables['other_region'] = $other_region; 
 
 

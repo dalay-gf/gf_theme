@@ -75,17 +75,17 @@ $page['content']['#prefix'] = $messages . render($tabs);
 <div class="site-wrapper">
   
   <?php
-    $header_version = arg(0) == 'home' && arg(1) == 'header' ? arg(2) : theme_get_setting('header');
-    include "headers/header-{$header_version}.tpl.php";
+    //$header_version = arg(0) == 'home' && arg(1) == 'header' ? arg(2) : theme_get_setting('header');
+    //include "headers/header-{$header_version}.tpl.php";
   ?>
 
   <div class="main" role="main">
 
     <?php 
-      if(!$is_front && arg(0) != 'home') {
-        $sub_header_version = arg(2) == 'sub-header' ? arg(3) : theme_get_setting('sub_header');
-        include 'sub-headers/sub-header-' . ($sub_header_version ? $sub_header_version : 1) . '.tpl.php';
-      } ?>
+      //if(!$is_front && arg(0) != 'home') {
+      //  $sub_header_version = arg(2) == 'sub-header' ? arg(3) : theme_get_setting('sub_header');
+      //  include 'sub-headers/sub-header-' . ($sub_header_version ? $sub_header_version : 1) . '.tpl.php';
+     // } ?>
     <?php if ($page["content"]["system_main"]["cart_form"]["items"][0]["data"]["#value"]) : ?>
     <div class="container">
       <div class="spacer"></div>
