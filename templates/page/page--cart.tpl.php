@@ -1,13 +1,11 @@
 <?php
 
 /**
-*error_reporting(E_ALL);
-*ini_set('display_errors', 1);
-*/
-
-/**
  * @file
  * Default theme implementation to display a single Drupal page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.tpl.php template in this directory.
  *
  * Available variables:
  *
@@ -15,7 +13,7 @@
  * - $base_path: The base URL path of the Drupal installation. At the very
  *   least, this will always default to /.
  * - $directory: The directory the template is located in, e.g. modules/system
- *   or themes/garland.
+ *   or themes/bartik.
  * - $is_front: TRUE if the current page is the front page.
  * - $logged_in: TRUE if the user is registered and signed in.
  * - $is_admin: TRUE if the user has permission to access administration pages.
@@ -59,6 +57,7 @@
  *
  * Regions:
  * - $page['help']: Dynamic help text, mostly for admin pages.
+ * - $page['highlighted']: Items for the highlighted content region.
  * - $page['content']: The main content of the current page.
  * - $page['sidebar_first']: Items for the first sidebar.
  * - $page['sidebar_second']: Items for the second sidebar.
@@ -68,75 +67,149 @@
  * @see template_preprocess()
  * @see template_preprocess_page()
  * @see template_process()
+ * @see html.tpl.php
+ *
+ * @ingroup themeable
  */
-$page['content']['#prefix'] = $messages . render($tabs);
 ?>
 
-<div class="site-wrapper">
-  
-  <?php
-    //$header_version = arg(0) == 'home' && arg(1) == 'header' ? arg(2) : theme_get_setting('header');
-    //include "headers/header-{$header_version}.tpl.php";
-  ?>
-
-  <div class="main" role="main">
-
-    <?php 
-      //if(!$is_front && arg(0) != 'home') {
-      //  $sub_header_version = arg(2) == 'sub-header' ? arg(3) : theme_get_setting('sub_header');
-      //  include 'sub-headers/sub-header-' . ($sub_header_version ? $sub_header_version : 1) . '.tpl.php';
-     // } ?>
-    <?php if ($page["content"]["system_main"]["cart_form"]["items"][0]["data"]["#value"]) : ?>
+<div id="page">
+  <header class="header">
     <div class="container">
-      <div class="spacer"></div>
-      <?php
-      $item_data = unserialize($page["content"]["system_main"]["cart_form"]["items"][0]["data"]["#value"]);
-      print '<h3>Ваш заказ будет отправлен со склада "' . t($item_data["region_stock"]) . '"</h3>'; ?>
-    </div>
-    <?php endif; ?>
-    <?php
-      if(function_exists('nikadevs_cms_page_layout') && variable_get('nikadevs_cms_layout_' . variable_get('theme_default', 'stability'), array()) != array()):
-        print nikadevs_cms_page_layout(array('page' => $page, 'messages' => $messages, 'tabs' => $tabs));
-      else: ?>
-      <?php print render($page['top']); ?>    
-      
-      <section class="page-content">
-        <div class="container contextual-links-region">
-
-        <?php print render($page['content_top']); ?>  
-        
-        <div class = "row">
-          <div class = "col-md-12">
-            <?php print render($page['content']); ?>
-          </div>
-          <div class = "col-md-12">
-            <?php print render($page['sidebar']); ?>
-          </div>
+      <div class="flex">
+        <div class="language-top">
+          <div class="language-title"><?php print t('language').':'; ?></div>
+          <div class="language-languages"><?php print $language_dropdown_block;  ?></div>
+          <div class="language-trio"></div>
         </div>
-
-        <?php print render($page['bottom']); ?>  
-        </div>
-      </section>
-      
-      <?php print render($page['footer']); ?>
-    <?php endif;?>
-
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-md-6">
-            <?php if(theme_get_setting('copyright')) {
-              print theme_get_setting('copyright');
-            }
-            else {
-              print t('Copyright') . ' &copy; ' . t('2005-') . date('Y'); ?>  <a href="#"><?php print strtoupper(variable_get('site_name', 'STABILITY')); ?></a> &nbsp;| &nbsp; <?php print t('All rights reserved');
-            }; ?>
-          </div>
+        <div class="header-user-area">
+          <?php if (user_is_logged_in()):?>
+            <div class="logged-in">
+              <span data-icon="&#xe037;"></span><?php print l(t('Settings'),'user');?><span  data-icon="&#xe000;"></span><?php print l(t('Log out'),'user/logout');?>
+            </div>
+            <?php else :?>      
+              <div class="log-out">
+                <span data-icon="&#x7e;"></span><?php print l(t('Log In'),'user');?><span data-icon="&#x6c;"></span><?php print l(t('Register'),'user/register');?>
+              </div>
+          <?php endif;?>
+             <div class="socialki"><a class="fb" href="#" data-icon="&#xe0aa;"></a><a class="inst" href="#" data-icon="&#xe0b1;"></a><a class="youtube" href="#" data-icon="&#xe0ba;"></a><div class="cart-top"><?php print l('<span class="icon_cart_alt"></span><span class="item-count gf-cart-items-count">'.$uc_cart_items_counter.'</span>', 'cart', array('html' => TRUE)); ?></div></div>
         </div>
       </div>
+      <?php print render($page['header']); ?>
     </div>
-  </div>
+  </header> <!-- /.header -->
+  
+  <nav class="logo-navigation">
+    <div class="container flex">
+      <button class="mobile-menu">            
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar last"></span>
+        <span class="close-btn"></span>
+      </button>
+      <div class="mobile-cart">
+        <?php print l('<span class="icon_cart_alt"></span><span class="item-count gf-cart-items-count">'.$uc_cart_items_counter.'</span>', 'cart', array('html' => TRUE)); ?>
+      </div>      
+      <?php if ($logo): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+          <?php if(drupal_get_path_alias() == 'opt'): ?><img class="opt" src="<?php print base_path().path_to_theme().'/images/logo-opt.svg'; ?>" alt="<?php print t('Home Wholesale'); ?>" />      <?php else: ?> <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php endif; ?>
+        </a>
+      <?php endif; ?>
+      
+      <div class="mobile-language">
+        <div class="icon_globe-2 change-language"></div>
+        <?php print $language_dropdown_block;  ?>
+      </div>
+      
+      <div class="mobile-search-icon"><div data-icon="&#x55;"></div></div>
+           
+      <div id="navigation">
+        <?php print $main_menu_nav; ?>
+        <ul id="sub-main-menu" class="nav-menu">
+          <?php if (user_is_logged_in()):?>
+            <li><?php print l(t('Settings'),'user');?></li>
+            <li><?php print l(t('Log out'),'user/logout');?></li>
+            <?php else :?>      
+               <li><?php print l(t('Log In'),'user');?></li>
+               <li><?php print l(t('Register'),'user/register');?></li>
+          <?php endif;?>
+        </ul>
+         
+      </div> <!-- /#navigation -->
+        
+      
+    </div>
+    <div class="container">
+      <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
+    </div>  
+  </nav>
+  
+  <?php if ($page['highlighted']): ?>
+    <section class="highlighted container-fluid">
+      <?php print render($page['highlighted']); ?>
+    </section>
+  <?php endif; ?>
+  
+  <?php if ($page['directions']): ?>
+    <section class="directions">
+      <div class="container">
+        <?php print render($page['directions']); ?>
+      </div>
+    </section>        
+  <?php endif; ?>
+  
+  <section id="about-company" class="about-company content container">
+  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+    <?php print $messages; ?> 
+    <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+    <?php print render($page['help']); ?>
+    <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+    <a id="main-content"></a>
+    <?php print render($title_prefix); ?>
+    <?php print render($title_suffix); ?>
+   
+    <?php print render($page['content']); ?>  
+  </section>
+  
+  <?php if ($page['brands']): ?>
+    <section id="brands" class="brands">
+      <div class="container">  
+        <?php print render($page['brands']); ?>
+      </div>
+    </section>
+  <?php endif; ?>
 
-</div>
-
-
+  <?php if ($page['assortment']): ?>
+    <section id="assortment" class="assortment">
+      <div class="container">  
+        <?php print render($page['assortment']); ?>
+      </div>
+    </section>       
+  <?php endif; ?>
+  
+  <?php if ($page['lookbook']): ?>
+    <section id="lookbook" class="lookbook">
+      <div class="container-fluid"> 
+        <?php print render($page['lookbook']); ?>
+      </div>
+    </section>    
+  <?php endif; ?>
+  
+  <?php if ($page['prefooter']): ?>
+    <section id="prefooter" class="prefooter">
+      <div class="container">
+        <?php print render($page['prefooter']); ?>
+      </div>
+    </section> <!-- /#footer -->
+  <?php endif; ?> 
+  
+  <?php if ($page['footer']): ?>
+    <footer id="footer">
+      <div class="container">
+        <?php print render($page['footer']); ?>
+      </div>
+    </footer> <!-- /#footer -->
+  <?php endif; ?>
+  
+</div> <!-- /#page -->

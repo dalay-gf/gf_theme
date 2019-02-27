@@ -38,7 +38,7 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
   <div class="show-on-hover">
     <?php if($is_new):?> <span class="new"></span> <?php endif; ?>
     
-    <?php if ($discount_coefficient < 1.0): ?>
+    <?php if ($discount_coefficient < 1.0): ?> 
     <a href="<?php print url('model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content); ?>">
           <span class="onsale">
             <?php print '-' . $discount_percent . '%'; ?>
@@ -91,7 +91,7 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
             <div class="addtocartlink">
               <?php ($row->_field_data["nid"]["entity"]->gf_region_stock[$current_code]) ? print $addtocartlink : print '<span class="no-code"></span>'; ?>
             </div>
-            <?php else: ?><?php print $not_avaible_text; ?>
+            <?php else: ?><p><?php print $not_avaible_text; ?></p>
           <?php endif; ?>
         <?php endif; ?>
     </div>

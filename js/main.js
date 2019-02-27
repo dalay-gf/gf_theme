@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
   
   $('.quantity [type="button"]').click(function() {
     var $qty = $(this).parent().find('.qty');
-    var new_value = parseInt($qty.val()) + ($(this).val() == '◄' ? -1 : +1);
+    var new_value = parseInt($qty.val()) + (($(this).val() == '◄' || $(this).val() == '-') ? -1 : +1);
     $qty.val(new_value < 1 ? 1 : new_value);
   });  
   
