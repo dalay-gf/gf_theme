@@ -80,7 +80,7 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
           <?php endif; ?>
         <?php endif; ?>
         
-        <?php //показываем оптовую цену всем залогиненным кроме $seller_limited_access ?>
+        <?php //dpm($curr_reg_price); //показываем оптовую цену всем залогиненным кроме $seller_limited_access ?>
         
         <?php if(user_is_logged_in() && !$seller_limited_access): ?>
           <?php if($curr_reg_price): ?>

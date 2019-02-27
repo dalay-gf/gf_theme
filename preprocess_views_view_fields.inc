@@ -29,7 +29,7 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $current_region = $_SESSION['gf_stock_region'];
     
     // поле количества на складе по регионам есть в ноде, а поля цены по складу нету(хотя она совпадает ???? с ценой забитой в ноде), можно было бы выводить без доп полей для вьюса
-
+    //dpm($row);
     $ru_price = isset($row->gf_stock_prices_region_russia) ? round($row->gf_stock_prices_region_russia) : 0;
     $cn_price = isset($row->gf_stock_prices_region_china) ? round($row->gf_stock_prices_region_china): 0;
 
@@ -80,7 +80,9 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $vars['current_code'] = $current_region;
     $vars['symbol'] = ($current_region == GF_STOCK_REGION_CN) ? 
       '<i class="fa fa-cny" aria-hidden="true"></i>' : '<i class="fa fa-rub" aria-hidden="true"></i>';
-
+//dpm($current_region);
+//dpm($cn_price);
+//dpm($ru_price);
     $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
     $vars['retail_price'] = ($current_region == GF_STOCK_REGION_CN) ? round($retail_price / $yuan_to_rub_rate) : $retail_price;
     $vars['cn_stock'] = $cn_stock;

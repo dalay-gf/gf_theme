@@ -62,13 +62,17 @@ if ($discount_percent) {
     <div class="column col-6 col-md-12 col-padding-left-60"> 
       <div class="select-warehouse">
         <div class="stock ru-stock <?php print ($current_region == 'Russia')? 'active':''; ?>">
-          <?php print l( t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>',
+          <?php 
+            /*if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>';
+            else */print l( t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>',
                         'gf_stock/region_switch/Russia', 
                         array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); 
           ?>
         </div>
         <div class="stock cn-stock <?php print ($current_region == 'China')? 'active':''; ?>">
-          <?php print l( t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>',
+          <?php 
+            /*if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>';
+            else */print l( t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>',
                         'gf_stock/region_switch/China', 
                         array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); ?>
         </div>
@@ -91,8 +95,9 @@ if ($discount_percent) {
             <div class="retail-price price-value"><?php print $rrt_retail_price; ?></div>
           </div>
         <?php endif; ?>
-        <div class="price-text"><?php print t('Count').':'; ?></div>
-        <div class="col-5 col-lg-6 col-sm-12"><?php print $add_to_cart_by_region; ?></div>
+        <div class="col-5 col-lg-6 col-sm-12">          
+          <?php print $add_to_cart_by_region; ?>
+        </div>
       </div>
       
       <?php if ($is_publicator or $is_admin):?>
@@ -156,13 +161,25 @@ if ($discount_percent) {
           </div> 
         </div>
         <div class="tabs__content product-delivery">
-            Содержимое 2 блока
+          <ul>
+            <li>Доставка по Москве (Курьером 300 рублей). При покупке 5000 рублей - бесплатно)</li>
+            <li>Доставка по России (Курьером 400 рублей). При покупке 5000 рублей - бесплатно)</li>
+            <li>Самовывоз из магазинов розничной сети *</li>
+          </ul>
+          <div class="more"><?php print l('Подробнее о доставке','opt'); ?></div>
+
         </div>
         <div class="tabs__content product-payment">
-            Содержимое 3 блока
+          <ul>
+            <li>СБанковской картой Visa/Mastercard</li>
+            <li>Наличными курьеру</li>
+            <li>По безналичному расчету (для юридических лиц)</li>
+          </ul>
+          <div class="more"><?php print l('Подробнее об оплате','opt'); ?></div>   
+
         </div>
         <div class="tabs__content product-warranty">
-            Содержимое 4 блока
+           <p>Наш интернет-магазин работает в строгом соответствии с Законом. <br/> В соответствии с п.6 ст.18 ФЗ «О защите прав потребителей» гарантийный срок на кожгалантерею составляет 30 дней со дня покупки. </p>
         </div>        
       </div>
     </div>

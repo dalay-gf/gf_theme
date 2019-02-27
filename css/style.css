@@ -874,10 +874,11 @@ svg g.rotate:hover .st1{
 .owl-carousel .owl-nav button.owl-prev{
   font-size:40px;
   margin:0 0 0 15px;
+  color:#000;
 }
 .owl-carousel .owl-nav button.owl-next.disabled, 
 .owl-carousel .owl-nav button.owl-prev.disabled{
-  color:#eee;
+  color:#888;
 }
 
 /* tabs */
@@ -942,6 +943,11 @@ svg g.rotate:hover .st1{
 	border-radius: 0 5px 5px 5px;
 	padding: 7px 15px 7px 0;
   color:#666666;
+  font-size:15px;
+}
+.tabs__content a{
+  color:#000;
+  text-decoration:underline;
 }
 .tabs__content.active {
 	display: block;
@@ -1055,9 +1061,13 @@ svg g.rotate:hover .st1{
 .select-warehouse .stock a{
   color:#a3a2a2;
 }
+.select-warehouse .stock.active{
+  color:#333;
+}
 .select-warehouse .stock.active a{
   color:#000;
 }
+.select-warehouse .stock span,
 .select-warehouse .stock a span{
   display:block;
 }
@@ -1070,6 +1080,7 @@ svg g.rotate:hover .st1{
 .node-product .warehouse-product-prices{
   margin:0 0 62px;
 }
+.node-product .count-text,
 .node-product .reg-price,
 .node-product .retail-price{
   font-size:17px;
@@ -1087,7 +1098,7 @@ svg g.rotate:hover .st1{
   font-size:42px;
 }
 .node-product .add-to-cart{
-  padding:38px 0 0;
+  /*padding:38px 0 0;*/
 }
 .node-product .add-to-cart form > div{
   display:flex;
@@ -1129,16 +1140,20 @@ svg g.rotate:hover .st1{
   width:168px;
   height:48px;
   font-size:19px;
-  font-weight:500;
+  font-weight:bold;
   border:solid 1px #333333;
-  background:#f7f7f7 url(../images/trio-black-right.png) no-repeat 122px 14px;
+  background:#fff url(../images/trio-black-right.png) no-repeat 122px 14px;
   margin:12px 0 0;
   padding:0 0 0 32px;
   text-align:left;
   cursor:pointer;
+  -webkit-filter: invert(100%); /* Safari 6.0 - 9.0 */
+  filter: invert(100%); 
+  text-transform:uppercase;  
 }
 .node-product .add-to-cart form .form-actions .form-submit:hover{
-  background:#eee url(../images/trio-black-right.png) no-repeat 122px 14px;
+  -webkit-filter: invert(0); /* Safari 6.0 - 9.0 */
+  filter: invert(0);
 }
 .node-product .request-price-change{
   margin:40px 0;
@@ -1147,7 +1162,6 @@ svg g.rotate:hover .st1{
   display:none;
 }
 .node-product table td{
-  font-size:15px;
   background:#fff;
 }
 
