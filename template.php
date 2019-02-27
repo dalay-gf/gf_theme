@@ -89,7 +89,7 @@ function gftheme_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /* эта функция сдесь лишняя - от старой темы */
-
+/*
 function _get_node_field($node, $field, $lang = 'en') {
   global $language;
   $var = FALSE;
@@ -104,7 +104,7 @@ function _get_node_field($node, $field, $lang = 'en') {
   }
   return $var;
 }
-
+*/
 
 // другие препроцесс функции
 include 'node-preprocess.inc';

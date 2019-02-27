@@ -91,6 +91,7 @@ if ($discount_percent) {
             <div class="retail-price price-value"><?php print $rrt_retail_price; ?></div>
           </div>
         <?php endif; ?>
+        <div class="price-text"><?php print t('Count').':'; ?></div>
         <div class="col-5 col-lg-6 col-sm-12"><?php print $add_to_cart_by_region; ?></div>
       </div>
       

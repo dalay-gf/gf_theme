@@ -121,8 +121,8 @@ function gftheme_preprocess_node(&$variables) {
           $order_price){
         unset($variables['content']['add_to_cart']['#form']['qty']['#title']);
         $variables['content']['add_to_cart']['#form']['qty']['#attributes']['class'] = array('qty', 'text', 'input-text');
-        $variables['content']['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="-" class="minus small-input-button">';
-        $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="+" class="plus small-input-button"></div>';
+        $variables['content']['add_to_cart']['#form']['qty']['#prefix'] = '<div class="quantity"><input type="button" value="&#9668;" class="minus small-input-button">';
+        $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="&#9658;" class="plus small-input-button"></div>';
         $add_to_cart_by_region = render($variables['content']['add_to_cart']);
       }
       else $add_to_cart_by_region = '';
