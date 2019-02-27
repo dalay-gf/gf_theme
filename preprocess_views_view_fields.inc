@@ -27,7 +27,8 @@ function gftheme_preprocess_views_view_fields(&$vars) {
       $_SESSION['gf_stock_region'] = GF_STOCK_REGION_RU;
     }
     $current_region = $_SESSION['gf_stock_region'];
-    //dpm($current_region); // для китайского языка Russia выводит ?
+    
+    // поле количества на складе по регионам есть в ноде, а поля цены по складу нету(хотя она совпадает ???? с ценой забитой в ноде), можно было бы выводить без доп полей для вьюса
 
     $ru_price = isset($row->gf_stock_prices_region_russia) ? round($row->gf_stock_prices_region_russia) : 0;
     $cn_price = isset($row->gf_stock_prices_region_china) ? round($row->gf_stock_prices_region_china): 0;
@@ -35,14 +36,11 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $retail_price = round($ru_price * GF_RETAIL_PRICE_COEFFICIENT);
     $yuan_to_rub_rate = variable_get('gf_stock_yuan_exchange_rate', 1);
     
-    //dpm(GF_RETAIL_PRICE_COEFFICIENT);  //  тут есть значение ?
-    //dpm($ru_price);
-    //dpm($retail_price);
-    //dpm($row);
+    $key = key($row->_field_data);
     
     // вывод остатков на складах по ролям
-    if (isset($row->_field_data["nid"]["entity"]->gf_region_stock[GF_STOCK_REGION_CN])){
-      $cn_stock = $row->_field_data["nid"]["entity"]->gf_region_stock[GF_STOCK_REGION_CN];
+    if (isset($row->_field_data[$key]["entity"]->gf_region_stock[GF_STOCK_REGION_CN])){
+      $cn_stock = $row->_field_data[$key]["entity"]->gf_region_stock[GF_STOCK_REGION_CN];
       
       if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
         if($cn_stock >= 10) $cn_stock = '&gt;10';
@@ -51,8 +49,8 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     }
     else $cn_stock = '';
 
-    if (isset($row->_field_data["nid"]["entity"]->gf_region_stock[GF_STOCK_REGION_RU])){
-      $ru_stock = $row->_field_data["nid"]["entity"]->gf_region_stock[GF_STOCK_REGION_RU];
+    if (isset($row->_field_data[$key]["entity"]->gf_region_stock[GF_STOCK_REGION_RU])){
+      $ru_stock = $row->_field_data[$key]["entity"]->gf_region_stock[GF_STOCK_REGION_RU];
       
       if (!$is_creator && !$is_manager && !$is_publicator && !$is_admin) {
         if($ru_stock >= 10) $ru_stock = '&gt;10';

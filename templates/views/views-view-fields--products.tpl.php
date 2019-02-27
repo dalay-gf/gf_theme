@@ -68,6 +68,8 @@ if ($discount_percent) {
   <div class="project-desc">
     <h4 class="title"><a href="<?php print url('model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content); ?>"><?php print $fields['model']->raw; ?></a></h4>
     <div class="price">
+        <?php //показываем ретейл цену всем ?>
+        
         <?php if(!user_is_logged_in() or $is_creator or $is_manager or $is_publicator or $is_admin or $seller_limited_access): ?>
           <?php if ($retail_price) : ?>
             <div class="amount retail-amount">
@@ -75,6 +77,8 @@ if ($discount_percent) {
             </div>
           <?php endif; ?>
         <?php endif; ?>
+        
+        <?php //показываем оптовую цену всем залогиненным кроме $seller_limited_access ?>
         
         <?php if(user_is_logged_in() && !$seller_limited_access): ?>
           <?php if($curr_reg_price): ?>
