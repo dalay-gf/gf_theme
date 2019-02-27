@@ -10,22 +10,24 @@ $anchor_path = 'model/' . $fields['field_main_sku']->content . '/' . $fields['ni
 
 
 /* Скидки */
-if (count($row->_field_data["nid"]["entity"]->field_discount) > 0) {
-  $raw_discount_value = $fields["field_discount"]->content;
-  $discount_percent = substr($raw_discount_value, 0, strpos($raw_discount_value, '%'));
-  $discount = TRUE;
-}
+if(isset($row->_field_data["nid"]["entity"]->field_discount)){
+  if (count($row->_field_data["nid"]["entity"]->field_discount) > 0) {
+    $raw_discount_value = $fields["field_discount"]->content;
+    $discount_percent = substr($raw_discount_value, 0, strpos($raw_discount_value, '%'));
+    $discount = TRUE;
+  }
 
-if ($discount and $extra_10) {
-  $discount_percent += 10;
-} elseif ($extra_10) {
-  $discount_percent = 10;
-}
+  if ($discount and $extra_10) {
+    $discount_percent += 10;
+  } elseif ($extra_10) {
+    $discount_percent = 10;
+  }
 
-if ($discount_percent) {
-  $discount_coefficient = 1.0 - $discount_percent / 100;
-} else {
-  $discount_coefficient = 1;
+  if ($discount_percent) {
+    $discount_coefficient = 1.0 - $discount_percent / 100;
+  } else {
+    $discount_coefficient = 1;
+  }
 }
 // Выделяем "новый" товар(если он опубликован не позже, чем 2 месяца назад).
    $is_new = ((REQUEST_TIME - (int) $fields['created']->content) < (60*60*60*60));

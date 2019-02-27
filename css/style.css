@@ -837,7 +837,7 @@ svg g.rotate:hover .st1{
 }
 .owl-stage-outer{
   /*width:74.5393%;*/
-  border:solid 1px #e6e6e6;
+  /*border:solid 1px #e6e6e6;*/
   
 }
 .owl-carousel .owl-item img{
@@ -1102,7 +1102,8 @@ svg g.rotate:hover .st1{
 .node-product .add-to-cart form .quantity div.form-item,
 .node-product .add-to-cart form .quantity input.small-input-button{
   height:34px;
-  border:solid 1px #000;
+  /*border:solid 1px #000;*/
+  border:0;
   width:40px;
   background:#fff;
   font-weight:bold;
@@ -1143,6 +1144,7 @@ svg g.rotate:hover .st1{
   margin:40px 0;
   padding:20px;
   border:solid 1px #00d300;
+  display:none;
 }
 .node-product table td{
   font-size:15px;
