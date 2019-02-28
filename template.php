@@ -86,9 +86,9 @@ function gftheme_preprocess_page(&$vars) {
 
 function gftheme_form_alter(&$form, &$form_state, $form_id) {
  if ($form_id=='uc_cart_view_form'){
-   //dpm($form);
    $form['items']['#prefix'] = '<div class="table-outer"><div class="cart-page-header"><span>'.t('Customer cart').'</span></div>';
    $form['actions']['#prefix'] = '</div>';
+   $form['actions']['checkout']['checkout']['#value'] = str_replace('→','',$form['actions']['checkout']['checkout']['#value']);
    $form['items']['#columns']['remove']['weight'] = -1; 
  }
 }
