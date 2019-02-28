@@ -79,13 +79,18 @@ function gftheme_preprocess_page(&$vars) {
   
   // show menu based on current path
   $current_path = drupal_get_path_alias();
-  if(drupal_match_path($current_path,'shop') || drupal_match_path($current_path,'shop/*') || drupal_match_path($current_path,'model/*')) $vars['main_menu_nav'] = drupal_render($menu_catalog_menu);
+  if(drupal_match_path($current_path,'shop') || 
+     drupal_match_path($current_path,'shop/*') || 
+     drupal_match_path($current_path,'model/*')||
+     drupal_match_path($current_path,'novelty/*')
+     ) $vars['main_menu_nav'] = drupal_render($menu_catalog_menu);
     else $vars['main_menu_nav'] = drupal_render($main_menu_tree);
   
 }
 
 function gftheme_form_alter(&$form, &$form_state, $form_id) {
  if ($form_id=='uc_cart_view_form'){
+   //dpm($form);
    $form['items']['#prefix'] = '<div class="table-outer"><div class="cart-page-header"><span>'.t('Customer cart').'</span></div>';
    $form['actions']['#prefix'] = '</div>';
    $form['actions']['checkout']['checkout']['#value'] = str_replace('→','',$form['actions']['checkout']['checkout']['#value']);
@@ -95,16 +100,16 @@ function gftheme_form_alter(&$form, &$form_state, $form_id) {
 
 function gftheme_tapir_table_alter(&$table, $table_id) { 
   if ($table_id == 'uc_cart_view_table') { 
-  //dpm($table);
     foreach (element_children($table) as $key) {
       if (!empty($table[$key]['remove']['#value'])) $table[$key]['remove']['#value'] = '╳';
-      //dpm($key);
+      if (!empty($table[$key]['qty']['#prefix'])) $table[$key]['qty']['#prefix'] = '<div class="quantity"><input type="button" value="&#9660;" class="minus small-input-button">';
+      if (!empty($table[$key]['qty']['#suffix'])) $table[$key]['qty']['#suffix'] = '<input type="button" value="&#9650;" class="plus small-input-button"></div>';
     } 
   } 
 } 
 
 /* эта функция сдесь лишняя - от старой темы */
-
+/*
 function _get_node_field($node, $field, $lang = 'en') {
   global $language;
   $var = FALSE;
@@ -119,9 +124,7 @@ function _get_node_field($node, $field, $lang = 'en') {
   }
   return $var;
 }
-
-/*
-
+*/
 function gftheme_uc_cart_review_table($variables) {
   $items = $variables['items'];
   $show_subtotal = $variables['show_subtotal'];
@@ -231,7 +234,7 @@ function gftheme_uc_cart_checkout_review($variables) {
 
   return $output;
 }
-*/
+
 
 // другие препроцесс функции
 include 'node-preprocess.inc';

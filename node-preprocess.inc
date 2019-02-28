@@ -116,7 +116,7 @@ function gftheme_preprocess_node(&$variables) {
     if (user_is_logged_in() && !$seller_limited_access){
       if (isset($variables['content']['add_to_cart']) && 
           isset($node->gf_region_stock[$current_region]) && 
-          $node->gf_region_stock[$current_region] > 0 &&
+          $node->gf_region_stock[$current_region] > 0 && 
           $node->gf_region_stock[$current_region] != NULL &&
           $order_price){
         unset($variables['content']['add_to_cart']['#form']['qty']['#title']);
