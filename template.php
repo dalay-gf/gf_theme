@@ -10,6 +10,12 @@ function gftheme_preprocess_html(&$vars) {
   foreach($aliases as $alias) {
     $vars['classes_array'][] = drupal_clean_css_identifier($alias);
   } 
+  
+}
+
+function gftheme_css_alter(&$css) {
+  // Disable standart css from ubercart
+  unset($css[drupal_get_path('module', 'uc_payment') . '/uc_payment.css']);
 }
 
 function gftheme_breadcrumb($vars) {
@@ -82,6 +88,7 @@ function gftheme_preprocess_page(&$vars) {
   if(drupal_match_path($current_path,'shop') || 
      drupal_match_path($current_path,'shop/*') || 
      drupal_match_path($current_path,'model/*')||
+     drupal_match_path($current_path,'cart/*')||
      drupal_match_path($current_path,'novelty/*')
      ) $vars['main_menu_nav'] = drupal_render($menu_catalog_menu);
     else $vars['main_menu_nav'] = drupal_render($main_menu_tree);
@@ -108,23 +115,6 @@ function gftheme_tapir_table_alter(&$table, $table_id) {
   } 
 } 
 
-/* эта функция сдесь лишняя - от старой темы */
-/*
-function _get_node_field($node, $field, $lang = 'en') {
-  global $language;
-  $var = FALSE;
-  if(isset($node->{$field}[$lang]) && !empty($node->{$field}[$lang])) {
-      $var = $node->{$field}[$lang];
-  } elseif(isset($node->{$field}[$language->language]) && !empty($node->{$field}[$language->language])) {
-      $var = $node->{$field}[$language->language];
-  } elseif(isset($node->{$field}['und']) && !empty($node->{$field}['und'])) {
-      $var = $node->{$field}['und'];
-  } elseif(isset($node->{$field}) && !empty($node->{$field})) {
-      $var = $node->{$field};
-  }
-  return $var;
-}
-*/
 function gftheme_uc_cart_review_table($variables) {
   $items = $variables['items'];
   $show_subtotal = $variables['show_subtotal'];
