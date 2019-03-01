@@ -15,6 +15,7 @@ function gftheme_preprocess_html(&$vars) {
 
 function gftheme_css_alter(&$css) {
   // Disable standart css from ubercart
+  //unset($css[drupal_get_path('module', 'uc_cart') . '/uc_cart.css']);
   unset($css[drupal_get_path('module', 'uc_payment') . '/uc_payment.css']);
 }
 
@@ -176,10 +177,10 @@ function gftheme_uc_cart_checkout_review($variables) {
 
   $output = '<div id="review-instructions">' . filter_xss_admin(variable_get('uc_checkout_review_instructions', uc_get_message('review_instructions'))) . '</div>';
 
-  $output .= '<table class="order-review-table">';
+  $output .= '<div class="order-review-table">';
 
   foreach ($panes as $title => $data) {
-    $output .= '<tr class="pane-title-row">';
+    $output .= '<table><tr class="pane-title-row">';
     $output .= '<td colspan="2">' . $title . '</td>';
     $output .= '</tr>';
     if (is_array($data)) {
@@ -216,11 +217,9 @@ function gftheme_uc_cart_checkout_review($variables) {
     }
   }
 
-  $output .= '<tr class="review-button-row">';
-  $output .= '<td colspan="2">' . drupal_render($form) . '</td>';
-  $output .= '</tr>';
-
   $output .= '</table>';
+  $output .= '<div class="review-buttons">' . drupal_render($form) . '</div';
+  $output .= '</div>';
 
   return $output;
 }
