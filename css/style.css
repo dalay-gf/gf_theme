@@ -116,12 +116,37 @@ table td{
 table img{
   max-width:unset;
 }
-select{
+label{
+  max-width: 100%;
+}
+input.form-text {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  background-image: none;
+  border: solid 1px #888888;
+  color: #888;
+  display: block;
+  font-size: .8rem;
+  height: 1.8rem;
+  line-height: 1.2rem;
+  max-width: 100%;
+  outline: 0;
+  padding: .25rem .4rem;
+  position: relative;
+  transition: background .2s,border .2s,box-shadow .2s,color .2s;
+  width: 100%;
+}
+select.form-select{
+  border: solid 1px #888888;
+  border-radius:0;
+  color:#888;
+}
+.form-select:focus {
+  border-color:#bcc3ce;
+}
 
-}
-input{
-  outline:0;
-}
 input.form-submit{
   color:#333;
   border:solid 1px #333;
@@ -143,7 +168,14 @@ input.form-submit{
 input.form-submit:hover{
   background-color:#a1a5a9;
 }
-
+.form-type-radio label, 
+.form-type-checkbox label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
 input[type="radio"][disabled],
 input[type="checkbox"][disabled], 
 input[type="radio"].disabled, 
@@ -152,7 +184,8 @@ fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"] {
   cursor: not-allowed;
 }
-.form-type-radio{
+.form-type-radio,
+.form-type-checkbox{
   position: relative;
   display: block;
 }
@@ -164,19 +197,14 @@ fieldset[disabled] input[type="checkbox"] {
   line-height: normal;
   min-height:unset;
 }
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner, 
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-label{
-  max-width: 100%;
-}
-.form-type-radio label, .checkbox label {
-  min-height: 20px;
-  padding-left: 20px;
-  margin-bottom: 0;
-  font-weight: normal;
-  cursor: pointer;
+button:focus,
+input{
+  outline:0;
 }
 fieldset {
   position: relative;
@@ -221,7 +249,6 @@ fieldset:hover legend a{
 .fieldset-legend span.summary{
   display:none;
 }
-
 fieldset table th{
   white-space :nowrap;
   color:#333;
@@ -247,11 +274,6 @@ fieldset table tr td{
 }
 fieldset table tr td a{
   color:#333;
-}
-
-
-.form-select:focus {
-  border-color:#bcc3ce;
 }
 
 .container{
@@ -400,7 +422,6 @@ nav.logo-navigation .flex{
   color:#333;
   font-weight:500;
 }
-
 .mobile-menu {
   width: 29px;
   background-color: transparent;
@@ -410,7 +431,6 @@ nav.logo-navigation .flex{
   display: block;
   cursor:pointer;
 }
-button:focus {outline:0;}
 
 .mobile-menu .icon-bar {
   display: block;
@@ -582,6 +602,57 @@ svg g.rotate:hover{
 svg g.rotate:hover .st1{
   /*display:none;*/
 }
+/* login */
+#login-message{
+  margin: 20px 0 30px;
+  font-size: 20px;
+  color: #3c3950;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+#login-links{
+  border-bottom: solid 1px #e6e6e6;
+  margin:0 0 30px;
+}
+#login-links a{
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color:#a3a2a2;
+  padding: 15px 15px 15px;
+  display:inline-block;
+  font-family: 'Montserrat', sans-serif;
+  border: solid 1px #e6e6e6;
+  border-bottom:0;
+}
+#login-links #login-link{
+  margin: 0 0 0 5px;
+}
+#login-links a.lt-active {
+  color: #000;
+}
+.toboggan-unified{
+  margin:0 0 40px;
+}
+.toboggan-unified label{
+  font-family: 'Montserrat', sans-serif;
+  margin:0 0 10px;
+  color:#333;
+}
+.toboggan-unified .description{
+  margin:5px 0;
+}
+.toboggan-unified fieldset {
+  padding:15px;
+}
+.toboggan-unified .fieldset-wrapper {
+    padding: 0;
+}
+.page-user-register h3{
+  text-transform:none;
+  line-height:normal;
+}
+
 /* directions */
 .directions{
   padding:14px 0 0;  
@@ -1574,12 +1645,14 @@ svg g.rotate:hover .st1{
 }
 
 /* checkout cart */
+.uc-cart-checkout-form{
+  margin:25px 0;
+}
 .uc-cart-checkout-form,
 .uc-cart-checkout-form fieldset table tr td{
   color:#000;
   font-weight:600;
 }
-
 .uc-cart-checkout-form #cart-pane table tr td:first-child{
   color:#999999;
 }
@@ -1646,7 +1719,7 @@ svg g.rotate:hover .st1{
   padding:0;
 }
 .uc-cart-checkout-form #delivery-pane table tr td.field-label{
-  margin:5px 0 0;
+  margin:10px 0 0;
 }
 .uc-cart-checkout-form #delivery-pane table tr td input.form-text{
   width:100%;
@@ -1681,6 +1754,8 @@ svg g.rotate:hover .st1{
   border:0;
   font-family: 'Montserrat', sans-serif;
   font-weight:600;
+  font-size: inherit;
+  line-height: inherit;  
 }
 .order-review-table table{
   border:solid 2px #e5e5e5;
@@ -1699,9 +1774,13 @@ svg g.rotate:hover .st1{
 .order-review-table td br{
   display:none;
 }
+.order-review-table > table:nth-child(1) td{
+  padding:0;
+}
 .order-review-table > table:nth-child(2) td,
 .order-review-table > table:nth-child(3) td {
-  width:50%;  
+  width:50%;
+  white-space:normal;
 }
 .order-review-table .pane-title-row {
   border:0;
@@ -1727,9 +1806,13 @@ svg g.rotate:hover .st1{
 }
 .order-review-table .title-col {
   font-weight:600;
+  padding:20px 10px 20px 10px;
+}
+.order-review-table .data-col {
+  padding:20px 10px 20px 10px;
 }
 .order-review-table .cart-review tr td {
-  padding: 20px 18px 20px 24px;
+  padding: 20px 10px 20px 10px;
   background:#fff;
   border-bottom: solid 1px #e6e6e6;
 }
@@ -1738,10 +1821,13 @@ svg g.rotate:hover .st1{
 }
 .order-review-table div.review-buttons .form-actions{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width:100%;
   margin:40px 0;
+}
+.order-review-table div.review-buttons .form-actions .form-submit{
+  margin:0 0 20px;
 }
 
 
@@ -1827,6 +1913,9 @@ svg g.rotate:hover .st1{
   #uc-cart-view-form table tr td img {
     display:block;
   }
+  .order-review-table div.review-buttons .form-actions{
+    flex-direction:row;
+  }  
 }
 
 
@@ -1854,6 +1943,9 @@ svg g.rotate:hover .st1{
   .trio-bg svg{
     margin:0 -30%;  
   }  
+  #login-links a {
+    font-size:18px;
+  }
   .directions .flex{
     display:flex;
     flex-wrap: wrap;
@@ -1926,7 +2018,12 @@ svg g.rotate:hover .st1{
     margin:0 0 0 20px;
     vertical-align:top;
   }
-  
+  .order-review-table > table:nth-child(1) td {
+    padding: 20px 18px 20px 18px;
+  }
+  .order-review-table > table:nth-child(1) tr.pane-title-row td {
+    padding:0;
+  }
   .prefooter .flex{
     display:flex;
     flex-wrap: wrap;

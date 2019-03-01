@@ -16,6 +16,7 @@ function gftheme_preprocess_html(&$vars) {
 function gftheme_css_alter(&$css) {
   // Disable standart css from ubercart
   //unset($css[drupal_get_path('module', 'uc_cart') . '/uc_cart.css']);
+  unset($css[drupal_get_path('module', 'logintoboggan') . '/logintoboggan.css']);
   unset($css[drupal_get_path('module', 'uc_payment') . '/uc_payment.css']);
 }
 
