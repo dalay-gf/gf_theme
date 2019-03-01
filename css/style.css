@@ -5,7 +5,7 @@ body{
   font-family: 'PT Sans', sans-serif;
   font-size:14px;
   line-height:1.21;
-  color:#7e7f80;
+  color:#333;
   overflow-x:hidden; 
 }
 body.model{
@@ -216,9 +216,9 @@ fieldset {
   font-family:'Montserrat', sans-serif;
 }
 .fieldset-wrapper{
-  padding:26px 0 0;
+  padding:26px 20px 20px;
 }
-fieldset:hover{
+fieldset.collapsible:hover{
   border: 2px solid #000;
 }
 legend {
@@ -229,6 +229,7 @@ legend {
   border-bottom: none;
   left: 0;
   padding: 9px 14px 9px 18px;
+  margin:0;
   border-radius: 1px 1px 0 0;
   color: #000;
   font-weight:600;
@@ -241,8 +242,8 @@ legend a{
 legend a:focus{
   text-decoration:none;
 }
-fieldset:hover legend,
-fieldset:hover legend a{
+fieldset.collapsible:hover legend,
+fieldset.collapsible:hover legend a{
   background:#000;
   color:#fff;
 }
@@ -351,6 +352,9 @@ nav.logo-navigation{
   z-index: 20;
 }
 .not-front nav.logo-navigation{
+  order:2;
+}
+.not-front .breadcrumb-outer{
   order:2;
 }
 nav.logo-navigation .flex{
@@ -662,6 +666,9 @@ svg g.rotate:hover .st1{
 .not-front .directions{
   order:6;
 }
+.not-front.page-node-47018 .directions{
+  order:4
+}
 .not-front .directions .block:first-child{
   margin:27px 0 76px;
 }
@@ -722,12 +729,17 @@ svg g.rotate:hover .st1{
 .not-front .about-company{
   order:4;
 }
+.not-front.page-node-47018 .about-company{
+  order:6
+}
 .promo-img{
   margin:0 0 8px;
 }
 .promo-text{
   border:solid 1px #c9d2d9;
   padding:5px;
+  color:#7e7f80;
+  background:#fff;
 }
 .promo-border{
   border:solid 1px #ebeef1;
@@ -1653,6 +1665,10 @@ svg g.rotate:hover .st1{
   color:#000;
   font-weight:600;
 }
+.uc-cart-checkout-form #delivery-pane .fieldset-wrapper,
+.uc-cart-checkout-form #cart-pane .fieldset-wrapper{
+  padding:26px 0 0;
+}
 .uc-cart-checkout-form #cart-pane table tr td:first-child{
   color:#999999;
 }
@@ -1674,6 +1690,7 @@ svg g.rotate:hover .st1{
 .uc-cart-checkout-form #payment-pane .fieldset-wrapper{
   display:flex;
   flex-direction:column;
+  padding:26px 0 0;
 }
 .uc-cart-checkout-form #payment-pane .fieldset-wrapper #line-items-div{
   order:2;

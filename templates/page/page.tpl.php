@@ -144,6 +144,7 @@
       <?php if ($page['navigation']): ?><?php print render($page['navigation']); ?><?php endif; ?> 
     </div>  
   </nav>
+  <?php if (!empty($breadcrumb)): ?><div class="container breadcrumb-outer"><?php print $breadcrumb; ?></div><?php endif; ?>
   
   <?php if ($page['highlighted']): ?>
     <section class="highlighted container-fluid">
@@ -160,7 +161,6 @@
   <?php endif; ?>
   
   <section id="about-company" class="about-company content container">
-  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
     <?php print $messages; ?> 
     <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
     <?php print render($page['help']); ?>
