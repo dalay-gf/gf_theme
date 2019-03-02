@@ -146,11 +146,11 @@ select.form-select{
 .form-select:focus {
   border-color:#bcc3ce;
 }
-
+.btn.btn-primary,
 input.form-submit{
   color:#333;
   border:solid 1px #333;
-  padding:12px 25px 12px 25px;
+  padding:12px 45px 12px 25px;
   position:relative;
   font-size:19px;
   font-weight:500;
@@ -162,11 +162,16 @@ input.form-submit{
   cursor:pointer;
   height:48px;
 }
-input.form-submit{
-  padding:12px 45px 12px 25px;
-}
 input.form-submit:hover{
   background-color:#a1a5a9;
+}
+.btn.btn-primary:hover{
+  border:solid 1px #333;
+  background-color:#a1a5a9;
+  background-image:url(../images/trio-black-right.png);
+  background-repeat:no-repeat;
+  background-position: right 20px top 14px;
+  color:#333;
 }
 .form-type-radio label, 
 .form-type-checkbox label {
@@ -356,6 +361,9 @@ nav.logo-navigation{
 }
 .not-front .breadcrumb-outer{
   order:2;
+}
+.not-front.opt .breadcrumb-outer{
+  order:4;
 }
 nav.logo-navigation .flex{
   display:flex;
@@ -666,8 +674,9 @@ svg g.rotate:hover .st1{
 .not-front .directions{
   order:6;
 }
-.not-front.page-node-47018 .directions{
-  order:4
+.directions.franchasing{
+  padding:0;
+  margin:0;
 }
 .not-front .directions .block:first-child{
   margin:27px 0 76px;
@@ -1021,12 +1030,12 @@ svg g.rotate:hover .st1{
 }
 .view-products .view-footer .btn,
 .view-products .view-footer .btn.btn-primary{
-  background:#8b8a8a;
-  border-color:#8b8a8a;
+  border:0;
+  background:none;
   padding: 0.5em;
   margin:0 10px 10px 0;
   border-radius:0;
-  color:#fff;
+  color:#000;
   height:auto;
 }
 .view-products .view-footer hr{
@@ -1034,10 +1043,8 @@ svg g.rotate:hover .st1{
   border: solid 1px #000;
   margin:0 0 12px;
 }
-#block-block-43 .btn.btn-primary {
-  background:#8b8a8a;
-  border-color:#8b8a8a;
-  border-radius:0;
+#block-block-43{
+  margin:-50px 0 60px;
 }
 .view-products span.new {
   width: 25px;
@@ -1221,7 +1228,7 @@ svg g.rotate:hover .st1{
 .tabs__content {
 	display: none;
 	border-radius: 0 5px 5px 5px;
-	padding: 7px 15px 7px 0;
+	padding: 7px 0 7px 0;
   color:#666666;
   font-size:15px;
 }
@@ -2322,6 +2329,10 @@ svg g.rotate:hover .st1{
     height: 602px;
     flex-wrap: wrap;
     flex-direction: column;
+  }
+  .about-company .directions .flex{
+    flex-direction: row;
+    height:auto;
   }
   .about-company .flex .img{
     order:-1;
