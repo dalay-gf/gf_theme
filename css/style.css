@@ -1202,8 +1202,9 @@ svg g.rotate:hover .st1{
 	margin: 1px 0 0 1px;
 	color: #999999;
 	position: relative;
-  font-weight:bold;
+  font-weight:600;
 	text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 .tabs__caption li:first-child{
   padding: 9px 15px 9px 0;
@@ -1225,12 +1226,28 @@ svg g.rotate:hover .st1{
 	right: 0;
 	height: 5px;
 }
+.tabs-franchasing{
+  margin:45px 0 0;
+}
+.tabs-franchasing .tabs__caption li {
+  padding:11px 24px;
+}
+.tabs-franchasing .tabs__caption .active {
+  background:#e6e6e6;
+  padding:11px 24px;
+}
+.tabs-franchasing .tabs__caption li:first-child{
+  padding: 11px 24px 11px 24px;
+}
 .tabs__content {
 	display: none;
 	border-radius: 0 5px 5px 5px;
 	padding: 7px 0 7px 0;
   color:#666666;
   font-size:15px;
+}
+.tabs-franchasing .tabs__content{
+  border:solid 2px #e6e6e6;
 }
 .tabs__content a{
   color:#000;
