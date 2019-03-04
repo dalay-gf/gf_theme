@@ -1248,6 +1248,8 @@ svg g.rotate:hover .st1{
 }
 .tabs-franchasing .tabs__content{
   border:solid 2px #e6e6e6;
+  color:#333;
+  padding:25px 20px;
 }
 .tabs__content a{
   color:#000;
