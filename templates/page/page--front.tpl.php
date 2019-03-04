@@ -123,7 +123,7 @@
           <li class="menu-front"><?php print l(t('WHOLESALE'),'opt'); ?></li>
           <li class="menu-front"><?php print l(t('FRANCHISING'),'franchising'); ?></li>
           <li class="menu-front"><?php print l(t('RETAIL STORES'),'https://giorgio-ferretti.ru/page/nashi-magaziny'); ?></li>
-          <li class="menu-front"><?php print l(t('Contacts'), '', array('fragment' =>'footer')); ?></li>
+          <li class="menu-front"><?php print l(t('Catalog'), 'shop'); ?></li>
           <li class="menu-front last"><?php print l(t('ONLINE SHOP'),'https://giorgio-ferretti.ru') ?></li>
         </ul>
 

@@ -105,6 +105,14 @@ function gftheme_form_alter(&$form, &$form_state, $form_id) {
    $form['actions']['checkout']['checkout']['#value'] = str_replace('→','',$form['actions']['checkout']['checkout']['#value']);
    $form['items']['#columns']['remove']['weight'] = -1; 
  }
+ if($form_id == 'contact_site_form'){
+   //dpm($form);
+   $blockObject = block_load('block', '45');
+   $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
+   $output = drupal_render($block);
+   $form['#prefix'] = '<div class="contacts-form-title">'.t('Send message').':</div><div class="contacts-form-outer">';
+   $form['#suffix'] = $output.'</div>';
+ }
 }
 
 function gftheme_tapir_table_alter(&$table, $table_id) { 

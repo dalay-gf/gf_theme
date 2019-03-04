@@ -116,6 +116,9 @@ table td{
 table img{
   max-width:unset;
 }
+.table-overflow{
+  overflow:auto;
+}
 label{
   max-width: 100%;
 }
@@ -695,6 +698,10 @@ svg g.rotate:hover .st1{
   margin:0 0 62px;
   color:#7f8283;
 }
+.directions h1.promo-h2{
+  margin:25px 0 -10px;
+  text-align:left;  
+}
 .directions h2.promo-h2{
   margin:25px 0 -10px;
 }
@@ -968,6 +975,8 @@ svg g.rotate:hover .st1{
 }
 .view-products .add-to-cart-link a:hover{
   background:#333;
+  color:#fff;
+  border:0;
 }
 .view-products .project-item-inner:hover .ru-in-stock,
 .view-products .project-item-inner:hover .cn-in-stock,
@@ -1116,16 +1125,10 @@ svg g.rotate:hover .st1{
   font-size:14px;
   line-height:1.3;
 }
-
 .owl-carousel {
 	position:relative;
   overflow:hidden;
   padding:0 0 0 25.7906%;  
-}
-.owl-stage-outer{
-  /*width:74.5393%;*/
-  /*border:solid 1px #e6e6e6;*/
-  
 }
 .owl-carousel .owl-item img{
   padding:10px;
@@ -1149,7 +1152,6 @@ svg g.rotate:hover .st1{
   border:0;
   background:none;
   overflow:hidden;
-  /*border:solid 1px #e6e6e6;*/
 }
 .owl-carousel .owl-thumb-item img{
   margin:0 auto; 
@@ -1246,10 +1248,22 @@ svg g.rotate:hover .st1{
   color:#666666;
   font-size:15px;
 }
+.tabs__content label{
+  margin:0 0 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+.tabs__content .description{
+  font-size:12px;
+  font-weight:600;
+  color:#767776;
+}
 .tabs-franchasing .tabs__content{
   border:solid 2px #e6e6e6;
   color:#333;
   padding:25px 20px;
+}
+.tabs-franchasing .tabs__content ol{
+  margin:-8px 0 16px 16px;
 }
 .tabs__content a{
   color:#000;
@@ -1419,7 +1433,6 @@ svg g.rotate:hover .st1{
 .node-product .add-to-cart form .quantity div.form-item,
 .node-product .add-to-cart form .quantity input.small-input-button{
   height:34px;
-  /*border:solid 1px #000;*/
   border:0;
   width:40px;
   background:#fff;
@@ -1873,6 +1886,107 @@ svg g.rotate:hover .st1{
   margin:0 0 20px;
 }
 
+/* contact */
+.view-people .team-list{
+  list-style: none;
+  margin:0 -15px;
+  display:flex;
+  flex-wrap:wrap;
+  font-family: 'Montserrat', sans-serif;
+}
+.view-people .team-list .team-item{
+  padding:0 15px;
+  margin:0;
+  width:100%;
+}
+.view-people .team-list .team-item img{
+  margin:14px auto 28px;
+  border-radius:50%;
+}
+.view-people .team-list .team-item h4{
+  color:#3c3950;
+}
+.view-people .team-list .team-item ul{
+  list-style-type: none;
+  list-style: none;
+  margin:0;
+}
+.view-people .team-list .team-item ul li,
+.view-people .team-list .team-item ul li a{
+  font-size:14px;
+  line-height:25px;
+  font-weight:bold;
+  color:#494949;
+  text-transform: uppercase;
+}
+.view-people .team-list .team-item ul li i{
+  margin:0 5px 0 0;
+}
+.contacts-form-title{
+  font-family: 'Montserrat', sans-serif;
+  font-size:17px;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin:70px 0 20px;
+}
+.contacts-form-outer{
+  display:flex;
+  flex-wrap:wrap;
+  font-family: 'Montserrat', sans-serif;
+  margin:0 0 60px;
+}
+.contacts-form-outer input.form-submit {
+  font-size:18px;
+}
+#block-block-45 h2{
+  font-size:30px;
+  line-height:51px;
+  color:#333;
+  text-transform:unset;
+  padding:0 0 5px;
+}
+#block-block-45 h2:after{
+  width:74px;
+  height:4px;
+  background:#333;
+  content: '';
+  display:block;
+}
+#block-block-45 .content hr{
+  display:none;
+}
+#block-block-45 .widget-content{
+  max-width:220px;
+  display:inline-block;
+  margin:0 46px 0 0;
+}
+.contacts-widget > .contacts-info-list{
+  display:inline-block;
+  vertical-align:top;
+  max-width:218px;
+}
+.contacts-info-list{
+  margin:0;
+  list-style-type: none;
+  list-style: none;  
+}
+.contacts-info-list li{
+  margin:0 0 16px;
+}
+.contacts-info-list i{
+  float:left;
+  margin:0 5px 0 0;
+}
+.contacts-info-list .info-item{
+  overflow:hidden;
+}
+.contacts-info-list .info-item,
+.contacts-info-list .info-item a{
+  font-size:14px;
+  font-weight:bold;
+  color:#666666;
+  vertical-align: top;
+}
 
 
 /* footer */
@@ -2066,6 +2180,16 @@ svg g.rotate:hover .st1{
   }
   .order-review-table > table:nth-child(1) tr.pane-title-row td {
     padding:0;
+  }
+  .view-people .team-list .team-item{
+    width:50%;
+  }
+  .contacts-form-outer .block{
+    width:50%;
+  }
+  #block-block-45 h2,
+  #block-block-45 .content{
+    padding:0 0 0 14%;
   }
   .prefooter .flex{
     display:flex;
@@ -2534,6 +2658,9 @@ svg g.rotate:hover .st1{
   #review-instructions{
     font-size:16px;
   }
+  .view-people .team-list .team-item{
+    width:25%;
+  }  
   .prefooter .flex{
     margin:0 -15px;
   }

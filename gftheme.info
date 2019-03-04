@@ -31,7 +31,7 @@ stylesheets[all][] = css/spectre-icons.min.css
 stylesheets[all][] = css/font-awesome.css
 stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/owl.carousel.min.css
-stylesheets[all][] = css/style.css
+stylesheets[all][] = css/style.css 
 
 scripts[] = js/owl.carousel.min.js
 scripts[] = js/owl.carousel2.thumbs.min.js
