@@ -66,6 +66,11 @@ jQuery(document).ready(function($) {
     var $qty = $(this).parent().find('.qty');
     var new_value = parseInt($qty.val()) + (($(this).val() == '◄' || $(this).val() == '-' || $(this).val() == '▼') ? -1 : +1);
     $qty.val(new_value < 1 ? 1 : new_value);
-  });  
+  });
+  
+  $('.accordion').accordion({
+    active: false,
+    collapsible: true
+  });
   
 });

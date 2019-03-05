@@ -75,6 +75,8 @@ function gftheme_preprocess_page(&$vars) {
   }
   */
   
+  drupal_add_library('system', 'ui.accordion');
+  
   //language dropdown
   $block = module_invoke('locale', 'block_view', 'language');
   $vars['language_dropdown_block'] =  render($block['content']);

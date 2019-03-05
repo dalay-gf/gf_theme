@@ -304,6 +304,9 @@ fieldset table tr td a{
   box-sizing: border-box;
   width:100%;
 }
+.columns{
+  margin:0 -15px;
+}
 #page{
   display:flex;
   flex-direction:column;
@@ -2004,6 +2007,40 @@ svg g.rotate:hover .st1{
   font-weight:bold;
   color:#666666;
   vertical-align: top;
+}
+
+/* accordion */
+h3.ui-accordion-header{
+  font-size:18px;
+  color:#3c3950;
+  border-radius:0;
+  background: #fff;
+  font-weight: bold;
+}
+.accordion .ui-widget-content{
+  color:#333;
+}
+
+/* user profile */
+.profile .column{
+  margin:0 0 40px;
+  padding:0 0 20px;
+}
+.profile .wallet{
+  border-bottom:solid 2px #000;
+}
+.profile .btn{
+  margin:0 20px 20px 0;
+}
+.profile .profile-manager{
+  padding: 12px 45px 12px 25px;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+.profile .profile-manager a{
+  margin:0 0 0 10px;
+  font-weight:bold;
 }
 
 
