@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
   
   $(window).scroll(function() {
       if ($( window ).width() > 999){
-        if ($(this).scrollTop()>120){
+        if ($(this).scrollTop()>1){
           $('#logo').hide();
           $('.mobile-cart').show();
         }

@@ -70,30 +70,25 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
   <div class="project-desc">
     <h4 class="title"><a href="<?php print url('model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content); ?>"><?php print $fields['model']->raw; ?></a></h4>
     <div class="price">
-        <?php //показываем ретейл цену всем ?>
-        
-        <?php if(!user_is_logged_in() or $is_creator or $is_manager or $is_publicator or $is_admin or $seller_limited_access): ?>
-          <?php if ($retail_price) : ?>
-            <div class="amount retail-amount">
-              <span><?php print t('Retail price ') ?></span><span class="price-value"><?php print $symbol .' '. $retail_price; ?></span>
-            </div>
-          <?php endif; ?>
-        <?php endif; ?>
-        
-        <?php //dpm($curr_reg_price); //показываем оптовую цену всем залогиненным кроме $seller_limited_access ?>
-        
-        <?php if(user_is_logged_in() && !$seller_limited_access): ?>
-          <?php if($curr_reg_price): ?>
-            <div class="amount wholesale-amount">
-              <span><?php print t('Wholesale price ') ?></span><span class="price-value"><?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?></span>
-            </div>        
-            
-            <div class="addtocartlink">
-              <?php ($row->_field_data["nid"]["entity"]->gf_region_stock[$current_code]) ? print $addtocartlink : print '<span class="no-code"></span>'; ?>
-            </div>
-            <?php else: ?><p><?php print $not_avaible_text; ?></p>
-          <?php endif; ?>
-        <?php endif; ?>
+      <?php if ($retail_price) : ?>
+        <div class="amount retail-amount">
+          <span><?php print t('Retail price ') ?></span><span class="price-value"><?php print $symbol .' '. $retail_price; ?></span>
+        </div>
+      <?php endif; ?>
+      
+      <?php if($curr_reg_price): ?>
+        <div class="amount wholesale-amount">
+          <span><?php print t('Wholesale price ') ?></span><span class="price-value"><?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?></span>
+        </div>        
+        <?php else: ?><p><?php print $not_avaible_text; ?></p>
+      <?php endif; ?>
+          
+      <?php if($addtocartlink): ?>
+        <div class="addtocartlink">
+          <?php print $addtocartlink; ?>
+        </div>
+      <?php endif; ?>
+
     </div>
   </div>
 

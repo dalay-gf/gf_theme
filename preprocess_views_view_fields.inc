@@ -63,7 +63,9 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     // при включенном кэше вью работает некорректно).
     $node = node_load($row->nid);
     $addtocartlink = gf_custom_addtocart_link($node); 
-    $vars['addtocartlink'] = $addtocartlink;
+    
+    //показываем кнопку корзины всем кроме пользователя роли интересующийся -- возникает колизия если есть также роль с большим статусом
+    if(!user_has_role(4)) $vars['addtocartlink'] = $addtocartlink;
 
     $vars['seller_limited_access'] = $seller_limited_access;
     $vars['is_gross'] = $is_gross;
@@ -80,10 +82,14 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $vars['current_code'] = $current_region;
     $vars['symbol'] = ($current_region == GF_STOCK_REGION_CN) ? 
       '<i class="fa fa-cny" aria-hidden="true"></i>' : '<i class="fa fa-rub" aria-hidden="true"></i>';
+      
 //dpm($current_region);
 //dpm($cn_price);
 //dpm($ru_price);
-    $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
+
+    if (user_is_logged_in() && !user_has_role(4)){
+      $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
+    }
     $vars['retail_price'] = ($current_region == GF_STOCK_REGION_CN) ? round($retail_price / $yuan_to_rub_rate) : $retail_price;
     $vars['cn_stock'] = $cn_stock;
     $vars['ru_stock'] = $ru_stock;

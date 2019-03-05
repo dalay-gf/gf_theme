@@ -2,6 +2,7 @@
 
 // Коэффициент для расчета цен, рекомендуемых для розницы.
 define('GF_RETAIL_PRICE_COEFFICIENT', 2.5);
+
 function gftheme_preprocess_html(&$vars) {
 
   $path = drupal_get_path_alias();
@@ -14,8 +15,6 @@ function gftheme_preprocess_html(&$vars) {
 }
 
 function gftheme_css_alter(&$css) {
-  // Disable standart css from ubercart
-  //unset($css[drupal_get_path('module', 'uc_cart') . '/uc_cart.css']);
   unset($css[drupal_get_path('module', 'logintoboggan') . '/logintoboggan.css']);
   unset($css[drupal_get_path('module', 'uc_payment') . '/uc_payment.css']);
 }
@@ -24,6 +23,8 @@ function gftheme_breadcrumb($vars) {
   $breadcrumb = $vars['breadcrumb'];
 
   if (!empty($breadcrumb)) {
+    //$page_title = filter_xss(menu_get_active_title(), array());
+    //$breadcrumb[] = t($page_title);
     $output = '<div class="breadcrumb"><span class="text">'.t('You are here:').'</span>' . implode('<span class="delim"> › </span>', $breadcrumb) . '</div>';
     return $output;
   }
@@ -64,16 +65,6 @@ function gftheme_process_page(&$vars) {
 }
 
 function gftheme_preprocess_page(&$vars) {
-  /*
-  if(module_exists('uc_cart')) { 
-    $item_count = count(uc_cart_get_contents());
-    if( $item_count > 0 ) $item_count = l('<span class="icon_cart_alt"></span><span class="item-count">'.$item_count.'</span>', 'cart', array('html' => TRUE));
-      else $item_count = '<div class="icon_cart_alt"></div>';
-    // вариант вывода корзины ссылкой с нулем товаров в корзине
-    //$item_count = l('<span class="icon_cart_alt"></span><span class="item-count">'.$item_count.'</span>', 'cart', array('html' => TRUE));   
-    $vars['cart_items_count'] = $item_count;
-  }
-  */
   
   drupal_add_library('system', 'ui.accordion');
   

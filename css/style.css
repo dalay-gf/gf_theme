@@ -1461,6 +1461,7 @@ svg g.rotate:hover .st1{
   text-align:center;
   width:44px;
   height:32px;
+  color:#000;
 }
 .node-product .add-to-cart form .quantity div.form-item input.form-text div{
   display:none;
@@ -2041,7 +2042,30 @@ h3.ui-accordion-header{
 .profile .profile-manager a{
   margin:0 0 0 10px;
   font-weight:bold;
+  white-space:nowrap;
 }
+
+/* view-production-orders */
+.view tr{
+  background:none;
+}
+.view tr th{
+  vertical-align:top;
+  padding:5px 10px 15px 0;
+  border-bottom:solid 2px #333;
+  font-weight:bold;
+}
+.view tr th a{
+  color:#333;
+  text-decoration:none;
+}
+.view-production-orders tr td{
+  padding:5px 10px 15px 0;
+}
+.view-production-orders .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 14px;
+}
+
 
 
 /* footer */

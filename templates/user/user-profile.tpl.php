@@ -45,15 +45,18 @@
   ($new_messages) ? $unread_count = ' (' . '$unread_pm' . ')' : $unread_count = ' (0)';
   $msg_anchor_text = t('Messages') . $unread_count;
   $anchor_text = t('Your balance') . ': ' . $mc_balance->balance . '元';   
+  $manager = render($user_profile['summary']['field_manager'][0]['#item']['entity']->title);
+  if (empty($manager)) $manager = t('Not assigned');
 ?>
 <div class="profile container"<?php //print $attributes; ?>>
   <div class="columns">
-    <div class="column col-6 col-sm-12 wallet">
+    <div class="column col-6 col-md-12 wallet">
       <?php print l($anchor_text, '/user/' . $user->uid . '/wallet', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)); ?>     
     </div>
-    <div class="column col-6 col-sm-12 wallet">
+    <div class="column col-6 col-md-12 wallet">
       <div class="profile-manager">
-        <?php print t('Your account manager is ').'<a href="/contact">' . render($user_profile['summary']['field_manager'][0]['#item']['entity']->title) . 'Vasya Pupkin</a>';?>
+        <span><?php print t('Your account manager is '); ?></span>
+        <a href="/contact"><?php print $manager; ?></a>
       </div>
     </div>
   </div>
