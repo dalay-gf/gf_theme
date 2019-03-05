@@ -112,6 +112,38 @@ function gftheme_form_alter(&$form, &$form_state, $form_id) {
    $output = drupal_render($block);
    $form['#prefix'] = '<div class="contacts-form-title">'.t('Send message').':</div><div class="contacts-form-outer">';
    $form['#suffix'] = $output.'</div>';
+   $form['name']['#prefix'] = '';
+   $form['mail']['#prefix'] = '';
+   $form['subject']['#prefix'] = '';
+   $form['message']['#prefix'] = '';
+   
+   $form_title = $form['name']['#title'];
+   unset($form['name']['#title']);
+   $form['name']['#default_value'] = $form_title;
+   
+   $form['name']['#attributes']['onblur'] = "if (this.value == '') {this.value = '{$form_title}';}";
+   $form['name']['#attributes']['onfocus'] = "if (this.value == '{$form_title}') {this.value = '';}";
+   
+   $form_mail = $form['mail']['#title'];
+   unset($form['mail']['#title']);
+   $form['mail']['#default_value'] = $form_mail;
+   
+   $form['mail']['#attributes']['onblur'] = "if (this.value == '') {this.value = '{$form_mail}';}";
+   $form['mail']['#attributes']['onfocus'] = "if (this.value == '{$form_mail}') {this.value = '';}";
+   
+   $form_subject = $form['subject']['#title'];
+   unset($form['subject']['#title']);
+   $form['subject']['#default_value'] = $form_subject;
+   
+   $form['subject']['#attributes']['onblur'] = "if (this.value == '') {this.value = '{$form_subject}';}";
+   $form['subject']['#attributes']['onfocus'] = "if (this.value == '{$form_subject}') {this.value = '';}"; 
+   
+   $form_message = $form['message']['#title'];
+   unset($form['message']['#title']);
+   $form['message']['#default_value'] = $form_message;
+   
+   $form['message']['#attributes']['onblur'] = "if (this.value == '') {this.value = '{$form_message}';}";
+   $form['message']['#attributes']['onfocus'] = "if (this.value == '{$form_message}') {this.value = '';}";    
  }
 }
 

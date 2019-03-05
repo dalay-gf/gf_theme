@@ -168,6 +168,13 @@ input.form-submit{
 input.form-submit:hover{
   background-color:#a1a5a9;
 }
+textarea{
+  color: #888;
+  border: solid 1px #888888;
+  padding: .25rem .4rem;
+  font-size: .8rem;
+  line-height: 1.2rem;
+}
 .btn.btn-primary:hover{
   border:solid 1px #333;
   background-color:#a1a5a9;
@@ -961,7 +968,7 @@ svg g.rotate:hover .st1{
   min-height:43px;
 }
 .view-products .add-to-cart-link a{
-  display:none;
+  /*display:none;*/
   left:0;
   top:0;
   height:41px;
@@ -1927,7 +1934,7 @@ svg g.rotate:hover .st1{
   font-size:17px;
   font-weight:bold;
   text-transform:uppercase;
-  margin:70px 0 20px;
+  margin:70px 0 14px;
 }
 .contacts-form-outer{
   display:flex;
@@ -1935,8 +1942,19 @@ svg g.rotate:hover .st1{
   font-family: 'Montserrat', sans-serif;
   margin:0 0 60px;
 }
+.contacts-form-outer .grippie{
+  display:none;
+}
 .contacts-form-outer input.form-submit {
   font-size:18px;
+}
+.contacts-form-outer textarea,
+.contacts-form-outer input.form-text{
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  border-bottom:solid 1px #333;
+  padding-left:0;
 }
 #block-block-45 h2{
   font-size:30px;
@@ -2190,6 +2208,9 @@ svg g.rotate:hover .st1{
   #block-block-45 h2,
   #block-block-45 .content{
     padding:0 0 0 14%;
+  }
+  #block-block-45 h2{
+    margin-top:10px;
   }
   .prefooter .flex{
     display:flex;
