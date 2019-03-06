@@ -83,7 +83,7 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
         <?php else: ?><p><?php print $not_avaible_text; ?></p>
       <?php endif; ?>
           
-      <?php if($addtocartlink): ?>
+      <?php if($addtocartlink && user_is_logged_in()): ?>
         <div class="addtocartlink">
           <?php print $addtocartlink; ?>
         </div>

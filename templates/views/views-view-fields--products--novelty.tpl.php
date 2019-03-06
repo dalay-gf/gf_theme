@@ -6,7 +6,10 @@
 global $seller_limited_access; // а это здесь зачем????
 
 //Путь ссылок на товары
-$anchor_path = 'model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content;
+//$anchor_path = 'model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content;
+$anchor_path = 'model/' . $row->field_field_main_sku[0]['raw']['value'] . '/' . $fields['nid']->content;
+//dpm($row);
+//dpm($anchor_path);
 
 /* Скидки */
 if (count($row->_field_data["nid"]["entity"]->field_discount) > 0) {
@@ -28,6 +31,7 @@ if ($discount_percent) {
 }
 // Выделяем "новый" товар(если он опубликован не позже, чем 2 месяца назад).
    $is_new = ((REQUEST_TIME - (int) $fields['created']->content) < (60*60*60*60));
+   
 ?>
 
 

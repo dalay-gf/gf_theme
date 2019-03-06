@@ -1052,8 +1052,8 @@ svg g.rotate:hover .st1{
 .view-products .views-exposed-form .bef-select-as-links a{
   color:rgb(126, 127, 128);
 }
-.view-products .view-footer .btn,
-.view-products .view-footer .btn.btn-primary{
+.view-products .btn,
+.view-products .btn.btn-primary{
   border:0;
   background:none;
   padding: 0.5em;
