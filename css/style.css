@@ -175,6 +175,9 @@ textarea{
   font-size: .8rem;
   line-height: 1.2rem;
 }
+.btn.btn-primary{
+  text-decoration:none;
+}
 .btn.btn-primary:hover{
   border:solid 1px #333;
   background-color:#a1a5a9;
@@ -182,6 +185,7 @@ textarea{
   background-repeat:no-repeat;
   background-position: right 20px top 14px;
   color:#333;
+  text-decoration:none;
 }
 .form-type-radio label, 
 .form-type-checkbox label {
@@ -364,6 +368,7 @@ nav.logo-navigation{
   border-bottom:solid 1px #d3d4d5;
   position:relative;
   font-family:'Montserrat', sans-serif;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   background: #fff;
@@ -1470,9 +1475,8 @@ svg g.rotate:hover .st1{
   margin:0;
 }
 .node-product .add-to-cart form .form-actions .form-submit{
-  width:168px;
   height:48px;
-  font-size:19px;
+  font-size:18px;
   font-weight:bold;
   border:solid 1px #333333;
   margin:12px 0 0;
@@ -1589,6 +1593,9 @@ svg g.rotate:hover .st1{
   display:inline-block;
   width:86px;
   height:52px;
+}
+#uc-cart-view-form table tr td.qty .quantity.error{
+  background:#fff;
 }
 #uc-cart-view-form table tr td.qty .quantity .minus{
   width:40px;
@@ -1771,6 +1778,12 @@ svg g.rotate:hover .st1{
   order:4;
   margin:0 20px 10px;
 }
+.uc-cart-checkout-form #delivery-pane .form-item-panes-delivery-select-address{
+  margin:0 20px;
+}
+.uc-cart-checkout-form #delivery-pane .form-item-panes-delivery-select-address label{
+  margin:0 0 5px;
+}
 .uc-cart-checkout-form #delivery-pane .fieldset-description{
   padding:10px 20px;
 }
@@ -1895,6 +1908,25 @@ svg g.rotate:hover .st1{
 }
 .order-review-table div.review-buttons .form-actions .form-submit{
   margin:0 0 20px;
+}
+.page-cart-empty #block-system-main,
+.page-cart-checkout-complete #block-system-main{
+  margin:0 0 60px;
+}
+.page-cart-empty input.form-submit{
+  margin:0 20px 0 0;
+}
+
+/* user orders */
+.view-uc-orders-user table{
+  margin:20px 0 40px;
+}
+.view-uc-orders-user table tr th,
+.view-uc-orders-user table tr td{
+  padding:10px;
+}
+.view-uc-orders-user table tr td a{
+  display:inline-block;
 }
 
 /* contact */
@@ -2046,15 +2078,18 @@ h3.ui-accordion-header{
 }
 
 /* view-production-orders */
+.privatemsg-list tr,
 .view tr{
   background:none;
 }
+.privatemsg-list tr th,
 .view tr th{
   vertical-align:top;
   padding:5px 10px 15px 0;
   border-bottom:solid 2px #333;
   font-weight:bold;
 }
+.privatemsg-list tr th a,
 .view tr th a{
   color:#333;
   text-decoration:none;

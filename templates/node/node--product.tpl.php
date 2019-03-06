@@ -56,6 +56,7 @@ if ($discount_percent) {
         <?php endforeach; ?>
       </div>
       <!-- Project Slider / End -->
+      
     <?php print render($content['field_main_description']); ?>
     
     </div>
@@ -63,7 +64,8 @@ if ($discount_percent) {
       <div class="select-warehouse">
         <div class="stock ru-stock <?php print ($current_region == 'Russia')? 'active':''; ?>">
           <?php 
-            /*if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>';
+            /* если корзина пустая то показываем ссылкой иначе показываем без ссылки - нужно реализовать
+            if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>';
             else */print l( t('Warehouse').' '.t('Russia').':<span>'. (isset($ru_stock)?$ru_stock:'').'</span>',
                         'gf_stock/region_switch/Russia', 
                         array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); 
@@ -71,7 +73,8 @@ if ($discount_percent) {
         </div>
         <div class="stock cn-stock <?php print ($current_region == 'China')? 'active':''; ?>">
           <?php 
-            /*if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>';
+            /* если если корзина пустая то показываем ссылкой иначе показываем без ссылки - нужно реализовать
+            if(count(uc_cart_get_contents())>0) print t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>';
             else */print l( t('Warehouse').' '.t('China').':<span>'. (isset($cn_stock)?$cn_stock:'').'</span>',
                         'gf_stock/region_switch/China', 
                         array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); ?>

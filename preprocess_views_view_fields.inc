@@ -64,8 +64,7 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $node = node_load($row->nid);
     $addtocartlink = gf_custom_addtocart_link($node); 
     
-    //показываем кнопку корзины всем кроме пользователя роли интересующийся -- возникает колизия если есть также роль с большим статусом
-    if(!user_has_role(4)) $vars['addtocartlink'] = $addtocartlink;
+    $vars['addtocartlink'] = $addtocartlink;
 
     $vars['seller_limited_access'] = $seller_limited_access;
     $vars['is_gross'] = $is_gross;
@@ -87,7 +86,7 @@ function gftheme_preprocess_views_view_fields(&$vars) {
 //dpm($cn_price);
 //dpm($ru_price);
 
-    if (user_is_logged_in() && !user_has_role(4)){
+    if (user_is_logged_in()){
       $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
     }
     $vars['retail_price'] = ($current_region == GF_STOCK_REGION_CN) ? round($retail_price / $yuan_to_rub_rate) : $retail_price;

@@ -51,7 +51,7 @@
 <div class="profile container"<?php //print $attributes; ?>>
   <div class="columns">
     <div class="column col-6 col-md-12 wallet">
-      <?php print l($anchor_text, '/user/' . $user->uid . '/wallet', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)); ?>     
+      <?php print l(t('Ordinary orders list'),'user/' . $user->uid . '/orders', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)); ?>     
     </div>
     <div class="column col-6 col-md-12 wallet">
       <div class="profile-manager">
@@ -63,7 +63,7 @@
   <div class="columns">
     <div class="column col-12 col-sm-12">
       <?php
-        print l(t('Ordinary orders list'),'user/' . $user->uid . '/orders', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
+        print l($anchor_text, '/user/' . $user->uid . '/wallet', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
         print l(t('Sewing orders list'), 'user/' . $user->uid . '/sewing', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)) ;
         
         print l($msg_anchor_text, 'user/' . $user->uid . '/messages', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
