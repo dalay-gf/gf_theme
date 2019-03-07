@@ -903,10 +903,12 @@ svg g.rotate:hover .st1{
 .view-products{
   margin:0 0 100px;
 }
+#block-views-exp-products-main-catalog,
 .view-products .view-filters{
   border-bottom:solid 2px #e5e5e5; 
   padding:0 0 15px;
 }
+#block-views-exp-products-main-catalog .views-exposed-form label,
 .view-products .view-filters label{
   margin:0 0 10px;
 }
@@ -1041,14 +1043,17 @@ svg g.rotate:hover .st1{
 .view-products .retail-amount .price-value{
   color:#fa0000;
 }
-.view-products .views-exposed-form .bef-select-as-links{
+#block-views-exp-products-main-catalog .views-exposed-form .bef-select-as-links{
   padding:.4rem .6rem 0.38rem;
   font-size: .8rem;
 }
+#block-views-exp-products-main-catalog .views-exposed-form .bef-select-as-links,
 .view-products .views-exposed-form .bef-select-as-links,
+#block-views-exp-products-main-catalog .bef-select-as-links .form-item,
 .view-products .views-exposed-form .bef-select-as-links .form-item{
   display:inline-block;
 }
+#block-views-exp-products-main-catalog .views-exposed-form .bef-select-as-links a,
 .view-products .views-exposed-form .bef-select-as-links a{
   color:rgb(126, 127, 128);
 }
@@ -1098,6 +1103,43 @@ svg g.rotate:hover .st1{
   -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
 }
+#block-gf-stock-gf-stock-region-switch{
+  margin: 2px 0 2px;
+  padding: 11px 0 11px;
+  border-bottom: solid 2px #e5e5e5;
+}
+#block-gf-stock-gf-stock-region-switch h2{
+  font-size: 18px;
+  line-height: 1.18;
+  margin:0 10px 0 0;
+  padding:0;
+  text-transform:unset;
+  display:inline-block;
+  font-family: 'PT Sans', sans-serif;
+  color: #333;
+}
+#block-gf-stock-gf-stock-region-switch h2:after{
+  content:':';
+}
+#block-gf-stock-gf-stock-region-switch h2,
+#block-gf-stock-gf-stock-region-switch div.content,
+#block-gf-stock-gf-stock-region-switch div.content ul,
+#block-gf-stock-gf-stock-region-switch div.content ul li{
+  display:inline-block;
+}
+#block-gf-stock-gf-stock-region-switch div.content ul,
+#block-gf-stock-gf-stock-region-switch div.content ul li{
+  margin:0;
+  padding:0;
+}
+#block-gf-stock-gf-stock-region-switch div.content ul li a{
+  color:#888;
+  margin:0 5px 0 0;
+}
+#block-gf-stock-gf-stock-region-switch div.content ul li.active a{
+  text-decoration:underline;
+}
+
 
 
 /* pager */
@@ -1908,6 +1950,14 @@ svg g.rotate:hover .st1{
 }
 .order-review-table div.review-buttons .form-actions .form-submit{
   margin:0 0 20px;
+}
+.order-review-table div.review-buttons .form-actions .form-submit.ucSubmitOrderThrobber-processed{
+  -webkit-filter: invert(100%);
+  filter: invert(100%);  
+}
+.order-review-table div.review-buttons .form-actions .form-submit.ucSubmitOrderThrobber-processed:hover{
+  -webkit-filter: invert(0);
+  filter: invert(0);  
 }
 .page-cart-empty #block-system-main,
 .page-cart-checkout-complete #block-system-main{
