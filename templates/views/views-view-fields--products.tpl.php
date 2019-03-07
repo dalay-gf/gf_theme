@@ -80,7 +80,6 @@ if(isset($row->_field_data["nid"]["entity"]->field_discount)){
         <div class="amount wholesale-amount">
           <span><?php print t('Wholesale price ') ?></span><span class="price-value"><?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?></span>
         </div>        
-        <?php else: ?><p><?php print $not_avaible_text; ?></p>
       <?php endif; ?>
           
       <?php if($addtocartlink && user_is_logged_in()): ?>
