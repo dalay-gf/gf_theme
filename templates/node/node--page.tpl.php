@@ -76,11 +76,11 @@
 ?>
 
 
-<?php if(isset($content['field_hide_title'][0]['#markup']) && $content['field_hide_title'][0]['#markup'] != 'Hide'): ?>
-  <div class="title-accent">
-    <h3><?php print _stability_cms_block_title($title); ?></h3>
-  </div>
-<?php endif; ?>
+<?php print render($title_prefix); ?>
+  <?php if (!$page): ?>
+    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+  <?php endif; ?>
+<?php print render($title_suffix); ?>
 
 <?php
   hide($content['comments']);

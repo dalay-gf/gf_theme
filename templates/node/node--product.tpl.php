@@ -169,7 +169,7 @@ if ($discount_percent) {
             <li>Доставка по России (Курьером 400 рублей). При покупке 5000 рублей - бесплатно)</li>
             <li>Самовывоз из магазинов розничной сети *</li>
           </ul>
-          <div class="more"><?php print l('Подробнее о доставке','opt'); ?></div>
+          <div class="more"><?php print l('Подробнее о доставке','node/99359'); ?></div>
 
         </div>
         <div class="tabs__content product-payment">
@@ -178,7 +178,7 @@ if ($discount_percent) {
             <li>Наличными курьеру</li>
             <li>По безналичному расчету (для юридических лиц)</li>
           </ul>
-          <div class="more"><?php print l('Подробнее об оплате','opt'); ?></div>   
+          <div class="more"><?php print l('Подробнее об оплате','node/99360'); ?></div>   
 
         </div>
         <div class="tabs__content product-warranty">

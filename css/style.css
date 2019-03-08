@@ -2150,7 +2150,9 @@ h3.ui-accordion-header{
 .view-production-orders .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 14px;
 }
-
+.page-node .field-name-body{
+  margin:0 0 40px;
+}
 
 
 /* footer */

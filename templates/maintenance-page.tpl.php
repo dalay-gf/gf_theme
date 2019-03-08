@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 
   <?php print $styles; ?>
-
+<?php /*
   <!-- Head Libs -->
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/modernizr.js"></script>
 
@@ -36,7 +36,7 @@
   <!--[if IE]>
     <link rel="stylesheet" href="<?php print base_path() . path_to_theme(); ?>/css/ie.css">
   <![endif]-->
-
+*/?>
   <!-- Favicons
   ================================================== -->
   <link rel="apple-touch-icon" href="<?php print path_to_theme(); ?>/images/apple-touch-icon.png">
@@ -76,7 +76,7 @@
 
           <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
-              <h1><?php print t('Происходит обновление каталога...'); ?></h1>
+              <h1><?php print t('ERROR'); ?></h1>
 
               <?php if (isset($messages) && $messages): ?>
                 <div id="messages"><div class="section clearfix">
@@ -97,8 +97,8 @@
 
           <div class="row">
             <div class="col-md-4 col-md-offset-4">
-              <?php $search = drupal_get_form('stability_cms_maintenance_form'); ?>
-              <?php print render($search); ?>
+              <?php //$search = drupal_get_form('stability_cms_maintenance_form'); ?>
+              <?php //print render($search); ?>
             </div>
           </div>
 
@@ -148,14 +148,17 @@
     </div>
     <!-- Main / End -->
   </div>
+  <?php /*
 <!-- Javascript Files
+
   ================================================== -->
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/jquery-1.11.0.min.js"></script>
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/jquery-migrate-1.2.1.min.js"></script>
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/countdown/jquery.knob.js"></script>
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/countdown/countdown.js"></script>
   <script src="<?php print base_path() . path_to_theme(); ?>/vendor/countdown/ext.js"></script>
-
+*/
+  ?>
 
 </body>
 </html>
