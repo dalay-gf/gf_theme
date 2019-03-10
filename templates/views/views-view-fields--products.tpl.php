@@ -5,8 +5,8 @@
 //Путь ссылок на товары
 $anchor_path = 'model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content;
 
-(node_last_viewed($row->nid) > 0) ? $node_is_viewed = TRUE : $node_is_viewed = FALSE;
-
+// (node_last_viewed($row->nid) > 0) ? $node_is_viewed = TRUE : $node_is_viewed = FALSE;
+$discount_coefficient = 1;
 
 
 /* Скидки */
