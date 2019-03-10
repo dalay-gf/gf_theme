@@ -57,19 +57,22 @@ $is_new = ((REQUEST_TIME - (int) $fields['created']->content) < (60*60*60*60));
   <div class="project-desc">
     <h4 class="title"><a href="<?php print $product_url; ?>"><?php print $fields['model']->raw; ?></a></h4>
     <div class="price">
-      <?php if ($retail_price) : ?>
-        <div class="amount retail-amount">
-          <span><?php print t('Retail price ') ?></span><span class="price-value"><?php print $symbol .' '. $retail_price; ?></span>
-        </div>
-      <?php endif; ?>
-
       <?php if($curr_reg_price): ?>
-        <div class="amount wholesale-amount">
-        <span><?php print t('Wholesale price ') ?></span>
-        <span class="price-value">
-          <?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?>
-        </span>
+
+        <div class="amount retail-amount">
+          <span><?php print t('Retail price ') ?></span>
+          <span class="price-value">
+            <?php print $symbol .' '. $retail_price; ?>
+          </span>
         </div>
+
+        <div class="amount wholesale-amount">
+          <span><?php print t('Wholesale price ') ?></span>
+          <span class="price-value">
+            <?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?>
+          </span>
+        </div>
+
       <?php endif; ?>
 
       <?php if($addtocartlink && user_is_logged_in()): ?>
