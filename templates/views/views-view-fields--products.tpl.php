@@ -66,19 +66,23 @@ $is_new = ((REQUEST_TIME - (int) $fields['created']->content) < (60*60*60*60));
           </span>
         </div>
 
-        <div class="amount wholesale-amount">
-          <span><?php print t('Wholesale price ') ?></span>
-          <span class="price-value">
-            <?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?>
-          </span>
-        </div>
+      <?php if(user_is_logged_in()): ?>
+      
+          <div class="amount wholesale-amount">
+            <span><?php print t('Wholesale price ') ?></span>
+            <span class="price-value">
+              <?php print $symbol .' '. round($curr_reg_price * $discount_coefficient); ?>
+            </span>
+          </div>
+
+        <?php if($addtocartlink): ?>
+          <div class="addtocartlink">
+            <?php print $addtocartlink; ?>
+          </div>
+        <?php endif; ?>
 
       <?php endif; ?>
 
-      <?php if($addtocartlink && user_is_logged_in()): ?>
-        <div class="addtocartlink">
-          <?php print $addtocartlink; ?>
-        </div>
       <?php endif; ?>
 
     </div>

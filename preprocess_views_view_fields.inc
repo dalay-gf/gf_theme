@@ -81,9 +81,7 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     $vars['symbol'] = ($current_region == GF_STOCK_REGION_CN) ? 
       '<i class="fa fa-cny" aria-hidden="true"></i>' : '<i class="fa fa-rub" aria-hidden="true"></i>';
 
-    if (user_is_logged_in()){
-      $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
-    }
+    $vars['curr_reg_price'] = ($current_region == GF_STOCK_REGION_CN) ? $cn_price : $ru_price;
     $vars['retail_price'] = ($current_region == GF_STOCK_REGION_CN) ? round($retail_price / $yuan_to_rub_rate) : $retail_price;
     $vars['cn_stock'] = $cn_stock;
     $vars['ru_stock'] = $ru_stock;
