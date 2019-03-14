@@ -84,7 +84,7 @@ if ($discount_percent) {
       
       <div class="available-colors">
         <div class="sub-title"><?php print t('Color').': '; ?></div>
-        <?php print views_embed_view('groupped_catalog', 'page', $content['field_main_sku']['#items'][0]['value']); ?>
+        <?php print $related_colors; ?>
       </div>
       
       <div class="warehouse-product-prices columns">
