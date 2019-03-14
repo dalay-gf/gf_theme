@@ -163,7 +163,6 @@ function gftheme_preprocess_node(&$variables) {
     $variables['other_retail_price'] = round($other_retail_price);
 
     // Варианты товара в иных цветовых решениях.
-    // $variables['related_colors'] = views_embed_view('groupped_catalog', 'page', $content['field_main_sku']['#items'][0]['value']);
     $variables['related_colors'] = views_embed_view('groupped_catalog', 'page', $variables['field_main_sku'][0]['value']);
   }
 
