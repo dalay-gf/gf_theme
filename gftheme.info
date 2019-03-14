@@ -35,6 +35,7 @@ stylesheets[all][] = css/style.css
 
 scripts[] = js/owl.carousel.min.js
 scripts[] = js/owl.carousel2.thumbs.min.js
+scripts[] = js/jquery.zoom.min.js
 scripts[] = js/main.js
 
 ; Information added by Drupal.org packaging script on 2019-01-16

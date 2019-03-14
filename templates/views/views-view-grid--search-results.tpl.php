@@ -10,15 +10,15 @@
  * @ingroup views_templates
  */
 // Match Column numbers to Bootsrap class
-$columns_classes = array(3 => 4, 4 => 3, 2 => 6, 6 => 2);
-$bootsrap_class = isset($columns_classes[$view->style_plugin->options['columns']]) ? $columns_classes[$view->style_plugin->options['columns']] : 3;
+//$columns_classes = array(3 => 4, 4 => 3, 2 => 6, 6 => 2);
+//$bootsrap_class = isset($columns_classes[$view->style_plugin->options['columns']]) ? $columns_classes[$view->style_plugin->options['columns']] : 3;
 ?>
 <?php foreach ($rows as $row_number => $columns): ?>
-  <ul class = "products row">
+  <div class = "columns products row">
     <?php foreach ($columns as $column_number => $item): ?>
-      <li class = "col-sm-<?php print $bootsrap_class; ?> col-md-<?php print $bootsrap_class; ?>  product project-item">
-        <?php print $item; ?>
-      </li>
+      <div class = "column col-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 product project-item"> 
+        <div class="outer"><?php print $item; ?></div>
+      </div>
     <?php endforeach; ?>
-  </ul>
-<?php endforeach; ?>
+  </div>
+<?php endforeach; ?> 

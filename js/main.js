@@ -54,7 +54,14 @@ jQuery(document).ready(function($) {
     nav:true,
     dots:false,
 		autoplay:false  
-	});  
+	}); 
+  
+  //http://www.jacklmoore.com/zoom/
+  $(".owl-stage-outer .item").zoom({
+    callback: function(){
+      $(this).colorbox({href: this.src,maxWidth:'95%', maxHeight:'95%'});
+    }
+  });  
   
   $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
   $(this)

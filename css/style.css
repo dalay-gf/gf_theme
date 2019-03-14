@@ -589,7 +589,10 @@ ul.nav-menu li a .arrow-down {
   margin:0 0 5px;
 }
 #block-views-exp-search-results-page .views-exposed-form .views-exposed-widget .form-submit{
-  margin:20px 0 0;
+  margin:21px 0 0;
+  padding: 0px 45px 0px 25px;
+  height: 37px;
+  background-position: right 20px top 9px;
 }
 
 /* breadcrumb */
@@ -1159,6 +1162,10 @@ svg g.rotate:hover .st1{
   color:#fff;
   color:#000;
 }
+.view-search-results .item-list .pager{
+  margin:40px 0 0.75em;
+}
+
 
 /* node product */
 .node-type-product h1{
@@ -1225,6 +1232,16 @@ svg g.rotate:hover .st1{
 .owl-carousel .owl-nav button.owl-next.disabled, 
 .owl-carousel .owl-nav button.owl-prev.disabled{
   color:#888;
+}
+.owl-carousel .owl-stage-outer .item:after {
+  content: '';
+  display: block;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(../images/icon.png) no-repeat 0 0;
 }
 
 /* tabs */
