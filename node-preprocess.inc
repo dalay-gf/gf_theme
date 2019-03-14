@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Implements hook_preprocess_node()/
  */
@@ -113,6 +114,11 @@ function gftheme_preprocess_node(&$variables) {
     
     // выводим корзину только если остатки для склада больше 0 и юзер залогинен и не имеет ограниченную роль
 
+    // $add_to_cart_by_region = l(t('Show price'), 'user/register', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('from' => 'show-price')));
+    // Для анонимов отображаем вместо "Добавления в корзину" кнопку-ссылку на форму 
+    // покупки товара в один клик.
+    $add_to_cart_by_region = l(t('Buy in one click'), 'buy-one-click', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('product' => $node->nid)));
+
     if (user_is_logged_in() && !$seller_limited_access){
       if (isset($variables['content']['add_to_cart']) && 
           isset($node->gf_region_stock[$current_region]) && 
@@ -125,15 +131,13 @@ function gftheme_preprocess_node(&$variables) {
         $variables['content']['add_to_cart']['#form']['qty']['#suffix'] = '<input type="button" value="&#9658;" class="plus small-input-button"></div>';
         $add_to_cart_by_region = render($variables['content']['add_to_cart']);
       }
-      else $add_to_cart_by_region = '';
     }
-    else $add_to_cart_by_region = l(t('Show price'), 'user/register', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('from' => 'show-price')));
     
     
     if(isset($cn_stock)) $variables['cn_stock'] = $cn_stock;
     if(isset($ru_stock)) $variables['ru_stock'] = $ru_stock;
     
-    if(isset($add_to_cart_by_region)) $variables['add_to_cart_by_region'] = $add_to_cart_by_region;
+    $variables['add_to_cart_by_region'] = $add_to_cart_by_region;
     
     if(isset($reg_price)) $variables['reg_price'] = $reg_price;
     if(isset($rrt_retail_price)) $variables['rrt_retail_price'] = $rrt_retail_price;    
