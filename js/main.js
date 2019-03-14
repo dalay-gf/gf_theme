@@ -58,6 +58,7 @@ jQuery(document).ready(function($) {
   
   //http://www.jacklmoore.com/zoom/
   $(".owl-stage-outer .item").zoom({
+    magnify:'0.5',
     callback: function(){
       $(this).colorbox({href: this.src,maxWidth:'95%', maxHeight:'95%'});
     }
