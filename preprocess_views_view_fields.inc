@@ -3,6 +3,7 @@
 
 function gftheme_preprocess_views_view_fields(&$vars) {
   $view = &$vars['view'];
+
   if ($view->name == 'products') {
     $row = $vars['row'];
 
@@ -91,5 +92,9 @@ function gftheme_preprocess_views_view_fields(&$vars) {
     // Скидки.
     $vars['discount_coefficient'] = 1;
     $vars['discount_percent'] = $extra_10 ? 10 : 0;
+  }
+  if ($view->name == 'groupped_catalog') {
+    $stock = uc_stock_level($vars['fields']['model']->content);
+    $vars['stock_total'] = ($stock > 10) ? '>10' : $stock;
   }
 }
