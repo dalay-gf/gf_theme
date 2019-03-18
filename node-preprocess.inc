@@ -117,7 +117,7 @@ function gftheme_preprocess_node(&$variables) {
     // $add_to_cart_by_region = l(t('Show price'), 'user/register', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('from' => 'show-price')));
     // Для анонимов отображаем вместо "Добавления в корзину" кнопку-ссылку на форму 
     // покупки товара в один клик.
-    $add_to_cart_by_region = l(t('Buy in one click'), 'buy-one-click', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('product' => $node->nid)));
+    $add_to_cart_by_region = '';
 
     if (user_is_logged_in() && !$seller_limited_access){
       if (isset($variables['content']['add_to_cart']) && 
@@ -138,6 +138,7 @@ function gftheme_preprocess_node(&$variables) {
     if(isset($ru_stock)) $variables['ru_stock'] = $ru_stock;
     
     $variables['add_to_cart_by_region'] = $add_to_cart_by_region;
+    $variables['buy_one_click'] = l(t('Buy in one click'), 'buy-one-click', array('attributes' => array('class' => array('btn', 'btn-primary')), 'query' => array('product' => $node->nid)));
     
     if(isset($reg_price)) $variables['reg_price'] = $reg_price;
     if(isset($rrt_retail_price)) $variables['rrt_retail_price'] = $rrt_retail_price;    
