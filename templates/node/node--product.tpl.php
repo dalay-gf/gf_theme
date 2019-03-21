@@ -98,13 +98,8 @@ if ($discount_percent) {
             <div class="retail-price price-value"><?php print $rrt_retail_price; ?></div>
           </div>
         <?php endif; ?>
-
         <div class="col-5 col-lg-6 col-sm-12">          
-          <?php if(user_is_logged_in()): ?>
           <?php print $add_to_cart_by_region; ?>
-          <?php else: ?>
-          <?php print $buy_one_click; ?>
-          <?php endif; ?>
         </div>
       </div>
       
@@ -179,7 +174,7 @@ if ($discount_percent) {
         </div>
         <div class="tabs__content product-payment">
           <ul>
-            <li>СБанковской картой Visa/Mastercard</li>
+            <li>Банковской картой Visa/Mastercard</li>
             <li>Наличными курьеру</li>
             <li>По безналичному расчету (для юридических лиц)</li>
           </ul>
