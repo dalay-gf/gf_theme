@@ -37,9 +37,6 @@
   $mc_currency = $mc_currency->info['currcode'];
   $uid = $user->uid;
   $mc_balance = transaction_totals($uid, $mc_currency);
-  $default_currency_code = variable_get('uc_currency_code', UC_CURRENCY_DEFAULT_CURRENCY);
-  $code = isset($_SESSION['currency_switcher']) ? $_SESSION['currency_switcher'] : $default_currency_code;
-  $symbol = currency_api_get_symbol($code); 
   $unread_pm = privatemsg_unread_count($variables['user']->uid);
   ($unread_pm > 0) ? $new_messages = true: $new_messages = false;
   ($new_messages) ? $unread_count = ' (' . '$unread_pm' . ')' : $unread_count = ' (0)';
