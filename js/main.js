@@ -55,7 +55,10 @@ jQuery(document).ready(function($) {
     dots:false,
 		autoplay:false  
 	}); 
-  
+  $('.owl-carousel .owl-thumb-item').hover(function() {
+    $(this).click();
+  }, function() {});
+
   //http://www.jacklmoore.com/zoom/
   $(".owl-stage-outer .item").zoom({
     magnify:'0.5',
