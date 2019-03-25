@@ -74,162 +74,79 @@
  * @see template_process()
  */
 ?>
-<?php if (!$page): ?>
-  <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-<?php endif; ?>
-    <?php if (!$page): ?>
-      <header>
-	<?php endif; ?>
-        <?php
-        // Hide comments, tags, and links now so that we can render them later.
-        hide($content['comments']);
-        hide($content['links']);
-        hide($content['body']);
-        hide($content['field_1_1']);
-        hide($content['field_1_2']);
-        hide($content['field_1_3']);
-        ?>
-        <section class="nd-region section-dark h-outline d-violet">
-          <div class="container">
-            <div class="col-md-3">
-              <?php print render($content['field_1_1']); ?>
-            </div>
-            <div class="col-md-6">
-              <div class="field-1-2">
-                <?php
-                print render($content['field_1_2']);?>
-              </div>
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <?php
-                  $form_call_request = module_invoke('webform', 'block_view','client-block-96967');
-                  print render($form_call_request['content']);
-                  ?>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <?php print render($content['field_1_3']); ?>
-            </div>
-          </div>
-        </section>
-  <?php if (!$page): ?>
-    </header>
-  <?php endif; ?>
-
-  <div class="content clearfix <?php print $classes_array['1']; ?>"<?php print $content_attributes; ?>>
-    <section class="nd-region promo-cat">
-        <nav class="nav-second l-grey-bg row">
-          <div class="container">
-          <ul class="flexnav with-js opacity lg-screen">
-            <li class="tb-megamenu-item level-1 mega">
-              <a class="tab active" id="bags-tab-header" data-toggle="tab" href="#tab-bags">Сумки</a>
-            </li>
-            
-			<li class="tb-megamenu-item level-1 mega">
-              <a class="tab" id="briefcases-tab-header" data-toggle="tab" href="#tab-briefcases">Портфели</a>
-            </li>
-
-            <li class="tb-megamenu-item level-1 mega">
-              <a class="tab" id="wallets-tab-header" data-toggle="tab" href="#tab-wallets">Кошельки</a>
-            </li>
-            
-            <li class="tb-megamenu-item level-1 mega">
-              <a class="tab" id="gloves-tab-header" data-toggle="tab" href="#tab-gloves">Перчатки</a>
-            </li>
-            
-            <li class="tb-megamenu-item level-1 mega">
-              <a class="tab" id="belts-tab-header" data-toggle="tab" href="#tab-belts">Ремни</a>
-            </li>
-            
-            <li class="tb-megamenu-item level-1 mega">
-              <a class="tab" id="accessories-tab-header" data-toggle="tab" href="#tab-accessories">Платки</a>
-            </li>
-
-		  </ul>
-          </div>
-        </nav>
-      <div class="container">
-        <div class="tab-content">
-            <div id="tab-bags" class="tab-pane fade row in active">
-              <?php
-                $bags_cat = implode('+', array(2764, 2756, 3579, 2749));
-                print views_embed_view('products', 'block_landing', $bags_cat);
-              ?>
-            </div>
-            
-            <div id="tab-briefcases" class="tab-pane fade row">
-              <?php
-                $briefcases_cat = implode('+', array(2748));
-                print views_embed_view('products', 'block_landing', $briefcases_cat);
-              ?>
-            </div>
-            
-            <div id="tab-wallets" class="tab-pane fade row">
-              <?php
-                $wallets_cat = implode('+', array(2769, 2771, 2770, 2752, 2988));
-                print views_embed_view('products', 'block_landing', $wallets_cat);
-              ?>
-            </div>
-
-            <div id="tab-gloves" class="tab-pane fade row">
-              <?php
-                $gloves_cat = implode('+', array(2755, 2943, 2767));
-                print views_embed_view('products', 'block_landing', $gloves_cat);
-              ?>
-            </div>
-            
-            <div id="tab-belts" class="tab-pane fade row">
-              <?php
-                $belts_cat = implode('+', array(2795, 2803));
-                print views_embed_view('products', 'block_landing', $belts_cat);
-              ?>
-            </div>
-
-            <div id="tab-accessories" class="tab-pane fade row">
-              <?php
-                $accessories_cat = implode('+', array(3365));
-                print views_embed_view('products', 'block_landing', $accessories_cat);
-              ?>
-            </div>
-
-          </div>
-      </div>
-    </section>
-    <div class="spacer"></div>
-    <section class="nd-region section-light l-grey-bg v-padding-off">
-      <div class="container call-request-with-name">
-        <?php
-        $form_call_request_with_name = module_invoke('webform', 'block_view','client-block-96969');
-        print render ($form_call_request_with_name['content']);
-        ?>
-      </div>
-    </section>
-    <section class="nd-region section-dark h-outline">
-    <div class="container">
-      <div class="partners-desc"><h3>С нами работают:</h3></div>
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<?php
+  hide($content['comments']);
+  hide($content['links']);
+  hide($content['body']);
+  hide($content['field_1_1']);
+  hide($content['field_1_2']);
+  hide($content['field_1_3']);
+?>
+<div class="invite-banner-text"><?php print render($content['field_1_1']); ?>
+  <?php print render($content['field_1_2']);?>
+  <?php
+    $form_call_request = module_invoke('webform', 'block_view','client-block-96967');
+    print render($form_call_request['content']);
+  ?>  
+</div>
+<div class="container">
+  <?php print render($content['body']); ?>
+</div>
+<div class="container">
+  <div class="tabs product-categories">
+    <ul class="tabs__caption">
+      <li class="active"><?php print 'Женские Сумки'; ?></li>
+      <li><?php print 'Мужские Сумки'; ?></li>
+      <li><?php print 'Портфели'; ?></li>
+      <li><?php print 'Кошельки'; ?></li>
+      <li><?php print 'Перчатки'; ?></li>
+      <li><?php print 'Ремни'; ?></li>
+      <li><?php print 'Платки'; ?></li>    
+    </ul>
+    <div class="tabs__content product-from-category active">
+      <?php
+        $bags_cat = implode('+', array(2764, 2756, 3579, 2749));
+        print views_embed_view('products', 'block_landing', $bags_cat);
+      ?>  
     </div>
-      <div class="row">
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A628b738e4efd85aeebdc362c573577f97444c269acd10667b56b2319ccc0a507&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
-      </div>
-    </section>
-    <section class="nd-region section-light l-grey-bg v-padding-off">
-      <div class="container form-subscribe-me">
-        <?php
-        $form_subscribtion = module_invoke('webform', 'block_view','client-block-96970');
-        print render($form_subscribtion['content']);
-        ?>
-      </div>
-    </section>
+    <div class="tabs__content product-from-category">
+      <?php
+        $bags_cat = implode('+', array(2764, 2756, 3579, 2749));
+        print views_embed_view('products', 'block_landing', $bags_cat);
+      ?>  
+    </div>    
+    <div class="tabs__content product-from-category">
+      <?php
+        $briefcases_cat = implode('+', array(2748));
+        print views_embed_view('products', 'block_landing', $briefcases_cat);
+      ?>  
+    </div>
+    <div class="tabs__content product-from-category">
+      <?php
+        $wallets_cat = implode('+', array(2769, 2771, 2770, 2752, 2988));
+        print views_embed_view('products', 'block_landing', $wallets_cat);
+      ?>  
+    </div>
+    <div class="tabs__content product-from-category">
+      <?php
+        $gloves_cat = implode('+', array(2755, 2943, 2767));
+        print views_embed_view('products', 'block_landing', $gloves_cat);
+      ?>  
+    </div>
+    <div class="tabs__content product-from-category">
+      <?php
+        $belts_cat = implode('+', array(2795, 2803));
+        print views_embed_view('products', 'block_landing', $belts_cat);
+      ?>  
+    </div>
+    <div class="tabs__content product-from-category">
+      <?php
+        $accessories_cat = implode('+', array(3365));
+        print views_embed_view('products', 'block_landing', $accessories_cat);
+      ?>  
+    </div>  
   </div>
+</div>
+ </article> <!-- /.node -->
 
-  <?php if (!empty($content['links'])): ?>
-    <footer>
-      <?php print render($content['links']); ?>
-    </footer>
-  <?php endif; ?>
-
-  <?php print render($content['comments']); ?>
-<?php if (!$page): ?>
-  </article> <!-- /.node -->
-<?php endif; ?>

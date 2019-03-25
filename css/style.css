@@ -2193,6 +2193,160 @@ h3.ui-accordion-header{
   margin:0 0 40px;
 }
 
+/* invite */
+.page-node-96965 h1{
+  background: #7f8283 url(../images/bg-price2.jpg) repeat center 0;
+  /*background:#000;*/
+  color:#fff;
+  font-size:24px;
+  margin:0;
+  padding:19px 15px;
+  text-align:center;
+  line-height:26px;
+  letter-spacing:0.5px;
+  order:2;
+}
+.page-node-96965 h2{
+  font-size:24px;
+  text-align:center;
+}
+.page-node-96965 .about-company{
+  background: url(../images/bg-invite-baner.jpg) no-repeat center 0;
+}
+.page-node-96965 .invite-banner-text{
+  max-width:560px;
+  margin:0 auto;
+  padding: 130px 0 0;
+}
+.page-node-96965 .invite-banner-text{
+  font-family:'Montserrat';
+  font-size:24px;
+  line-height:27px;
+  color:#616262;
+  font-weight:bold;
+  text-align:center;
+}
+.page-node-96965 .invite-banner-text .text-1{
+  margin:0 0 31px;
+}
+.page-node-96965 .invite-banner-text .text-2 span{
+  font-size:32px;
+  color:#000;
+  display:block;
+  padding:8px 0 0;
+}
+.page-node-96965 input.form-text {
+  border:0;
+  border-bottom:solid 1px #000;
+  color:#585757;
+  font-size:15px;
+  line-height:20px;
+  max-width:320px;
+  margin:0 20px 0 0;
+  text-align:center;
+}
+.page-node-96965 .invite-banner-text form{
+  padding:20px 0 0;
+  margin: 1em 0;
+}
+.page-node-96965 .webform-client-form{
+  text-align:center;
+}
+.page-node-96965 .invite-banner-text form div{
+  display:inline-block;
+  margin: 0 0 20px;
+  vertical-align: bottom;
+}
+.page-node-96965 .field-name-body h4{
+  text-align:center;
+  line-height:20px;
+}
+.page-node-96965 .field-name-body .column h4:before {
+  display:block;
+  content: '';
+  width: 76px;
+  height: 76px;
+  margin:0 auto 12px;  
+}
+.page-node-96965 .field-name-body .column:nth-child(1) h4:before {
+  background:url(../images/bag.png) no-repeat center center;
+}
+.page-node-96965 .field-name-body .column:nth-child(2) h4:before {
+  background:url(../images/best-price.png) no-repeat center center;  
+}
+.page-node-96965 .field-name-body .column:nth-child(3) h4:before {
+  background:url(../images/star.png) no-repeat center center; 
+}
+.page-node-96965 .field-name-body h4:after {
+  content: '';
+  width: 52px;
+  height: 3px;
+  background: #000;
+  border-top: solid 1px #444;
+  border-bottom: solid 1px #ccc;
+  display: block;
+  margin: 2px auto 0;
+}
+.page-node-96965 .tabs__caption{
+  border-top:solid 2px #e5e5e5;
+  border-bottom:solid 2px #e5e5e5;
+  justify-content: center;
+  text-transform:uppercase;
+}
+.page-node-96965 .tabs__caption li{
+  font-size:14px;
+  padding: 21px 15px;
+}
+.page-node-96965 .tabs__caption li.active{
+  color:#000;
+}
+.page-node-96965 .view-products .title a {
+  text-decoration:none;
+  cursor:auto;
+}
+.page-node-96965 .get-price{
+  background: #7f8283 url(../images/bg-price2.jpg) repeat center 0;
+  min-height:270px;
+  order:4;
+  text-align:center;
+}
+.page-node-96965 .get-price h3{
+  color:#fff;
+  padding:12px 0 50px;
+}
+.page-node-96965 .get-price .webform-client-form .webform-component-textfield,
+.page-node-96965 .get-price .webform-client-form .form-actions{
+  display:inline-block;
+  margin:0;
+  vertical-align:bottom;
+}
+.page-node-96965 .get-price .webform-client-form .webform-component-textfield{
+  width:auto;
+}
+.page-node-96965 .get-price input.form-text {
+  border-bottom: solid 1px #fff;
+  background:none;
+  color:#d3d3d3;
+  font-size:15px;
+  font-family:'Montserrat';
+  padding: .25rem 15px;
+  margin:0 20px 20px 0;
+}
+.page-node-96965 .get-price input.form-submit {
+  margin:0 0 20px;
+}
+.page-node-96965 .get-price input.form-text::-webkit-input-placeholder {
+  color:#d3d3d3;
+}
+.page-node-96965 .work-with-us{
+  order:4;
+  background:#000;
+}
+.page-node-96965 .work-with-us h3{
+  color:#fff;
+  text-align:center;
+}
+
 
 /* footer */
 .prefooter{
@@ -2398,6 +2552,9 @@ h3.ui-accordion-header{
   }
   #block-block-45 h2{
     margin-top:10px;
+  }
+  .page-node-96965 h2{
+    font-size:32px;
   }
   .prefooter .flex{
     display:flex;

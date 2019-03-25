@@ -102,7 +102,7 @@ function gftheme_preprocess_node(&$variables) {
       // формируем переменные для вывода цены в шаблон на основе региона
       if($current_region == GF_STOCK_REGION_CN && $price_cn > 0){
         $reg_price = $price_cn.$variables['currency_symbol'][GF_STOCK_REGION_CN];
-        $rrt_retail_price = round($retail_price_cn).$variables['currency_symbol'][GF_STOCK_REGION_CN];
+        $rrt_retail_price = round($retail_price).$variables['currency_symbol'][GF_STOCK_REGION_CN];
       }
       if($current_region == GF_STOCK_REGION_RU && $price_ru > 0){
         $reg_price = $price_ru.$variables['currency_symbol'][GF_STOCK_REGION_RU];

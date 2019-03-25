@@ -35,12 +35,21 @@ $base_price = round(intval($fields['price']->content), 0);
       <span><?php print $fields['uc_product_image']->content; ?></span>
     </figure>
 
-    <div class="project-desc centered">
-	  <h4 class="title"><?php print $fields['title']->content; ?></h4>
-      <span class="price">
-        <div class="amount-name">Розничная цена:</div><span class="amount retail"><?php print '₽ ' . $base_price * 2; ?></span>
-        <br>
-        <div class="amount-name">Ваша цена:</div><ins><span class="amount"><?php print '₽ ' . $base_price; ?></span></ins>
-	  </span>
+    <div class="project-desc">
+	  <h4 class="title"><a href="#"><?php print $fields['title']->content; ?></a></h4>
+    <div class="price">
+        <div class="amount retail-amount">
+          <span><?php print t('Retail price ') ?></span>
+          <span class="price-value">
+            <?php print '₽ ' . $base_price * 2; ?>
+          </span>
+        </div>
+        <div class="amount wholesale-amount">
+            <span><?php print t('You price ') ?></span>
+            <span class="price-value">
+              <?php print '₽ ' . $base_price; ?>
+            </span>
+        </div>        
+    </div>
     </div>
 </div>
