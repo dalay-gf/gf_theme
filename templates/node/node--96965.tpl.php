@@ -83,7 +83,10 @@
   hide($content['field_1_2']);
   hide($content['field_1_3']);
 ?>
-<div class="invite-banner-text"><?php print render($content['field_1_1']); ?>
+<div class="invite-banner-text">
+  <div class="logo-linger"><img src="<?php print base_path().path_to_theme().'/images/linger.svg';?>"></div>
+  <div class="logo-feretti"><img src="<?php print base_path().path_to_theme().'/images/firetti.svg';?>"></div>
+  <?php print render($content['field_1_1']); ?>
   <?php print render($content['field_1_2']);?>
   <?php
     $form_call_request = module_invoke('webform', 'block_view','client-block-96967');
