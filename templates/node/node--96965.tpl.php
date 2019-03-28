@@ -1,79 +1,3 @@
-<?php
-/**
- * @file
- * Default theme implementation to display a node.
- *
- * Available variables:
- * - $title: the (sanitized) title of the node.
- * - $content: An array of node items. Use render($content) to print them all, or
- *   print a subset such as render($content['field_example']). Use
- *   hide($content['field_example']) to temporarily suppress the printing of a
- *   given element.
- * - $user_picture: The node author's picture from user-picture.tpl.php.
- * - $date: Formatted creation date. Preprocess functions can reformat it by
- *   calling format_date() with the desired parameters on the $created variable.
- * - $name: Themed username of node author output from theme_username().
- * - $node_url: Direct url of the current node.
- * - $terms: the themed list of taxonomy term links output from theme_links().
- * - $display_submitted: whether submissionformation should be displayed.
- * - $classes: String of classes that can be used to style contextually through
- *   CSS. It can be manipulated through the variable $classes_array from
- *   preprocess functions. The default values can be one or more of the following:
- *   - node: The current template type, i.e., "theming hook".
- *   - node-[type]: The current node type. For example, if the node is a
- *     "Blog entry" it would result "node-blog". Note that the machine
- *     name will often be a short form of the human readable label.
- *   - node-teaser: Nodes teaser form.
- *   - node-preview: Nodes preview mode.
- *   The following are controlled through the node publishing options.
- *   - node-promoted: Nodes promoted to the front page.
- *   - node-sticky: Nodes ordered above other non-sticky nodes teaser listings.
- *   - node-unpublished: Unpublished nodes visible only to administrators.
- * - $title_prefix (array): An array containing additional output populated by
- *   modules,tended to be displayed front of the main title tag that
- *   appears the template.
- * - $title_suffix (array): An array containing additional output populated by
- *   modules,tended to be displayed after the main title tag that appears
- *   the template.
- *
- * Other variables:
- * - $node: Full node object. Contains data that may not be safe.
- * - $type: Node type, i.e. story, page, blog, etc.
- * - $comment_count: Number of comments attached to the node.
- * - $uid: User ID of the node author.
- * - $created: Time the node was published formatted Unix timestamp.
- * - $classes_array: Array of html class attribute values. It is flattened
- *  to a string within the variable $classes.
- * - $zebra: Outputs either "even" or "odd". Useful for zebra striping
- *   teaser listings.
- * - $id: Position of the node.crements each time it's output.
- *
- * Node status variables:
- * - $view_mode: View mode, e.g. 'full', 'teaser'...
- * - $teaser: Flag for the teaser state (shortcut for $view_mode == 'teaser').
- * - $page: Flag for the full page state.
- * - $promote: Flag for front page promotion state.
- * - $sticky: Flags for sticky post setting.
- * - $status: Flag for published status.
- * - $comment: State of comment settings for the node.
- * - $readmore: Flags true if the teaser content of the node cannot hold the
- *   main body content.
- * - $is_front: Flags true when presented the front page.
- * - $logged_in: Flags true when the current user is a logged-in member.
- * - $is_admin: Flags true when the current user is an administrator.
- *
- * Field variables: for each fieldstance attached to the node a corresponding
- * variable is defined, e.g. $node->body becomes $body. When needing to access
- * a field's raw values, developers/themers are strongly encouraged to use these
- * variables. Otherwise they will have to explicitly specify the desired field
- * language, e.g. $node->body['en'], thus overriding any language negotiation
- * rule that was previously applied.
- *
- * @see template_preprocess()
- * @see template_preprocess_node()
- * @see template_process()
- */
-?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 <?php
   hide($content['comments']);
@@ -109,44 +33,45 @@
     </ul>
     <div class="tabs__content product-from-category active">
       <?php
-        $bags_cat = implode('+', array(2764, 2756, 3579, 2749));
-        print views_embed_view('products', 'block_landing', $bags_cat);
+        $women_bags_nids = implode('+', [87692, 87782, 98708, 87455]);
+        print views_embed_view('products', 'block_landing_by_nodes', $women_bags_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $bags_cat = implode('+', array(2764, 2756, 3579, 2749));
-        print views_embed_view('products', 'block_landing', $bags_cat);
+        $man_bags_nids = implode('+', [99301, 99306, 98959, 87023]);
+        print views_embed_view('products', 'block_landing_by_nodes', $man_bags_nids);
       ?>  
     </div>    
     <div class="tabs__content product-from-category">
       <?php
-        $briefcases_cat = implode('+', array(2748));
-        print views_embed_view('products', 'block_landing', $briefcases_cat);
+        $briefcases_nids = implode('+', [89322, 96443, 96442, 89108]);
+        print views_embed_view('products', 'block_landing_by_nodes', $briefcases_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $wallets_cat = implode('+', array(2769, 2771, 2770, 2752, 2988));
-        print views_embed_view('products', 'block_landing', $wallets_cat);
+        $wallets_nids = implode('+', [87210, 87213, 87273,87269]);
+        print views_embed_view('products', 'block_landing_by_nodes', $wallets_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $gloves_cat = implode('+', array(2755, 2943, 2767));
-        print views_embed_view('products', 'block_landing', $gloves_cat);
+        $gloves_nids= implode('+', [88006, 88023, 88835, 88854]);
+        print views_embed_view('products', 'block_landing_by_nodes', $gloves_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $belts_cat = implode('+', array(2795, 2803));
-        print views_embed_view('products', 'block_landing', $belts_cat);
+        $belts_nids = implode('+', [88343, 88360, 88439, 88592]);
+        print views_embed_view('products', 'block_landing_by_nodes', $belts_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $accessories_cat = implode('+', array(3365));
-        print views_embed_view('products', 'block_landing', $accessories_cat);
+        // $accessories_cat = implode('+', array(3365));
+        $scarfs_nids = implode('+', [99164, 99192, 99233, 99247]);
+        print views_embed_view('products', 'block_landing_by_nodes', $scarfs_nids);
       ?>  
     </div>  
   </div>
