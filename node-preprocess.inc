@@ -137,7 +137,10 @@ function gftheme_preprocess_node(&$variables) {
     if(isset($cn_stock)) $variables['cn_stock'] = $cn_stock;
     if(isset($ru_stock)) $variables['ru_stock'] = $ru_stock;
     
-    $variables['add_to_cart_by_region'] = $add_to_cart_by_region;
+    // Не отображаем кнопку, если текущий регион - Россия, и товар
+    // есть в наличии на российском складе.
+    $variables['add_to_cart_by_region'] = ($current_region == GF_STOCK_REGION_RU 
+      && $node->gf_region_stock[GF_STOCK_REGION_RU] == 0) ? '' : $add_to_cart_by_region;
     
     if(isset($reg_price)) $variables['reg_price'] = $reg_price;
     if(isset($rrt_retail_price)) $variables['rrt_retail_price'] = $rrt_retail_price;    

@@ -18,7 +18,7 @@
  *
  * @ingroup views_templates
  */
- dpm($widgets);
+ //dpm($widgets);
 ?>
 <?php if (!empty($q)): ?>
   <?php
@@ -41,7 +41,7 @@
             <?php print $widget->operator; ?>
           </div>
         <?php endif; ?>
-        <div class="views-widget xxx">
+        <div class="views-widget">
           <?php print $widget->widget; ?>
         </div>
         <?php if (!empty($widget->description)): ?>
