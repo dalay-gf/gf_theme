@@ -921,6 +921,48 @@ svg g.rotate:hover .st1{
 .view-products .view-filters label:first-letter{
   text-transform:uppercase;
 }
+#block-views-exp-products-main-catalog .views-exposed-form .views-widget-filter-price{
+  position:relative;
+  width:270px;
+}
+#block-views-exp-products-main-catalog .views-exposed-form .views-widget-filter-price .form-item-price-max label{
+  display:none;
+}
+#block-views-exp-products-main-catalog .views-exposed-form .views-widget-filter-price .form-type-textfield input{
+  position:absolute;
+  top:50px;
+  border:0;
+  width:60px;
+  padding:0;
+}
+#block-views-exp-products-main-catalog .views-exposed-form .views-widget-filter-price .form-item-price-max input{
+  right:1em;
+  text-align:right;
+}
+#block-views-exp-products-main-catalog .ui-slider .ui-slider-handle{
+  border-radius:50%;
+  width:10px;
+  height:10px;
+  background:#5c5b5b;
+  border:solid 1px #5c5b5b;
+  top:-3px;
+  margin:0;
+}
+#block-views-exp-products-main-catalog .ui-slider .ui-slider-handle:last-child{
+  background:#a5a5a5;
+  border:solid 1px #a5a5a5;
+  margin: 0 0 0 -10px;
+}
+#block-views-exp-products-main-catalog .bef-slider.ui-slider-horizontal {
+  background:#e6e6e6;
+  border:0;
+  border-radius:0;
+  height:4px;
+}
+#block-views-exp-products-main-catalog .ui-slider-horizontal .ui-slider-range {
+  background:#333333;
+}
+
 .view-products .view-content{
   margin:50px -15px 50px;
 }
