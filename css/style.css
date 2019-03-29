@@ -1055,7 +1055,7 @@ svg g.rotate:hover .st1{
   border-top: solid 2px #e5e5e5;
 }
 .views-exposed-form .second-line strong {
-    padding: .5rem .5rem .2rem;
+    padding: .5rem .5rem .2rem 0;
     display: inline-block;
 }
 
