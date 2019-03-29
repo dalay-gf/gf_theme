@@ -38,23 +38,29 @@ if ($discount_percent) {
 <div class="project-item-inner" id="<?php print "nid-" . $fields['nid']->content; ?>">
   <div class="show-on-hover">
     <?php if($is_new):?> <span class="new"></span> <?php endif; ?>
-    <a href="<?php print url('model/' . $fields['field_main_sku']->content . '/' . $fields['nid']->content); ?>">
-      <span class="ru-in-stock">
-    <?php
-    $curr_stock = $row->_field_data["nid"]["entity"]->gf_region_stock[$current_code];
-    print '<span>'. t("In Stock") .'</span><br>';
-    if ($is_creator or $is_manager or $is_publicator or $is_admin) {
-      print $curr_stock;
-    } else {
-      if ($curr_stock > 0 and $curr_stock < 10) {
-        print $curr_stock;
-      } elseif ($curr_stock >= 10) {
-        print '&gt;10';
-      } else {print '&#10007;';}
-    }
-    ?>
-      </span>
+
+    <?php if ($discount_percent): ?>
+    <a href="<?php print $product_url; ?>">
+          <span class="onsale">
+            <?php print '-' . $discount_percent . '%'; ?>
+          </span>
     </a>
+    <?php endif; ?>
+
+    <?php if (user_is_logged_in()):?>
+        <a href="<?php print $product_url; ?>">
+          <span class="cn-in-stock">
+            <span><?php print t("CN");?></span><br>
+            <?php print $cn_stock; ?>
+          </span>
+        </a>
+        <a href="<?php print $product_url; ?>">
+          <span class="ru-in-stock">
+            <span><?php print t("RU");?></span><br>
+            <?php print $ru_stock; ?>
+          </span>
+        </a>
+   <?php endif; ?>
 
     <figure class="alignnone project-img">
       <?php 

@@ -1,5 +1,16 @@
-jQuery(document).ready(function($) {
+(function ($, Drupal) {
+  Drupal.behaviors.gftheme = {
+    attach: function (context, settings) {
+      $('#block-views-exp-products-novelty .views-exposed-form label,#block-views-exp-products-main-catalog .views-exposed-form label').on('click', function(){
+        if(!$(this).parent().children('.views-widget').hasClass('open'))
+          $('#block-views-exp-products-novelty .views-exposed-form .views-widget,#block-views-exp-products-main-catalog .views-exposed-form .views-widget').removeClass('open');
+        $(this).parent().children('.views-widget').toggleClass('open');
+      });
+    }
+  };
+})(jQuery, Drupal);
 
+jQuery(document).ready(function($) {
   $('.mobile-menu').on('click', function(){
     $('#navigation').toggleClass('open');
     $('.mobile-menu').toggleClass('open');
@@ -21,7 +32,7 @@ jQuery(document).ready(function($) {
   
   $('.mobile-search-icon').on('click', function(){
     $('#block-views-exp-search-results-page').toggleClass('open');
-  });   
+  }); 
   
   $(window).scroll(function() {
       if ($( window ).width() > 999){
