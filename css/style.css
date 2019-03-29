@@ -1054,6 +1054,10 @@ svg g.rotate:hover .st1{
 #block-views-exp-products-main-catalog .views-exposed-form .second-line{
   border-top: solid 2px #e5e5e5;
 }
+#block-views-exp-products-novelty .views-exposed-form .second-line strong {
+    padding: .5rem .5rem .2rem;
+    display: inline-block;
+}
 
 .view-products .view-content{
   margin:50px -15px 50px;
