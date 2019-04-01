@@ -33,7 +33,7 @@
     </ul>
     <div class="tabs__content product-from-category active">
       <?php
-        $women_bags_nids = implode('+', [87692, 87782, 98708, 87455]);
+        $women_bags_nids = implode('+', [87692, 87782, 93708, 87455]);
         print views_embed_view('products', 'block_landing_by_nodes', $women_bags_nids);
       ?>  
     </div>
