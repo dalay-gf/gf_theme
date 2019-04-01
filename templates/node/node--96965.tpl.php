@@ -33,13 +33,13 @@
     </ul>
     <div class="tabs__content product-from-category active">
       <?php
-        $women_bags_nids = implode('+', [87692, 87782, 93708, 87455]);
+        $women_bags_nids = implode('+', [99375, 99380, 99382, 99385]);
         print views_embed_view('products', 'block_landing_by_nodes', $women_bags_nids);
       ?>  
     </div>
     <div class="tabs__content product-from-category">
       <?php
-        $man_bags_nids = implode('+', [99301, 99306, 98959, 87023]);
+        $man_bags_nids = implode('+', [99303, 99305, 99301, 99347]);
         print views_embed_view('products', 'block_landing_by_nodes', $man_bags_nids);
       ?>  
     </div>    
