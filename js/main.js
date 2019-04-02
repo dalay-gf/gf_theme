@@ -78,6 +78,23 @@ jQuery(document).ready(function($) {
     }
   });  
   
+  var thumbscount = $('.node-product .owl-thumbs .owl-thumb-item').length;
+  var current = 0;
+  $('.node-product .owl-thumbs').before('<div class="owl-thumbs-prev">▲</div>');
+  $('.node-product .owl-thumbs').after('<div class="owl-thumbs-next">▼</div>');
+  
+  $('.node-product .owl-carousel .owl-thumbs-prev').on('click', function() {
+    if (current > 0) current = current - 1;
+    var elheight = $('.node-product .owl-carousel .owl-thumb-item').height() + parseInt($('.node-product .owl-carousel .owl-thumb-item').css("margin-bottom"))+ parseInt($('.node-product .owl-carousel .owl-thumb-item').css("padding-top"))+ parseInt($('.node-product .owl-carousel .owl-thumb-item').css("padding-bottom"));
+    $('.node-product .owl-carousel .owl-thumbs').css('margin-top',(-1)*elheight*current);
+  });
+  $('.node-product .owl-carousel .owl-thumbs-next').on('click', function() {
+    if (current < thumbscount-3) current = current + 1;
+    var elheight = $('.node-product .owl-carousel .owl-thumb-item').height() + parseInt($('.node-product .owl-carousel .owl-thumb-item').css("margin-bottom"))+ parseInt($('.node-product .owl-carousel .owl-thumb-item').css("padding-top"))+ parseInt($('.node-product .owl-carousel .owl-thumb-item').css("padding-bottom"));
+    $('.node-product .owl-carousel .owl-thumbs').css('margin-top',(-1)*elheight*current);
+  });  
+  
+  //tabs
   $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
   $(this)
     .addClass('active').siblings().removeClass('active')

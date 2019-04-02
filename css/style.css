@@ -1355,7 +1355,7 @@ svg g.rotate:hover .st1{
 .owl-carousel {
 	position:relative;
   overflow:hidden;
-  padding:0 0 0 25.7906%;  
+  padding:20px 0 20px 25.7906%;  
 }
 .owl-carousel .owl-item img{
   padding:10px;
@@ -1364,8 +1364,9 @@ svg g.rotate:hover .st1{
   height:100%;
   width:22.7805%;
   position:absolute;
-  top:0;
+  top:20px;
   left:0;
+  padding:0 0 20px;
 }
 .owl-nav{
   position:absolute;
@@ -1373,7 +1374,7 @@ svg g.rotate:hover .st1{
   bottom:5px;
 }
 .owl-carousel .owl-thumb-item{
-  margin:0 0 25.408%;
+  margin:0 0 18.408%;
   padding:7px;
   height:28.1862%;
   border:0;
@@ -1396,7 +1397,7 @@ svg g.rotate:hover .st1{
 .owl-carousel .owl-nav button.owl-prev.disabled{
   color:#888;
 }
-.owl-carousel .owl-stage-outer .item:after {
+.owl-carousel .owl-stage-outer:after {
   content: '';
   display: block;
   width: 33px;
@@ -1405,6 +1406,32 @@ svg g.rotate:hover .st1{
   top: 0;
   right: 0;
   background: url(../images/icon.png) no-repeat 0 0;
+}
+.owl-carousel .owl-thumbs-prev{
+  width:20px;
+  height:25px;
+  position:absolute;
+  top:-6px;
+  left:9.5330%;
+  z-index:101;
+  font-size:20px;
+  text-align:center;
+  color:#000;
+  cursor:pointer;
+  background:#fff;
+}
+.owl-carousel .owl-thumbs-next{
+  width:20px;
+  height:25px;
+  position:absolute;
+  bottom:-6px;
+  left:9.5330%;
+  z-index:101;
+  font-size:20px;
+  text-align:center;
+  color:#000;
+  cursor:pointer;
+  background:#fff;
 }
 
 /* tabs */
