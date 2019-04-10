@@ -91,7 +91,14 @@ if ($discount_percent) {
         <?php if(isset($reg_price)): ?>
           <div class="prices col-5 col-lg-6 col-sm-12">
             <div class="reg-price price-text"><?php print t('Wholesale price ').':'; ?></div>
-            <div class="reg-price price-value"><?php print $reg_price; ?></div>
+            <div class="reg-price price-value">
+              <?php if ($content['gf_price_request_form']): ?>
+              <?php print render($content['gf_price_request_form']); ?>
+              <?php else: ?>
+              <?php print $reg_price; ?>
+              <?php endif; ?>
+            </div>
+              <?php print render($content['gf_price_request_form']); ?>
           <?php endif; ?>
           <?php if(isset($rrt_retail_price)): ?>
             <div class="retail-price price-text"><?php print t('Retail price ').':'; ?></div>
