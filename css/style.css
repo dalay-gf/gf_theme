@@ -581,6 +581,7 @@ ul.nav-menu li a .arrow-down {
   margin:0 15px 0 0;
   padding:0 15px;
   text-align:left;
+  right:0;
 }
 #block-views-exp-search-results-page.open{
   display:block;
@@ -2611,7 +2612,10 @@ h3.ui-accordion-header{
     flex-direction:row;
   }  
 }
-
+#jGrowl .jGrowl-notification{
+  font-size:20px;
+  width:320px;
+}
 
 @media (min-width: 600px) {
   fieldset table th{
@@ -2977,6 +2981,13 @@ h3.ui-accordion-header{
   }
   #block-views-exp-search-results-page{
     top:122px;
+    width:540px;
+    margin: 0;
+    background:#ddd;
+    padding: 0 15px 15px;
+  }
+  #block-views-exp-search-results-page .views-exposed-widget.views-submit-button{
+    padding-right:0;
   }
   #block-views-exp-search-results-page .views-exposed-form .views-exposed-widget .form-submit {
     margin: 25px 0 0;

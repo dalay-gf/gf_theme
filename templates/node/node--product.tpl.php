@@ -61,6 +61,7 @@ if ($discount_percent) {
     
     </div>
     <div class="column col-6 col-md-12 col-padding-left-60"> 
+    <?php if(user_is_logged_in()): ?>
       <div class="select-warehouse">
         <div class="stock ru-stock <?php print ($current_region == 'Russia')? 'active':''; ?>">
           <?php 
@@ -80,6 +81,7 @@ if ($discount_percent) {
                         array('html' => TRUE,'query' => array('destination' => 'node/'.$node->nid))); ?>
         </div>
       </div>
+    <?php endif; ?>  
       <div class="sku"><?php print t('SKU:').' '.$node->model; ?></div> 
       
       <div class="available-colors">
@@ -93,12 +95,11 @@ if ($discount_percent) {
             <div class="reg-price price-text"><?php print t('Wholesale price ').':'; ?></div>
             <div class="reg-price price-value">
               <?php if ($content['gf_price_request_form']): ?>
-              <?php print render($content['gf_price_request_form']); ?>
+                <?php print render($content['gf_price_request_form']); ?>
               <?php else: ?>
-              <?php print $reg_price; ?>
+                <?php print $reg_price; ?>
               <?php endif; ?>
             </div>
-              <?php print render($content['gf_price_request_form']); ?>
           <?php endif; ?>
           <?php if(isset($rrt_retail_price)): ?>
             <div class="retail-price price-text"><?php print t('Retail price ').':'; ?></div>
@@ -172,18 +173,30 @@ if ($discount_percent) {
         </div>
         <div class="tabs__content product-delivery">
           <ul>
+           <?php if(!user_is_logged_in()): ?>
             <li>Доставка по Москве (Курьером 300 рублей). При покупке 5000 рублей - бесплатно)</li>
             <li>Доставка по России (Курьером 400 рублей). При покупке 5000 рублей - бесплатно)</li>
             <li>Самовывоз из магазинов розничной сети *</li>
+           <?php endif; ?>
+           <?php if(user_is_logged_in()): ?>
+            <li>Мы доставим Ваш заказ до транспортной компании в течении 3 рабочих дней.</li>
+            <li>Компании Giorgio Ferretti бесплатно доставляет заказ до Вашей транспортной компании. Если у Вас не выбрана транспортная компания, мы можем порекомендовать Вам список проверенных логистических компаний, которые доставят Ваш заказ в обозначенные сроки. Сроки доставки зависят от выбранной транспортной компании.</li>
+           <?php endif; ?>
           </ul>
           <div class="more"><?php print l('Подробнее о доставке','node/99359'); ?></div>
 
         </div>
         <div class="tabs__content product-payment">
+          <p>Оплату можно произвести следующим способом:</p>
           <ul>
+          <?php if(!user_is_logged_in()): ?>
             <li>Банковской картой Visa/Mastercard</li>
             <li>Наличными курьеру</li>
             <li>По безналичному расчету (для юридических лиц)</li>
+           <?php endif; ?>
+           <?php if(user_is_logged_in()): ?>            
+            <li>Перечислением денежных средств на расчётный счет нашей компании.</li>
+           <?php endif; ?>
           </ul>
           <div class="more"><?php print l('Подробнее об оплате','node/99360'); ?></div>   
 
