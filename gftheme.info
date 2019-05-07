@@ -5,6 +5,7 @@ version = VERSION
 core = 7.x
 
 dependencies[] = gf_custom
+dependencies[] = gf_stock
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Regions

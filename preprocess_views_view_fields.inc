@@ -24,11 +24,8 @@ function gftheme_preprocess_views_view_fields(&$vars) {
       $is_opt_sadovod = $extra_10 = TRUE;
     } 
 
-    if ((!isset($_SESSION['gf_stock_region'])) || $is_opt_sadovod || $is_man_sadovod) {
-      $_SESSION['gf_stock_region'] = GF_STOCK_REGION_RU;
-    }
-    $current_region = $_SESSION['gf_stock_region'];
-    
+    $current_region = gf_stock_get_current_region();
+
     // поле количества на складе по регионам есть в ноде, а поля цены по складу нету(хотя она совпадает ???? с ценой забитой в ноде), можно было бы выводить без доп полей для вьюса
     //dpm($row);
     $ru_price = isset($row->gf_stock_prices_region_russia) ? round($row->gf_stock_prices_region_russia) : 0;
