@@ -33,15 +33,15 @@
  *
  * @ingroup themeable
  */
-  $mc_currency = mc_currency_load('rmb');
-  $mc_currency = $mc_currency->info['currcode'];
+  // $mc_currency = mc_currency_load('rmb');
+  // $mc_currency = $mc_currency->info['currcode'];
   $uid = $user->uid;
-  $mc_balance = transaction_totals($uid, $mc_currency);
+  // $mc_balance = transaction_totals($uid, $mc_currency);
   $unread_pm = privatemsg_unread_count($variables['user']->uid);
   ($unread_pm > 0) ? $new_messages = true: $new_messages = false;
   ($new_messages) ? $unread_count = ' (' . '$unread_pm' . ')' : $unread_count = ' (0)';
   $msg_anchor_text = t('Messages') . $unread_count;
-  $anchor_text = t('Your balance') . ': ' . $mc_balance->balance . '元';   
+  // $anchor_text = t('Your balance') . ': ' . $mc_balance->balance . '元';   
   $manager = render($user_profile['summary']['field_manager'][0]['#item']['entity']->title);
   if (empty($manager)) $manager = t('Not assigned');
 ?>
@@ -60,8 +60,8 @@
   <div class="columns">
     <div class="column col-12 col-sm-12">
       <?php
-        print l($anchor_text, '/user/' . $user->uid . '/wallet', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
-        print l(t('Sewing orders list'), 'user/' . $user->uid . '/sewing', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)) ;
+        // print l($anchor_text, '/user/' . $user->uid . '/wallet', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
+        // print l(t('Sewing orders list'), 'user/' . $user->uid . '/sewing', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true)) ;
         
         print l($msg_anchor_text, 'user/' . $user->uid . '/messages', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
         print l(t('Edit profile'), 'user/' . $user->uid . '/edit', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
