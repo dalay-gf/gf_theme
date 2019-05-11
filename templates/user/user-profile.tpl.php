@@ -56,6 +56,7 @@
   <div class="columns">
     <div class="column col-12 col-sm-12">
       <?php
+        print $gf_wallet_balance_button; 
         print l($msg_anchor_text, 'user/' . $user->uid . '/messages', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
         print l(t('Edit profile'), 'user/' . $user->uid . '/edit', array('attributes' => array('class' => array('btn', 'btn-primary')), 'html' => true));
       ?>
