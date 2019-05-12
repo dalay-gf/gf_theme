@@ -346,12 +346,12 @@ ul.language-switcher-locale-url{
 
 .header-user-area div,
 .header-user-area a,
-.header-user-area span{
+.header-user-area span:not(.wallet-balance-value) {
   display:inline-block;
   text-transform:uppercase;
   vertical-align:middle;
 }
-.header-user-area span{
+.header-user-area span:not(.wallet-balance-value) {
   margin:0 5px 0 0;
 }
 .header-user-area .logged-in a,
@@ -361,6 +361,15 @@ ul.language-switcher-locale-url{
 .header-user-area .logged-in a:last-child,
 .header-user-area .log-out a:last-child{
   margin:0 10px 0 0;
+}
+.header-user-area .wallet-balance{
+    margin-right: 10px;
+}
+.wallet-info {
+    margin: 1rem 0;
+}
+.wallet-info span {
+    font-weight: bold;
 }
 .socialki a{
   font-size:20px;

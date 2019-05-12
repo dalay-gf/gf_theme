@@ -9,6 +9,7 @@
         </div>
         <div class="header-user-area">
           <?php if (user_is_logged_in()):?>
+            <div class="wallet-balance"><?php print $gf_wallet_balance ?></div>
             <div class="logged-in">
               <span data-icon="&#xe037;"></span><?php print l(t('Settings'),'user');?><span  data-icon="&#xe000;"></span><?php print l(t('Log out'),'user/logout');?>
             </div>
