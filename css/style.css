@@ -1561,6 +1561,13 @@ svg g.rotate:hover .st1{
 .vertical .tabs__content {
 	overflow: hidden;
 }
+div.ctools-modal-content .modal-content {
+    padding: 1rem;
+}
+div.ctools-modal-content .modal-header {
+    padding: .3rem .3rem .3rem 1rem;
+}
+
 @media screen and (max-width: 599px) {
 	.tabs__caption li {
 		-webkit-flex: 1 0 auto;
@@ -3444,3 +3451,4 @@ h3.ui-accordion-header{
   }  
 
 }
+
