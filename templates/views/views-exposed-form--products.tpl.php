@@ -69,8 +69,9 @@
     <?php endif; ?>      
   </div>
   <div class="second-line">
+    <div id="exp-filter-result-box"></div>
     <?php if (!empty($items_per_page)): ?>
-      <div class="views-exposed-widget views-widget-per-page">
+      <div id="exp-filter-items-per-page" class="views-exposed-widget views-widget-per-page">
         <?php print $items_per_page; ?>
       </div>
     <?php endif; ?>

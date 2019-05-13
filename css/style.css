@@ -956,7 +956,7 @@ svg g.rotate:hover .st1{
   z-index:99;
 }
 .views-exposed-form .views-exposed-widget.views-widget-per-page{
-  float:right;
+  /* float:right; */
 }
 .views-widget-per-page label:first-letter{
   text-transform:uppercase;
