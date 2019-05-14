@@ -1,9 +1,9 @@
 <?php
 
 define('GFTHEME_BLOCK_INFO_ID', [
-  'delivery' => 81,
-  'payment' => 82,
-  'warranty' => 83,
+  'delivery' => 80,
+  'payment' => 81,
+  'warranty' => 82,
 ]);
 
 
