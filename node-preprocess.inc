@@ -1,5 +1,11 @@
 <?php
 
+define('GFTHEME_BLOCK_INFO_ID', [
+  'delivery' => 81,
+  'payment' => 82,
+  'warranty' => 83,
+]);
+
 
 /**
  * Implements hook_preprocess_node()/
@@ -167,6 +173,19 @@ function gftheme_preprocess_node(&$variables) {
 
     // Варианты товара в иных цветовых решениях.
     $variables['related_colors'] = views_embed_view('groupped_catalog', 'page', $variables['field_main_sku'][0]['value']);
+
+
+    // ИНФОРМАЦИОННЫЕ БЛОКИ
+    // Доставка
+    $variables['info_block_delivery'] = i18n_string(['blocks', 'block', GFTHEME_BLOCK_INFO_ID['delivery'], 'body'], 
+      block_block_view(GFTHEME_BLOCK_INFO_ID['delivery'])['content']);
+    // Оплата
+    $variables['info_block_payment'] = i18n_string(['blocks', 'block', GFTHEME_BLOCK_INFO_ID['payment'], 'body'], 
+      block_block_view(GFTHEME_BLOCK_INFO_ID['payment'])['content']);
+    // Гарантии
+    $variables['info_block_warranty'] = i18n_string(['blocks', 'block', GFTHEME_BLOCK_INFO_ID['warranty'], 'body'], 
+      block_block_view(GFTHEME_BLOCK_INFO_ID['warranty'])['content']);
+
   }
 
 }
